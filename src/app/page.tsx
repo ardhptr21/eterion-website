@@ -26,7 +26,7 @@ export default function Home() {
           <h1 className="text-6xl font-nexa font-bold uppercase tracking-wider -ml-1 bg-gradient-to-r from-secondary to-accent inline-block text-transparent bg-clip-text text-shadow-lg/10">
             Eterion
           </h1>
-          <p className="max-w-xl text-white/75 tracking-wide text-xl">
+          <p className="max-w-xl tracking-wide text-xl">
             Lasting forever, and beyond to the future.
           </p>
         </div>

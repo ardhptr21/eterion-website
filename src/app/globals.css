@@ -5,6 +5,7 @@
   --color-primary: #301f66;
   --color-secondary: #5b8eb9;
   --color-accent: #b6eadb;
+  --color-foreground: #f5f5f5;
 
   --font-nexa: var(--font-nexa);
   --font-inter: var(--font-inter);

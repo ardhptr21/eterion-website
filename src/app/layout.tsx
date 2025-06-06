@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={`${nexa.variable} ${inter.variable} font-inter antialiased`}>
+      <body
+        className={`${nexa.variable} ${inter.variable} font-inter antialiased text-foreground bg-dark`}
+      >
         {children}
       </body>
     </html>
