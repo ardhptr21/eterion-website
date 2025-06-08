@@ -4,6 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Eterion",
+  description: "Lasting forever, and beyond to the future."
 };
 
 export default function RootLayout({
