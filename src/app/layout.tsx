@@ -1,10 +1,11 @@
 import { inter, nexa } from "@/lib/font";
 import type { Metadata } from "next";
 import "./globals.css";
+import Layout from "@/components/layouts/Layout";
 
 export const metadata: Metadata = {
   title: "Eterion",
-  description: "Lasting forever, and beyond to the future."
+  description: "Lasting forever, and beyond to the future.",
 };
 
 export default function RootLayout({
@@ -17,7 +18,7 @@ export default function RootLayout({
       <body
         className={`${nexa.variable} ${inter.variable} font-inter antialiased text-foreground bg-dark`}
       >
-        {children}
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
