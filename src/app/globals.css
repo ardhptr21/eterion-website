@@ -9,4 +9,9 @@
 
   --font-nexa: var(--font-nexa);
   --font-inter: var(--font-inter);
+  --font-cormorant: var(--font-cormorant);
+  --font-cormorant-unicase: var(--font-cormorant-unicase);
+  --font-sans: var(--font-inter);
+  --font-montserrat: var(--font-montserrat);
 }
+
