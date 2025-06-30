@@ -238,70 +238,70 @@ export default function Hero() {
 
           <img
             className="absolute top-20 left-1/4 w-6 h-6 opacity-40 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "1s" }}
           />
 
           <img
             className="absolute top-32 right-1/3 w-4 h-4 opacity-30 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "2.5s" }}
           />
 
           <img
             className="absolute top-1/2 left-10 w-5 h-5 opacity-35 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "4s" }}
           />
 
           <img
             className="absolute top-1/3 right-10 w-3 h-3 opacity-25 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "3.5s" }}
           />
 
           <img
             className="absolute bottom-40 left-1/3 w-4 h-4 opacity-30 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "5s" }}
           />
 
           <img
             className="absolute bottom-32 right-1/4 w-5 h-5 opacity-35 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "1.5s" }}
           />
 
           <img
             className="absolute top-1/4 left-1/2 w-3 h-3 opacity-20 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "6s" }}
           />
 
           <img
             className="absolute bottom-60 right-1/3 w-4 h-4 opacity-25 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "2s" }}
           />
 
           <img
             className="absolute top-16 left-1/6 w-6 h-6 opacity-30 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "3s" }}
           />
 
           <img
             className="absolute bottom-80 left-1/2 w-5 h-5 opacity-35 animate-pulse mix-blend-screen"
-            src="/images/star.png"
+            src="/images/zodiac/star.png"
             alt="Star"
             style={{ animationDelay: "4.5s" }}
           />
