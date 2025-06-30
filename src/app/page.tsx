@@ -7,9 +7,6 @@ import About from "./(container)/About";
 export default function Home() {
   return (
     <Container as="main">
-
-
-      {/* SECTION PAGE */}
       <Hero />
       <About />
       <Story />
