@@ -25,7 +25,7 @@ export default function Faces() {
   );
 
   return (
-    <section className="py-20">
+    <section className="py-20 relative">
       <div className="flex justify-end">
         <h1 className="text-5xl font-bold font-nexa">Faces of Eterion</h1>
       </div>
