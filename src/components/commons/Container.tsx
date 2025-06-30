@@ -9,5 +9,5 @@ interface ContainerProps extends PropsWithChildren {
 export default function Container({ as, className, children }: ContainerProps) {
   const Comp = as || "div";
 
-  return <Comp className={cn("px-5 md:px-20", className)}>{children}</Comp>;
+  return <Comp className={cn("px-0 md:px-0", className)}>{children}</Comp>;
 }
