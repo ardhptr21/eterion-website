@@ -9,7 +9,7 @@ interface Props {
   starCount?: number;
 }
 
-export default function Starfield(props: Props) {
+export default function Starship(props: Props) {
   const {
     speedFactor = 0.05,
     backgroundColor = "black",
@@ -146,12 +146,12 @@ export default function Starfield(props: Props) {
       style={{
         padding: 0,
         margin: 0,
-        position: "fixed",
+        position: "absolute", // <-- change this!
         top: 0,
         right: 0,
         bottom: 0,
         left: 0,
-        zIndex: 10,
+        zIndex: 0, // or another suitable layer behind content
         opacity: 1,
         pointerEvents: "none",
         mixBlendMode: "screen",

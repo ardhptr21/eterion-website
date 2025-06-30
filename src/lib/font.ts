@@ -1,5 +1,25 @@
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
+import { Cormorant, Cormorant_Unicase, Montserrat } from "next/font/google";
+
+export const cormorant = Cormorant({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  style: ["normal", "italic"]
+});
+export const cormorantUnicase = Cormorant_Unicase({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-cormorant-unicase",
+});
+
+export const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
+  style: ["normal", "italic"]
+});
 
 export const nexa = localFont({
   src: [
@@ -16,6 +36,7 @@ export const nexa = localFont({
   ],
   variable: "--font-nexa",
 });
+
 
 export const inter = Inter({
   variable: "--font-inter",
