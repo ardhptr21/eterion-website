@@ -1,12 +1,12 @@
 "use client";
 
 import Starship from "@/components/effects/Starship";
+import { cormorant, cormorantUnicase, montserrat, nexa } from "@/lib/font";
 import "../globals.css";
-import { nexa, montserrat, cormorant, cormorantUnicase } from "@/lib/font";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen m-0 p-0 overflow-hidden">
+    <section className="relative w-full min-h-screen m-0 p-0">
       <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-16">
         <Starship />
         <div className="absolute inset-0 pointer-events-none">
