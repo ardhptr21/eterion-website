@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <Container as="main">
       {/* NOTE: Hapus coming soon kalau udah ngerjain salah satu section page */}
-      <ComingSoon />
+      {/* <ComingSoon /> */}
 
       {/* SECTION PAGE */}
       <Hero />
