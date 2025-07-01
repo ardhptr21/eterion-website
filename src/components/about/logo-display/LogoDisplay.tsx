@@ -8,17 +8,17 @@ const logos = [
     {
         id: "primary-logo",
         name: "Primary Logo",
-        src: "/images/Logo Primer.png",
+        src: "/images/logo-primer.png",
     },
     {
         id: "secondary-logo",
         name: "Secondary Logo",
-        src: "/images/Logo Secondary.png",
+        src: "/images/logo-secondary.png",
     },
     {
         id: "tertiary-logo",
         name: "Tertiary Logo",
-        src: "/images/Logo Tersier.png",
+        src: "/images/logo-tersier.png",
     },
 ];
 
