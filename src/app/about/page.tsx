@@ -10,8 +10,6 @@ import EterionMap from "./(container)/EterionMap";
 export default function About() {
   return (
     <Container as="main">
-      {/* NOTE: Hapus component ComingSoon kalau udah ngerjain salah satu section page */}
-      <ComingSoon />
 
       {/* SECTION PAGE */}
       <Statistic />
