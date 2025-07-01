@@ -1,5 +1,5 @@
 import Container from "@/components/commons/Container";
-import React from "react";
+import Noise from "@/components/effects/Noise";
 
 const OurStory = () => {
   return (
@@ -32,11 +32,9 @@ const OurStory = () => {
             top: "-20px",
           }}
         />
-        <Container className="mb-12">
-          <h2 className="text-4xl font-bold mb-2 text-left text-white font-nexa">
-            Our Name & Story
-          </h2>
-          <p className="text-lg text-left text-blue-200 font-nexa">The Meaning of Eterion</p>
+        <Container className="mb-12 space-y-10">
+          <h2 className="text-6xl font-bold text-left text-white font-nexa">Our Name & Story</h2>
+          <p className="text-2xl text-left text-blue-200 font-nexa">The Meaning of Eterion</p>
         </Container>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 relative">
@@ -69,14 +67,18 @@ const OurStory = () => {
               border: "1px solid rgba(178,229,252,0.3)",
             }}
           >
-            <p className="mb-4 text-white text-lg font-nexa">
+            <Noise />
+            <p className="mb-10 text-white text-3xl font-nexa">
               <strong className="text-blue-200">ETERION</strong> merupakan nama angkatan{" "}
-              <strong className="text-white">Teknologi Informasi 2024</strong> yang mengandung makna
-              "keteguhan abadi sebagai penunjuk arah dalam menghadapi perubahan zaman."
+              <strong className="text-white">Teknologi Informasi 2024</strong> yang mengandung makna{" "}
+              <span className="underline decoration-accent">
+                keteguhan abadi sebagai penunjuk arah dalam menghadapi perubahan zaman
+              </span>
+              .
             </p>
-            <p className="text-white text-lg font-nexa">
+            <p className="text-white text-3xl font-nexa">
               Layaknya rasi bintang Orion yang bersinar abadi di langit malam dan menjadi panduan
-              bagi para pelaut dan pengembara. <strong className="text-blue-200">Eterion</strong>{" "}
+              bagi para pelaut dan pengembara. <strong className="text-blue-200">ETERION</strong>{" "}
               hadir sebagai generasi pembaharu yang teguh, visioner, dan tak gentar menghadapi
               tantangan.
             </p>
