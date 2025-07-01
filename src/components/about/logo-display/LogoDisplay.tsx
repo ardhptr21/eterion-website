@@ -26,12 +26,14 @@ export default function LogoDisplay() {
     const [highlightedLogo, setHighlightedLogo] = useState("secondary-logo"); // using the secondary logo as default
 
     return (
-        <div className={styles.container}>
-            {logos.map((logo) => (
-                <div
-                    key={logo.id}
-                    className={styles.logoWrapper}
-                    onClick={() => setHighlightedLogo(logo.id)} // click to highlight
+        <>
+            <h1 className="text-4xl font-nexa font-bold text-center mb-3">Logo</h1>
+            <div className={styles.container}>
+                {logos.map((logo) => (
+                    <div
+                        key={logo.id}
+                        className={styles.logoWrapper}
+                onClick={() => setHighlightedLogo(logo.id)} // click to highlight
                 >
                     <Image
                         src={logo.src}
@@ -46,10 +48,15 @@ export default function LogoDisplay() {
                         }`}
                     />
                     {highlightedLogo === logo.id && (
-                        <p className={`${styles.logoName} font-nexa text-xl font-bold`}>{logo.name}</p>
+                        <p
+                            className={`${styles.logoName} font-nexa text-xl font-bold`}
+                        >
+                            {logo.name}
+                        </p>
                     )}
                 </div>
             ))}
         </div>
+        </>
     );
 }
