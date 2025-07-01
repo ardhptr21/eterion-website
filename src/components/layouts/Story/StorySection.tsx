@@ -120,6 +120,90 @@
 
 // jangan dihapus dulu yang masih dicomment
 
+// "use client";
+
+// import React, { useState, useRef } from "react";
+// import { Canvas, useFrame } from "@react-three/fiber";
+// import Pins from './Pins';
+// import { OrbitControls, useTexture } from "@react-three/drei";
+// import * as THREE from 'three';
+
+// type MyModelProps = {
+//   imageval: string;
+// };
+
+// const MyModel: React.FC<MyModelProps> = ({ imageval }) => {
+//   const texture = useTexture(imageval);
+
+//   return (
+//     <mesh rotation={[0, 0, 0]} position={[0, 0, 0]}>
+//       <planeGeometry args={[20, 20]} />
+//       <meshStandardMaterial
+//         map={texture}
+//         transparent        
+//         side={2}
+//       />
+//     </mesh>
+//   );
+// };
+
+// const RotatingGroup: React.FC<{
+//   imageval: string;
+//   selectedPinId: number | null;
+//   setSelectedPinId: (id: number | null) => void;
+// }> = ({ imageval, selectedPinId, setSelectedPinId }) => {
+//   const groupRef = useRef<THREE.Group>(null);
+
+//   useFrame((_, delta) => {
+//     if (groupRef.current) {
+//       groupRef.current.rotation.z += delta * 0.06;      
+//     }
+//   });
+
+//   return (
+//     <group ref={groupRef}>
+//       <MyModel imageval={imageval} />
+//       <Pins selectedPinId={selectedPinId} setSelectedPinId={setSelectedPinId} />
+//     </group>
+//   );
+// };
+
+// type ARViewProps = {
+//   imageval: string;
+// };
+
+// const ARView: React.FC<ARViewProps> = ({ imageval }) => {
+//   const [selectedPinId, setSelectedPinId] = useState<number | null>(null);
+
+//   return (    
+//     <Canvas 
+//       shadows 
+//       camera={{ position: [0, -50, 25], fov: 25 }}
+//       onPointerMissed={() => setSelectedPinId(null)}
+//     >
+//       <ambientLight intensity={2} />
+//       <directionalLight position={[50, 50, 90]} intensity={3} />
+//       <pointLight position={[90, -90, 90]} intensity={5} />      
+//       <RotatingGroup
+//         imageval={imageval}
+//         selectedPinId={selectedPinId}
+//         setSelectedPinId={setSelectedPinId}
+//       />
+//       <OrbitControls
+//         enableZoom={true}
+//         enablePan={false}        
+//         minDistance={1}   
+//         maxDistance={40}   
+//         enableRotate={true}
+//       />
+//     </Canvas>
+//   );
+// };
+
+// export default ARView;
+
+
+
 "use client";
 
 import React, { useState, useRef } from "react";
@@ -152,16 +236,89 @@ const RotatingGroup: React.FC<{
   selectedPinId: number | null;
   setSelectedPinId: (id: number | null) => void;
 }> = ({ imageval, selectedPinId, setSelectedPinId }) => {
-  const groupRef = useRef<THREE.Group>(null);
 
-  useFrame((_, delta) => {
+  const groupRef = useRef<THREE.Group>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  // const [lastX, setLastX] = useState<number | null>(null);
+  const lastPos = useRef<{ x: number; y: number } | null>(null);
+  const velocity = useRef({ x: 0, z: 0 });
+  const damping = 0.95; 
+  const scaleRef = useRef(1);
+  
+  const handlePointerDown = (e: React.PointerEvent) => {
+    setIsDragging(true);
+    lastPos.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handlePointerUp = () => {
+    setIsDragging(false);
+    lastPos.current = null;
+  };
+
+  // const handlePointerMove = (e: React.PointerEvent) => {
+  //   if (!isDragging || lastX === null || !groupRef.current) return;
+  //   const deltaX = e.clientX - lastX;
+  //   groupRef.current.rotation.z += deltaX * 0.005;
+  //   setLastX(e.clientX);
+  // };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDragging || lastPos.current === null || !groupRef.current) return;
+
+    const deltaX = e.clientX - lastPos.current.x;
+    const deltaY = e.clientY - lastPos.current.y;
+
+    groupRef.current.rotation.z += deltaX * 0.005; 
+    groupRef.current.rotation.x += deltaY * 0.005; 
+    velocity.current.z = deltaX * 0.005;
+    velocity.current.x = deltaY * 0.005;
+    groupRef.current.rotation.x = Math.max(
+      -Math.PI/4,
+      Math.min(Math.PI / 10, groupRef.current.rotation.x)
+    );
+
+    lastPos.current = { x: e.clientX, y: e.clientY };
+  };
+
+
+  // useFrame((_, delta) => {
+  useFrame((state) => {
+    // if (groupRef.current) {
+      // groupRef.current.rotation.z += delta * 0.01;      
+    // }
+    const t = state.clock.getElapsedTime();
+
+    const scale = 1 + Math.sin(t * 2) * 0.02; 
+    scaleRef.current = scale;
     if (groupRef.current) {
-      groupRef.current.rotation.z += delta * 0.06;      
+      groupRef.current.scale.set(scale, scale, scale);
+
+      if (!isDragging) {
+        groupRef.current.rotation.z += velocity.current.z;
+        groupRef.current.rotation.x += velocity.current.x;
+
+        groupRef.current.rotation.x = Math.max(
+          -Math.PI / 4,
+          Math.min(Math.PI / 10, groupRef.current.rotation.x)
+        );
+
+        velocity.current.z *= damping;
+        velocity.current.x *= damping;
+
+        if (Math.abs(velocity.current.z) < 0.0001) velocity.current.z = 0;
+        if (Math.abs(velocity.current.x) < 0.0001) velocity.current.x = 0;
+      }
     }
   });
 
   return (
-    <group ref={groupRef}>
+    <group
+      ref={groupRef}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+      onPointerMove={handlePointerMove}
+    >
       <MyModel imageval={imageval} />
       <Pins selectedPinId={selectedPinId} setSelectedPinId={setSelectedPinId} />
     </group>
@@ -191,10 +348,10 @@ const ARView: React.FC<ARViewProps> = ({ imageval }) => {
       />
       <OrbitControls
         enableZoom={true}
-        enablePan={false}        
+        enablePan={false}
+        enableRotate={false} 
         minDistance={1}   
         maxDistance={40}   
-        enableRotate={true}
       />
     </Canvas>
   );
