@@ -27,36 +27,38 @@ export default function LogoDisplay() {
 
     return (
         <>
-            <h1 className="text-4xl font-nexa font-bold text-center mb-3">Logo</h1>
+            <h1 className="text-4xl font-nexa font-bold text-center mb-3">
+                Logo
+            </h1>
             <div className={styles.container}>
                 {logos.map((logo) => (
                     <div
                         key={logo.id}
                         className={styles.logoWrapper}
-                onClick={() => setHighlightedLogo(logo.id)} // click to highlight
-                >
-                    <Image
-                        src={logo.src}
-                        alt={`${logo.name}`}
-                        width={100}
-                        height={100}
-                        // the 'highlighted' style conditionally
-                        className={`${styles.logoImage} ${
-                            highlightedLogo === logo.id
-                                ? styles.highlighted
-                                : ""
-                        }`}
-                    />
-                    {highlightedLogo === logo.id && (
-                        <p
-                            className={`${styles.logoName} font-nexa text-xl font-bold`}
-                        >
-                            {logo.name}
-                        </p>
-                    )}
-                </div>
-            ))}
-        </div>
+                        onClick={() => setHighlightedLogo(logo.id)} // click to highlight
+                    >
+                        <Image
+                            src={logo.src}
+                            alt={`${logo.name}`}
+                            width={100}
+                            height={100}
+                            // the 'highlighted' style conditionally
+                            className={`${styles.logoImage} ${
+                                highlightedLogo === logo.id
+                                    ? styles.highlighted
+                                    : ""
+                            }`}
+                        />
+                        {highlightedLogo === logo.id && (
+                            <p
+                                className={`${styles.logoName} font-nexa text-xl font-bold`}
+                            >
+                                {logo.name}
+                            </p>
+                        )}
+                    </div>
+                ))}
+            </div>
         </>
     );
 }

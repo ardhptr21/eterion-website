@@ -5,6 +5,7 @@
   gap: 10rem; /* space between logos */
   padding: 2rem;
   min-height: 400px; /* Give it some space to grow */
+  margin-bottom: 2rem;;
 }
 
 .logoWrapper {
@@ -27,7 +28,7 @@
 }
 
 .logoName {
-  margin-top: 5rem;
+  margin-top: 6rem;
   font-weight: bold;
   color: #ffffff;
   animation: fadeIn 0.3s ease-in-out; /* fade in animation for text */
