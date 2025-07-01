@@ -1,0 +1,8 @@
+.circle {
+    width: 600px;
+    height: 75px;
+    background: linear-gradient(#dbf77e 10%, #4c19e8 90%);
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(20px);
+}
