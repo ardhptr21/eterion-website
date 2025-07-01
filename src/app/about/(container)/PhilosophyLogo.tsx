@@ -1,3 +1,9 @@
+import LogoDisplay from "@/components/about/logo-display/LogoDisplay";
+
 export default function PhilosophyLogo() {
-  return <section>{/* TODO: Philoshophy Logo section */}</section>;
+    return (
+        <section>
+            <LogoDisplay />
+        </section>
+    );
 }

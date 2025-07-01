@@ -1,0 +1,45 @@
+/* components/FeaturedLogoDisplay.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 10rem; /* space between logos */
+  padding: 2rem;
+  min-height: 400px; /* Give it some space to grow */
+}
+
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+.logoImage {
+  transform: scale(1.75); /* default smaller size */
+  transition: transform 0.3s ease-in-out; /* smooth animation */
+  opacity: 0.6;
+}
+
+.highlighted {
+  transform: scale(2.5); /* highlighted = bigger */
+  opacity: 1;
+}
+
+.logoName {
+  margin-top: 5rem;
+  font-weight: bold;
+  color: #ffffff;
+  animation: fadeIn 0.3s ease-in-out; /* fade in animation for text */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
