@@ -175,10 +175,10 @@ type ARViewProps = {
 const ARView: React.FC<ARViewProps> = ({ imageval }) => {
   const [selectedPinId, setSelectedPinId] = useState<number | null>(null);
 
-  return (
+  return (    
     <Canvas 
       shadows 
-      camera={{ position: [0, -50, 20], fov: 20 }}
+      camera={{ position: [0, -50, 25], fov: 25 }}
       onPointerMissed={() => setSelectedPinId(null)}
     >
       <ambientLight intensity={2} />
@@ -192,7 +192,7 @@ const ARView: React.FC<ARViewProps> = ({ imageval }) => {
       <OrbitControls
         enableZoom={true}
         enablePan={false}        
-        minDistance={5}   
+        minDistance={1}   
         maxDistance={40}   
         enableRotate={true}
       />

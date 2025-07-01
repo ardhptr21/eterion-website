@@ -13,17 +13,17 @@ const pinPositions: {
   tanggal: string
   tempat: string
 }[] = [
-  { id: 1, position: [Math.cos(1) * 11, -Math.sin(1) * 7, 0.5], color: 'purple', image: '/images/dokumentasi/1.jpg', tanggal: "13 Desember 2024", tempat: "Tower 2 ITS" },
-  { id: 10, position: [Math.cos(30) * 3, Math.sin(30) * 0, 0.5], color: 'purple', image: '/images/dokumentasi/10.jpg', tanggal: "11 Juni 2025", tempat: "GOR Pertamina ITS"},
-  { id: 5, position: [-Math.cos(45) * 6, Math.sin(45) * 7, 0.5], color: '#07B2FC', image: '/images/dokumentasi/3.jpg', tanggal: "24 November 2024", tempat: "Lapangan Basket ITS"},
-  { id: 7, position: [Math.cos(60) * 7, Math.sin(60) * 10, 0.5], color: '#07B2FC', image: '/images/dokumentasi/4.jpg', tanggal: "16 November 2024", tempat: "Lapangan Basket ITS"},
-  { id: 9, position: [Math.cos(80) * 14, Math.sin(80) * 3, 0.5], color: '#07B2FC', image: '/images/dokumentasi/5.jpg', tanggal: "13 Agustus 2024", tempat: "Hall Robotika ITS"},
-  { id: 4, position: [Math.cos(95) * 2, Math.sin(95) * 12, 0.5], color: 'purple', image: '/images/dokumentasi/8.jpg', tanggal: "24 Mei 2025", tempat: "Tower 2 ITS"},
-  { id: 3, position: [Math.cos(120) * 8, Math.sin(120) * 13, 0.5], color: '#07B2FC', image: '/images/dokumentasi/7.jpg', tanggal: "2 Agustus 2024", tempat: "Tower 2 ITS"},
-  { id: 6, position: [Math.cos(135) * 7, Math.sin(135) * 11, 0.5], color: 'purple', image: '/images/dokumentasi/6.jpg', tanggal: "12 Agustus 2024", tempat: "Taman Harmoni Keputih"},
-  { id: 11, position: [Math.cos(150) * 4, Math.sin(150) * 6, 0.5], color: '#07B2FC', image: '/images/dokumentasi/9.jpg', tanggal: "11 November 2024", tempat: "Taman Makam Pahlawan Surabaya"},
-  { id: 2, position: [Math.cos(170) * 7, Math.sin(170) * 5, 0.5], color: 'purple', image: '/images/dokumentasi/2.jpg', tanggal: "1 Desember 2024", tempat: "Perpustakaan ITS"},
-  { id: 8, position: [Math.cos(180) * 7, Math.sin(180) * 8, 0.5], color: 'purple', image: '/images/dokumentasi/11.jpg', tanggal: "25-26 Juni 2025", tempat: "Villa Primavera Batu"},
+  { id: 1, position: [Math.cos(1) * 11, -Math.sin(1) * 7, 0.5], color: 'purple', image: '/images/documentations/1.jpg', tanggal: "13 Desember 2024", tempat: "Tower 2 ITS" },
+  { id: 10, position: [Math.cos(30) * 3, Math.sin(30) * 0, 0.5], color: 'purple', image: '/images/documentations/10.jpg', tanggal: "11 Juni 2025", tempat: "GOR Pertamina ITS"},
+  { id: 5, position: [-Math.cos(45) * 6, Math.sin(45) * 7, 0.5], color: '#07B2FC', image: '/images/documentations/3.jpg', tanggal: "24 November 2024", tempat: "Lapangan Basket ITS"},
+  { id: 7, position: [Math.cos(60) * 7, Math.sin(60) * 10, 0.5], color: '#07B2FC', image: '/images/documentations/4.jpg', tanggal: "16 November 2024", tempat: "Lapangan Basket ITS"},
+  { id: 9, position: [Math.cos(80) * 14, Math.sin(80) * 3, 0.5], color: '#07B2FC', image: '/images/documentations/5.jpg', tanggal: "13 Agustus 2024", tempat: "Hall Robotika ITS"},
+  { id: 4, position: [Math.cos(95) * 2, Math.sin(95) * 12, 0.5], color: 'purple', image: '/images/documentations/8.jpg', tanggal: "24 Mei 2025", tempat: "Tower 2 ITS"},
+  { id: 3, position: [Math.cos(120) * 8, Math.sin(120) * 13, 0.5], color: '#07B2FC', image: '/images/documentations/7.jpg', tanggal: "2 Agustus 2024", tempat: "Tower 2 ITS"},
+  { id: 6, position: [Math.cos(135) * 7, Math.sin(135) * 11, 0.5], color: 'purple', image: '/images/documentations/6.jpg', tanggal: "12 Agustus 2024", tempat: "Taman Harmoni Keputih"},
+  { id: 11, position: [Math.cos(150) * 4, Math.sin(150) * 6, 0.5], color: '#07B2FC', image: '/images/documentations/9.jpg', tanggal: "11 November 2024", tempat: "Taman Makam Pahlawan Surabaya"},
+  { id: 2, position: [Math.cos(170) * 7, Math.sin(170) * 5, 0.5], color: 'purple', image: '/images/documentations/2.jpg', tanggal: "1 Desember 2024", tempat: "Perpustakaan ITS"},
+  { id: 8, position: [Math.cos(180) * 7, Math.sin(180) * 8, 0.5], color: 'purple', image: '/images/documentations/11.jpg', tanggal: "25-26 Juni 2025", tempat: "Villa Primavera Batu"},
 ]
 
 type PinsProps = {
@@ -59,7 +59,9 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                 backdropFilter: 'blur(1px)', 
                 WebkitBackdropFilter: 'blur(1px)', 
-                border: '1px solid white' 
+                border: '1px solid white', 
+                zIndex: 52,
+                position: 'relative'
               }}> 
                 <div className="bg-radial -top-4 -right-4 from-white via-[#3A1D95] to-transparent -z-1 size-30 blur-2xl absolute"></div>
                 <img
@@ -69,7 +71,7 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
                     width: '100%',
                     borderRadius: 8,
                     marginBottom: 10,
-                    zIndex: 3
+                    zIndex: 52
                   }}
                 />
                 <div>
@@ -98,17 +100,17 @@ export default Pins
 
 // // Data awal
 // const initialPins = [
-//   { id: 1, position: [Math.cos(1) * 11, -Math.sin(1) * 7, 0.5], color: 'purple', image: '/images/dokumentasi/1.jpg', tanggal: "13 Desember 2024", tempat: "Tower 2 ITS" },
-//   { id: 2, position: [Math.cos(30) * 3, Math.sin(30) * 0, 0.5], color: 'purple', image: '/images/dokumentasi/10.jpg', tanggal: "11 Juni 2025", tempat: "GOR Pertamina ITS" },
-//   { id: 3, position: [-Math.cos(45) * 6, Math.sin(45) * 7, 0.5], color: '#07B2FC', image: '/images/dokumentasi/3.jpg', tanggal: "24 November 2024", tempat: "Lapangan Basket ITS" },
-//   { id: 4, position: [Math.cos(60) * 7, Math.sin(60) * 10, 0.5], color: '#07B2FC', image: '/images/dokumentasi/4.jpg', tanggal: "16 November 2024", tempat: "Lapangan Basket ITS" },
-//   { id: 5, position: [Math.cos(80) * 14, Math.sin(80) * 3, 0.5], color: '#07B2FC', image: '/images/dokumentasi/5.jpg', tanggal: "13 Agustus 2024", tempat: "Hall Robotika ITS" },
-//   { id: 6, position: [Math.cos(95) * 2, Math.sin(95) * 12, 0.5], color: 'purple', image: '/images/dokumentasi/8.jpg', tanggal: "24 Mei 2025", tempat: "Tower 2 ITS" },
-//   { id: 7, position: [Math.cos(120) * 8, Math.sin(120) * 13, 0.5], color: '#07B2FC', image: '/images/dokumentasi/7.jpg', tanggal: "2 Agustus 2024", tempat: "Tower 2 ITS" },
-//   { id: 8, position: [Math.cos(135) * 7, Math.sin(135) * 11, 0.5], color: 'purple', image: '/images/dokumentasi/6.jpg', tanggal: "12 Agustus 2024", tempat: "Taman Harmoni Keputih" },
-//   { id: 9, position: [Math.cos(150) * 4, Math.sin(150) * 6, 0.5], color: '#07B2FC', image: '/images/dokumentasi/9.jpg', tanggal: "11 November 2024", tempat: "Taman Makam Pahlawan Surabaya" },
-//   { id: 10, position: [Math.cos(170) * 7, Math.sin(170) * 5, 0.5], color: 'purple', image: '/images/dokumentasi/2.jpg', tanggal: "1 Desember 2024", tempat: "Perpustakaan ITS" },
-//   { id: 11, position: [Math.cos(180) * 7, Math.sin(180) * 8, 0.5], color: 'purple', image: '/images/dokumentasi/11.jpg', tanggal: "25-26 Juni 2025", tempat: "Villa Primavera Batu" },
+//   { id: 1, position: [Math.cos(1) * 11, -Math.sin(1) * 7, 0.5], color: 'purple', image: '/images/documentations/1.jpg', tanggal: "13 Desember 2024", tempat: "Tower 2 ITS" },
+//   { id: 2, position: [Math.cos(30) * 3, Math.sin(30) * 0, 0.5], color: 'purple', image: '/images/documentations/10.jpg', tanggal: "11 Juni 2025", tempat: "GOR Pertamina ITS" },
+//   { id: 3, position: [-Math.cos(45) * 6, Math.sin(45) * 7, 0.5], color: '#07B2FC', image: '/images/documentations/3.jpg', tanggal: "24 November 2024", tempat: "Lapangan Basket ITS" },
+//   { id: 4, position: [Math.cos(60) * 7, Math.sin(60) * 10, 0.5], color: '#07B2FC', image: '/images/documentations/4.jpg', tanggal: "16 November 2024", tempat: "Lapangan Basket ITS" },
+//   { id: 5, position: [Math.cos(80) * 14, Math.sin(80) * 3, 0.5], color: '#07B2FC', image: '/images/documentations/5.jpg', tanggal: "13 Agustus 2024", tempat: "Hall Robotika ITS" },
+//   { id: 6, position: [Math.cos(95) * 2, Math.sin(95) * 12, 0.5], color: 'purple', image: '/images/documentations/8.jpg', tanggal: "24 Mei 2025", tempat: "Tower 2 ITS" },
+//   { id: 7, position: [Math.cos(120) * 8, Math.sin(120) * 13, 0.5], color: '#07B2FC', image: '/images/documentations/7.jpg', tanggal: "2 Agustus 2024", tempat: "Tower 2 ITS" },
+//   { id: 8, position: [Math.cos(135) * 7, Math.sin(135) * 11, 0.5], color: 'purple', image: '/images/documentations/6.jpg', tanggal: "12 Agustus 2024", tempat: "Taman Harmoni Keputih" },
+//   { id: 9, position: [Math.cos(150) * 4, Math.sin(150) * 6, 0.5], color: '#07B2FC', image: '/images/documentations/9.jpg', tanggal: "11 November 2024", tempat: "Taman Makam Pahlawan Surabaya" },
+//   { id: 10, position: [Math.cos(170) * 7, Math.sin(170) * 5, 0.5], color: 'purple', image: '/images/documentations/2.jpg', tanggal: "1 Desember 2024", tempat: "Perpustakaan ITS" },
+//   { id: 11, position: [Math.cos(180) * 7, Math.sin(180) * 8, 0.5], color: 'purple', image: '/images/documentations/11.jpg', tanggal: "25-26 Juni 2025", tempat: "Villa Primavera Batu" },
 // ]
 
 // type PinsProps = {
