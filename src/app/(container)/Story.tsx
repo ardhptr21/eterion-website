@@ -43,27 +43,43 @@ export default function Story() {
           src="/images/zodiac/star.png"
           alt="Star"
           style={{ animationDelay: "6s" }}
-        />      
+        />   
         <img
-            className="constellation-image bottom-20 left-10 relative w-[250px] brightness-150 contrast-125 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] mix-blend-screen animate-pulse filter opacity-60"
-            src="/images/zodiac/aries.svg"
-            alt="Aries"
-            style={{
-              filter:
-                "brightness(1.5) contrast(1.25) drop-shadow(0 0 20px rgba(255,255,255,0.8)) drop-shadow(0 0 40px rgba(0,255,255,0.4))",
-              animationDelay: "1.5s",
-            }}
-          />
-          <img
-            className="constellation-image absolute top-10 -right-12 w-[250px] brightness-150 contrast-125 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] mix-blend-screen animate-pulse filter opacity-60"
-            src="/images/zodiac/aries.svg"
-            alt="Aries"
-            style={{
-              filter:
-                "brightness(1.5) contrast(1.25) drop-shadow(0 0 20px rgba(255,255,255,0.8)) drop-shadow(0 0 40px rgba(0,255,255,0.4))",
-              animationDelay: "1.5s",
-            }}
-          />
+          className="absolute w-3 h-3 bottom-5 left-1/2 opacity-20 animate-pulse mix-blend-screen"
+          src="/images/zodiac/star.png"
+          alt="Star"
+          style={{ animationDelay: "6s" }}
+        /> 
+        <img
+          className="absolute w-3 h-3 bottom-5 left-30 opacity-20 animate-pulse mix-blend-screen"
+          src="/images/zodiac/star.png"
+          alt="Star"
+          style={{ animationDelay: "6s" }}
+        />    
+        <img
+          className="absolute w-3 h-3 bottom-5 left-50 opacity-20 animate-pulse mix-blend-screen"
+          src="/images/zodiac/star.png"
+          alt="Star"
+          style={{ animationDelay: "6s" }}
+        /> 
+        <img
+          className="absolute w-3 h-4 bottom-2 right-1/2 opacity-20 animate-pulse mix-blend-screen"
+          src="/images/zodiac/star.png"
+          alt="Star"
+          style={{ animationDelay: "6s" }}
+        /> 
+        <img
+          className="constellation-image bottom-20 left-10 relative w-[250px] brightness-150 contrast-125 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] mix-blend-screen animate-pulse filter opacity-60"
+          src="/images/zodiac/aries.svg"
+          alt="Aries"
+          style={{
+            filter:
+              "brightness(1.5) contrast(1.25) drop-shadow(0 0 20px rgba(255,255,255,0.8)) drop-shadow(0 0 40px rgba(0,255,255,0.4))",
+            animationDelay: "1.5s",
+          }}
+        />    
+        <div className="w-50 h-20 absolute -bottom-25 left-1/2 bg-gradient-to-r from-transparent via-purple-400/25 to-transparent blur-xl transform rotate-12 mix-blend-screen" />      
+        <div className="w-80 h-20 absolute bottom-2 -right-13 bg-gradient-to-r from-transparent via-blue-400/25 to-transparent blur-xl transform rotate-90 mix-blend-screen" />      
         {/* <StorySection /> */}
         {/* jangan dihapus dulu yang masih dicomment */}
       </div>
