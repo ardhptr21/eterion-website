@@ -19,8 +19,8 @@ export default function About() {
             <p className="text-2xl leading-relaxed text-slate-200 mb-10">
               <strong className="font-semibold text-white">ETERION</strong> merupakan nama angkatan{" "}
               <strong className="font-semibold text-white">Teknologi Informasi 2024</strong> yang
-              mengusung makna "keteguhan abadi sebagai penunjuk arah dalam menghadapi perubahan
-              zaman."
+              mengusung makna keteguhan abadi sebagai penunjuk arah dalam menghadapi perubahan
+              zaman.
             </p>
             <p className="text-2xl leading-relaxed text-slate-200">
               Layaknya rasi bintang Orion yang bersinar abadi di langit malam dan menjadi panduan
