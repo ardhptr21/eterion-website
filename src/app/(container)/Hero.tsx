@@ -144,11 +144,7 @@ export default function Hero() {
 
           <div className="constellation-container absolute top-220 left-3 translate-x-1/5">
             <div
-              className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-white/20 rounded-full blur-3xl animate-pulse mix-blend-screen"
-              style={{ animationDelay: "2.5s" }}
-            />
-            <div
-              className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-green-300/15 rounded-full blur-2xl animate-pulse mix-blend-color-dodge"
+              className="constellation-glow absolute inset-0 w-[235px] h-[300px] bg-green-300/15 rounded-full blur-2xl animate-pulse mix-blend-color-dodge"
               style={{ animationDelay: "3.5s" }}
             />
             <div
