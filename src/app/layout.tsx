@@ -1,4 +1,4 @@
-import { inter, nexa,cormorant, cormorantUnicase, montserrat } from "@/lib/font";
+import { inter, nexa, cormorant, cormorantUnicase, montserrat } from "@/lib/font";
 import type { Metadata } from "next";
 import "./globals.css";
 import Layout from "@/components/layouts/Layout";
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body
-        className={`${nexa.variable} ${inter.variable} ${cormorant.variable} ${cormorantUnicase.variable} ${montserrat.variable} font-inter antialiased text-foreground bg-dark`}
+        className={`${nexa.variable} ${inter.variable} ${cormorant.variable} ${cormorantUnicase.variable} ${montserrat.variable} font-inter antialiased text-foreground bg-dark min-h-screen`}
       >
         <Layout>{children}</Layout>
       </body>
