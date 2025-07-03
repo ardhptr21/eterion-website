@@ -2,13 +2,21 @@ import InfoOverlay from "./InfoOverlay";
 
 export default function LocationMarker({
     locationData,
+    isActive,
+    onMouseEnter,
+    onMouseLeave,
+    onClick,
 }: {
     locationData: {
         name: string;
         orang: number;
         top: string;
         left: string;
-    };
+    },
+    isActive: boolean;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+    onClick: () => void;
 }) {
     const markerStyle = {
         top: locationData.top,
@@ -18,9 +26,17 @@ export default function LocationMarker({
     return (
         <div
             style={markerStyle}
-            className="group absolute -translate-x-1/2 -translate-y-1/2"
+            className={"absolute -translate-x-1/2 -translate-y-1/2" + (isActive ? " z-20" : " z-10")}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
         >
-            <div className="relative flex h-6 w-6 cursor-pointer items-center justify-center transition-transform duration-300 group-hover:scale-110 filter drop-shadow-xl/50 drop-shadow-black">
+            <div
+                onClick={onClick}
+                className={
+                    "relative flex h-6 w-6 cursor-pointer items-center justify-center transition-transform duration-300 group-hover:scale-110 filter drop-shadow-xl/50 drop-shadow-black" +
+                    (isActive ? " scale-110" : "")
+                }
+            >
                 {/* Outer Ring */}
                 <div className="absolute inset-0 rounded-full border-3 border-white bg-transparent"></div>
                 {/* Inner Circle */}
@@ -28,7 +44,12 @@ export default function LocationMarker({
             </div>
 
             {/* The overlay is hidden by default and shown on group-hover */}
-            <div className="invisible absolute top-full left-1/2 mt-2 -translate-x-1/2 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
+            <div
+                className={
+                    "invisible absolute top-full left-1/2 mt-2 -translate-x-1/2 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100" +
+                    (isActive ? " visible opacity-100" : "")
+                }
+            >
                 <InfoOverlay
                     name={locationData.name}
                     orang={locationData.orang}

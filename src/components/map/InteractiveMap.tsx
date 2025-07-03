@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import IndonesiaMap from "./IndonesiaMap";
 import LocationMarker from "./LocationMarker";
 
@@ -104,6 +105,13 @@ const locations = [
 ];
 
 export default function InteractiveMap() {
+    const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
+    const [activeLocation, setActiveLocation] = useState<string | null>(null);
+
+    const handleMarkerClick = (locationId: string | null) => {
+        setActiveLocation((current: string | null) => (current === locationId ? null : locationId));
+    };
+
     return (
         <div className="relative w-full overflow-hidden">
             {/*  the Gradient Background */}
@@ -129,9 +137,20 @@ export default function InteractiveMap() {
             <div className="relative mx-auto w-full max-w-5xl max-h-xl aspect-[4/3]">
                 <IndonesiaMap />
 
-                {locations.map((location) => (
-                    <LocationMarker key={location.id} locationData={location} />
-                ))}
+                {locations.map((location) => {
+                    const isActive = hoveredLocation === location.id || activeLocation === location.id;
+
+                    return (
+                        <LocationMarker
+                            key={location.id}
+                            locationData={location}
+                            isActive={isActive}
+                            onMouseEnter={() => setHoveredLocation(location.id)}
+                            onMouseLeave={() => setHoveredLocation(null)}
+                            onClick={() => handleMarkerClick(location.id)}
+                        />
+                    );
+                })}
             </div>
         </div>
     );
