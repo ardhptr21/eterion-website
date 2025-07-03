@@ -6,7 +6,7 @@ import VisionMission from "./(container)/VisionMission";
 
 export default function About() {
   return (
-    <main>
+    <main className="mt-72">
       <Statistic />
       <OurStory />
       <PhilosophyLogo />
