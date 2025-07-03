@@ -1,4 +1,3 @@
-
 "use client";
 
 import Noise from "@/components/effects/Noise";
@@ -15,7 +14,7 @@ const data = {
   origin: "Surabaya",
 };
 
-export default function Template() {
+export default function NRP004() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -91,4 +90,3 @@ function MemberDialog({
     </Dialog.Root>
   );
 }
-
