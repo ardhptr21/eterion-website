@@ -1,5 +1,5 @@
-import SectionHeaderRight from "@/components/commons/section-header-right/SectionHeaderRight";
-import CircleGradient from "@/components/commons/circle-gradient/CircleGradient";
+import SectionHeaderRight from "@/components/commons/SectionHeaderRight";
+import CircleGradient from "@/components/commons/CircleGradient";
 
 export default function SectionHeader() {
     const headerContainerStyle: React.CSSProperties = {

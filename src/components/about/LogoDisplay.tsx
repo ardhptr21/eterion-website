@@ -1,8 +1,7 @@
-"use client"; // tells Next.js that this is an interactive component
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
-import styles from "./LogoDisplay.module.css";
 
 const logos = [
     {
@@ -30,11 +29,11 @@ export default function LogoDisplay() {
             <h1 className="text-4xl font-nexa font-bold text-center mb-3">
                 Logo
             </h1>
-            <div className={styles.container}>
+            <div className="flex justify-center items-center gap-40 p-8 min-h-[400px] mb-8">
                 {logos.map((logo) => (
                     <div
                         key={logo.id}
-                        className={styles.logoWrapper}
+                        className="flex flex-col items-center cursor-pointer text-center"
                         onClick={() => setHighlightedLogo(logo.id)} // click to highlight
                     >
                         <Image
@@ -43,15 +42,11 @@ export default function LogoDisplay() {
                             width={100}
                             height={100}
                             // the 'highlighted' style conditionally
-                            className={`${styles.logoImage} ${
-                                highlightedLogo === logo.id
-                                    ? styles.highlighted
-                                    : ""
-                            }`}
+                            className={"scale-175 opacity-60 transition-transform duration-750 ease-in-out " + (highlightedLogo === logo.id ? "scale-[2.5] opacity-100 transition-transform duration-300 ease-in-out" : "")}
                         />
                         {highlightedLogo === logo.id && (
                             <p
-                                className={`${styles.logoName} font-nexa text-xl font-bold`}
+                                className="mt-24 text-white animate-fadeIn font-nexa text-xl font-bold"
                             >
                                 {logo.name}
                             </p>
