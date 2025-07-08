@@ -157,7 +157,7 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
                   <div className="bg-radial bottom-6 left-2 from-white via-[#3A1D95] to-transparent -z-1 size-30 blur-2xl absolute"></div>
                   <strong style={{ fontSize: 18, fontWeight: "bold" }}>{pin.tanggal}</strong>
                   <br />
-                  <span style={{ fontSize: 12 }}>{pin.tempat}</span>
+                  <span style={{ fontSize: 20 }}>{pin.tempat}</span>
                 </div>
               </div>
             </Html>
@@ -171,6 +171,7 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
 export default Pins;
 
 // jangan dihapus dulu yang masih dicomment
+
 
 // import { useState } from 'react'
 // import { Html, Sphere } from '@react-three/drei'

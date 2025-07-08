@@ -341,7 +341,7 @@ export default function Hero() {
               nextSection?.scrollIntoView({ behavior: "smooth" });
             }}
             data-style="Filled"
-            className="mt-[58px] mb-16 w-96 h-14 p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointer"
+            className="mt-[58px] mb-16 w-96 h-14 p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointers"
           >
             <div
               className={`justify-center text-gray-950 text-l font-medium ${montserrat.className}`}

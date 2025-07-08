@@ -1,0 +1,21 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Star shape for default cursor -->
+  <path d="M10 2L11.5 7.5L17 9L12.5 11.5L14 17L10 14L6 17L7.5 11.5L3 9L8.5 7.5L10 2Z" 
+        fill="rgba(255,255,255,0.9)" 
+        stroke="rgba(0,255,255,0.7)" 
+        stroke-width="0.5" 
+        filter="url(#glow)"/>
+  <!-- Small dots for constellation effect -->
+  <circle cx="5" cy="5" r="0.8" fill="rgba(0,255,255,0.6)" opacity="0.8"/>
+  <circle cx="15" cy="6" r="0.6" fill="rgba(255,255,255,0.5)" opacity="0.7"/>
+  <circle cx="6" cy="15" r="0.7" fill="rgba(0,255,255,0.4)" opacity="0.6"/>
+</svg>

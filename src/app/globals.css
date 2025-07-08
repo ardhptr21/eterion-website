@@ -15,3 +15,31 @@
   --font-montserrat: var(--font-montserrat);
 }
 
+/* Custom Cursor Styles */
+/* * {
+  cursor: url('/images/zodiac/cursor-star.svg') 10 10, auto;
+}
+
+button, a, [role="button"], .cursor-pointer {
+  cursor: url('/images/zodiac/cursor-pointer.svg') 10 10, pointer;
+}
+
+input, textarea, [contenteditable] {
+  cursor: text;
+}
+
+.cursor-default {
+  cursor: url('/images/zodiac/cursor-star.svg') 10 10, auto;
+}
+
+.cursor-pointer {
+  cursor: url('/images/zodiac/cursor-pointer.svg') 10 10, pointer;
+}
+
+.cursor-grab {
+  cursor: url('/images/zodiac/cursor-star.svg') 10 10, grab;
+}
+
+.cursor-grabbing {
+  cursor: url('/images/zodiac/cursor-star.svg') 10 10, grabbing;
+} */
