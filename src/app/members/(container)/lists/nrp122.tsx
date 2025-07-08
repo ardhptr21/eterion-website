@@ -8,11 +8,11 @@ import { useState } from "react";
 const data = {
   name: "Muhammad Ziddan Habibi",
   nrp: "5027241122",
-  image: "d:\WhatsApp Image 2025-05-06 at 22.29.23_558629d4.jpg",
+  image: "public/images/members/122.jpg",
   funfact: "Mau confess, sebenernya aku ini ultraman",
   hobby: "liatin kamu",
   origin: "Bandung",
-  lagu_fav : "https://www.youtube.com/watch?v=Aft_WAKkQls&list=RDAft_WAKkQls&start_radio=1&pp=ygUbdGVyaW1ha2FzaWggcGFrIGpva293aSBsYWd1oAcB0gcJCcEJAYcqIYzv",
+  lagu_fav : "https://www.youtube.com/embed/Aft_WAKkQls",
 };
 
 export default function NRP122() {
