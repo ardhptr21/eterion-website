@@ -6,11 +6,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "Muhammad Ahsani Taqwiim Rakhman",
+  nrp: "5027241099",
+  image: "099.jpg",
+  funfact: "masuk IT jadi insomnia",
+  hobby: "membaca",
   origin: "Surabaya",
 };
 
@@ -20,7 +20,7 @@ export default function NRP099() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-[#000000] relative bg-[#000000]/80 backdrop-blur-lg"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -68,20 +68,51 @@ function MemberDialog({
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
+            <h2 className="text-3xl font-bold font-nexa text-white mb-1">
+              <a
+              href="https://www.linkedin.com/in/muhammad-ahsani-taqwiim-rakhman-b835b5323/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{data.name}
+                </a>
+                </h2>
             <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
 
             <hr className="my-6 border-t border-white/20" />
 
             <div className="space-y-2 text-white font-nexa text-base">
               <p>
-                <strong>Asal:</strong> {data.origin}
+                <strong>Asal:</strong> 
+                <a
+                href="https://www.google.com/maps/place/Grand+Heaven+Surabaya/@-7.348707,112.710484,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd7fd345f4806f5:0x51318c1802e8a5fc!8m2!3d-7.348707!4d112.7130589!16s%2Fg%2F11j7dbp4bb!5m1!1e4?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+                >
+                  {data.origin}
+                  </a>
               </p>
               <p>
-                <strong>Hobi:</strong> {data.hobby}
+                <strong>Hobi:</strong> 
+                <a
+                href="https://shopee.co.id/product/134423475/14383404423?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibHhGRlU2dDVEUyt4cDYwMSs4UU05L09RcHZwYnZ5bm5QYjd0VDBvR2drQVl1VnFQREdmVWROam5RbVBCaWZuckFqNDhJSzVMWGdyRTNLMnVHZ0lLaHJWOHM5bVFYc2dkR0FxbWpkYVlMb1N3PT0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+                >
+                  {data.hobby}
+                  </a>
               </p>
               <p>
-                <strong>Funfact:</strong> {data.funfact}
+                <strong>Funfact:</strong> 
+                <a
+                href="https://www.youtube.com/watch?v=VrDfSZ_6f4U"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+                >
+                  {data.funfact}
+                  </a>
               </p>
             </div>
           </Dialog.Content>
