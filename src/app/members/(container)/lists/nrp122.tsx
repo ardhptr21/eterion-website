@@ -6,12 +6,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Muhammad Ziddan Habibi",
+  nrp: "5027241122",
+  image: "d:\WhatsApp Image 2025-05-06 at 22.29.23_558629d4.jpg",
+  funfact: "Mau confess, sebenernya aku ini ultraman",
+  hobby: "liatin kamu",
+  origin: "Bandung",
+  lagu_fav : "https://www.youtube.com/watch?v=Aft_WAKkQls&list=RDAft_WAKkQls&start_radio=1&pp=ygUbdGVyaW1ha2FzaWggcGFrIGpva293aSBsYWd1oAcB0gcJCcEJAYcqIYzv",
 };
 
 export default function NRP122() {
