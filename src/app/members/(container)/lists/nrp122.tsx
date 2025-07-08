@@ -8,9 +8,9 @@ import { useState } from "react";
 const data = {
   name: "Muhammad Ziddan Habibi",
   nrp: "5027241122",
-  image: "public/images/members/122.jpg",
+  image: "/images/members/122.jpg",
   funfact: "Mau confess, sebenernya aku ini ultraman",
-  hobby: "liatin kamu",
+  hobby: "jalan-jalan",
   origin: "Bandung",
   lagu_fav : "https://www.youtube.com/embed/Aft_WAKkQls",
 };
