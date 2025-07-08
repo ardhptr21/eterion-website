@@ -3,7 +3,7 @@ import Noise from "@/components/effects/Noise";
 
 const OurStory = () => {
   return (
-    <section className="my-20 relative py-20 bg-gradient-to-br min-h-screen overflow-hidden">
+    <section className="mb-20 relative py-20 bg-gradient-to-br min-h-screen overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-20 right-32 w-2 h-2 bg-white rounded-full animate-pulse opacity-80"></div>
         <div className="absolute top-40 left-20 w-1.5 h-1.5 bg-white rounded-full animate-pulse opacity-60"></div>
@@ -26,7 +26,6 @@ const OurStory = () => {
         <div
           className="absolute w-[60%] h-[100px] bg-gradient-to-t from-[#0B068E] to-[#310E61] opacity-90 blur-xl -z-10"
           style={{
-            // clipPath: 'ellipse(60% 40% at 50% 50%)',
             borderRadius: "60% 40% 60% 40% / 60% 60% 40% 40%",
             left: "-70px",
             top: "-20px",

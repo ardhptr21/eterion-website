@@ -6,10 +6,10 @@ import "../globals.css";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen m-0 p-0">
-      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-16">
+    <section className="relative w-full min-h-screen m-0">
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pb-16 py-32">
         <Starship />
-        <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none mt-40">
           <div className="w-full h-80 absolute top-0 left-0 bg-gradient-to-b from-transparent via-cyan-400/20 to-blue-400/25 blur-3xl mix-blend-color-dodge" />
 
           <div className="w-[800px] h-[100px] absolute -left-40 top-1/4 bg-gradient-to-r from-cyan-400/35 via-blue-500/25 to-transparent blur-[40px] transform rotate-10 mix-blend-screen" />
@@ -144,15 +144,11 @@ export default function Hero() {
 
           <div className="constellation-container absolute top-220 left-3 translate-x-1/5">
             <div
-              className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-white/20 rounded-full blur-3xl animate-pulse mix-blend-screen"
-              style={{ animationDelay: "2.5s" }}
-            />
-            <div
-              className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-green-300/15 rounded-full blur-2xl animate-pulse mix-blend-color-dodge"
+              className="constellation-glow absolute inset-0 w-[235px] h-[200px] bg-green-300/15 rounded-full blur-2xl animate-pulse mix-blend-color-dodge"
               style={{ animationDelay: "3.5s" }}
             />
             <div
-              className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-teal-400/10 rounded-full blur-xl animate-pulse mix-blend-screen"
+              className="constellation-glow absolute inset-0 w-[235px] h-[250px] bg-teal-400/10 rounded-full blur-xl animate-pulse mix-blend-screen"
               style={{ animationDelay: "4.5s" }}
             />
 
@@ -345,7 +341,7 @@ export default function Hero() {
               nextSection?.scrollIntoView({ behavior: "smooth" });
             }}
             data-style="Filled"
-            className="mt-[58px] mb-16 w-96 h-14 p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointer"
+            className="mt-[58px] mb-16 w-96 h-14 p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointers"
           >
             <div
               className={`justify-center text-gray-950 text-l font-medium ${montserrat.className}`}

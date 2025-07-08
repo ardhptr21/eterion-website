@@ -5,7 +5,7 @@ import NavLink from "./NavLink";
 
 export default function Navbar() {
   return (
-    <Container as="nav" className="z-50">
+    <Container as="nav" className="z-20 absolute top-0 left-0 w-full">
       <div className="bg-[#140c2c] px-28 py-8 rounded-b-[80px] border-2 border-accent border-t-0 relative overflow-hidden">
         <Noise strength={15} />
         <div className="relative z-10 flex justify-between items-center w-full">
