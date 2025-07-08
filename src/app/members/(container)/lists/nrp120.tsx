@@ -6,15 +6,16 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Mohamad Arkan Zahir Asyafiq",
+  nrp: "5027241120",
+  image: "120.jpg",
+  funfact: "Ga suka kopi",
+  hobby: "Main Game",
+  origin: "Banyumas",
 };
 
 export default function NRP120() {
+  // Perhatikan perubahan dari NRP022 menjadi NRP120
   const [open, setOpen] = useState(false);
 
   return (
@@ -68,7 +69,9 @@ function MemberDialog({
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
+            <h2 className="text-3xl font-bold font-nexa text-white mb-1">
+              {data.name}
+            </h2>
             <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
 
             <hr className="my-6 border-t border-white/20" />
