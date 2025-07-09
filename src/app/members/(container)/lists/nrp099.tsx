@@ -10,7 +10,7 @@ const data = {
   nrp: "5027241099",
   image: "099.jpg",
   funfact: "masuk IT jadi insomnia",
-  hobby: "membaca",
+  hobby: "Membaca buku komedi",
   origin: "Surabaya",
 };
 
@@ -56,7 +56,7 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-black/90 rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-8 border-2 border-white/20">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
@@ -95,7 +95,7 @@ function MemberDialog({
               <p>
                 <strong>Hobi:</strong> 
                 <a
-                href="https://shopee.co.id/product/134423475/14383404423?gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkWVp3RFo3Mkw5czd4Z0hzdEF1WVFibHhGRlU2dDVEUyt4cDYwMSs4UU05L09RcHZwYnZ5bm5QYjd0VDBvR2drQVl1VnFQREdmVWROam5RbVBCaWZuckFqNDhJSzVMWGdyRTNLMnVHZ0lLaHJWOHM5bVFYc2dkR0FxbWpkYVlMb1N3PT0"
+                href="https://books.google.co.id/books?id=lzkPEQAAQBAJ&pg=PA29&source=gbs_toc_r&cad=2#v=onepage&q&f=false"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition"
@@ -104,15 +104,7 @@ function MemberDialog({
                   </a>
               </p>
               <p>
-                <strong>Funfact:</strong> 
-                <a
-                href="https://www.youtube.com/watch?v=VrDfSZ_6f4U"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition"
-                >
-                  {data.funfact}
-                  </a>
+                <strong>Funfact:</strong>{data.funfact}
               </p>
             </div>
           </Dialog.Content>
