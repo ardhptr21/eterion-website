@@ -4,6 +4,7 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
+import FallStar from "../../components/FallStar";
 
 const data = {
   name: "Alnico Virendra Kitaro Diaz",
@@ -17,8 +18,6 @@ const data = {
 export default function NRP081() {
   const [open, setOpen] = useState(false);
 
-  const starCount = 15;
-
   return (
     <>
       <div
@@ -30,23 +29,7 @@ export default function NRP081() {
         <Noise />
 
         {/* Bintang jatuh ✦ */}
-        {Array.from({ length: starCount }).map((_, index) => (
-          <span
-            key={index}
-            className="absolute star pointer-events-none select-none"
-            style={{
-              top: `${Math.random() * -100}px`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
-              opacity: Math.random() * 0.8 + 0.2,
-              fontSize: `${Math.random() * 8 + 8}px`,
-              color: "white",
-            }}
-          >
-            ✦
-          </span>
-        ))}
+        <FallStar starCount={15} />
 
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <a
@@ -69,27 +52,6 @@ export default function NRP081() {
         </div>
 
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
-
-        <style jsx>{`
-          @keyframes fallingStar {
-            0% {
-              transform: translateY(0) translateX(0) scale(1);
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(400px) translateX(100px) scale(0.5);
-              opacity: 0;
-            }
-          }
-          .star {
-            animation-name: fallingStar;
-            animation-timing-function: ease-in;
-            animation-iteration-count: infinite;
-            font-weight: bold;
-            text-shadow: 0 0 6px white, 0 0 10px white;
-            z-index: 40;
-          }
-        `}</style>
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />

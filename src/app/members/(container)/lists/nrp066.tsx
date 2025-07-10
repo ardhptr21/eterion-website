@@ -20,9 +20,15 @@ export default function NRP066() {
   return (
     <>
       <div
-        className={`cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-[#fff] relative bg-[#0098ff] backdrop-blur-lg
-                    transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#1cb3ff] hover:shadow-[0_0_20px_#0098ff]
+        className={`cursor-pointer w-full shrink-0 p-10 rounded-xl relative backdrop-blur-lg
+                    transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_20px_#0098ff]
                     ${open ? "shadow-[0_0_30px_#0098ff] animate-pulse" : ""}`}
+        style={{
+          backgroundImage: 'url("https://pbs.twimg.com/media/GvSLaBWW8AA8PlU?format=jpg&name=medium")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -38,7 +44,7 @@ export default function NRP066() {
           <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>
         </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-white/10 via-60% to-[#0098ff]/70 rounded-xl pointer-events-none" />
+        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-white/10 via-60% to-black/50 rounded-xl pointer-events-none" />
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
@@ -59,9 +65,15 @@ function MemberDialog({
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <Dialog.Content
-            className="w-full max-w-lg max-h-[95vh] bg-[#0098ff] rounded-2xl 
+            className="w-full max-w-lg max-h-[95vh] rounded-2xl 
                        shadow-[0_0_40px_#0098ff] overflow-y-auto focus:outline-none 
                        p-10 transition-shadow duration-500"
+            style={{
+              backgroundImage: 'url("https://pbs.twimg.com/media/GvSLaBWW8AA8PlU?format=jpg&name=medium")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
           >
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
