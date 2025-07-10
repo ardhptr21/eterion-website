@@ -139,27 +139,47 @@ export default function Members() {
 
   return (
     <>
-      <Container as="section" className="mb-32 pt-80 space-y-12">
-        <h1 className="text-6xl font-nexa font-bold">Faces of Eterion</h1>
-        <p className="text-3xl font-nexa">Meet the people behind Eterion!</p>
+      <Container as="section" className="mb-16 sm:mb-24 md:mb-32 pt-20 sm:pt-40 md:pt-60 lg:pt-80 space-y-6 sm:space-y-8 md:space-y-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-nexa font-bold">Faces of Eterion</h1>
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-nexa">Meet the people behind Eterion!</p>
       </Container>
-      <Container as="section" className="my-32 relative flex items-start gap-10">
-        <div className="w-1/6 space-y-5 sticky top-10">
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-1")}>
-            001 - 030
-          </Buttton>
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-31")}>
-            031 - 060
-          </Buttton>
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-61")}>
-            061 - 090
-          </Buttton>
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-91")}>
-            091 - 120
-          </Buttton>
+      <Container as="section" className="my-16 sm:my-24 md:my-32 relative">
+        {/* Mobile Navigation */}
+        <div className="block lg:hidden mb-8">
+          <div className="flex overflow-x-auto gap-3 pb-4">
+            <Buttton className="flex-shrink-0 text-sm px-3 py-2" onClick={() => handleScrollTo("target-1")}>
+              001-030
+            </Buttton>
+            <Buttton className="flex-shrink-0 text-sm px-3 py-2" onClick={() => handleScrollTo("target-31")}>
+              031-060
+            </Buttton>
+            <Buttton className="flex-shrink-0 text-sm px-3 py-2" onClick={() => handleScrollTo("target-61")}>
+              061-090
+            </Buttton>
+            <Buttton className="flex-shrink-0 text-sm px-3 py-2" onClick={() => handleScrollTo("target-91")}>
+              091-120
+            </Buttton>
+          </div>
         </div>
-        <div className="w-5/6 space-y-10">
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-1">
+        
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex items-start gap-10">
+          <div className="w-1/6 space-y-5 sticky top-10">
+            <Buttton className="w-full" onClick={() => handleScrollTo("target-1")}>
+              001 - 030
+            </Buttton>
+            <Buttton className="w-full" onClick={() => handleScrollTo("target-31")}>
+              031 - 060
+            </Buttton>
+            <Buttton className="w-full" onClick={() => handleScrollTo("target-61")}>
+              061 - 090
+            </Buttton>
+            <Buttton className="w-full" onClick={() => handleScrollTo("target-91")}>
+              091 - 120
+            </Buttton>
+          </div>
+          <div className="w-5/6 space-y-10">
+            <div className="grid grid-cols-3 gap-5 w-full members-page-grid" id="target-1">
             <NRP001 />
             <NRP002 />
             <NRP003 />
@@ -191,7 +211,7 @@ export default function Members() {
             <NRP029 />
             <NRP030 />
           </div>
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-31">
+          <div className="grid grid-cols-3 gap-5 w-full members-page-grid" id="target-31">
             <NRP031 />
             <NRP032 />
             <NRP033 />
@@ -223,7 +243,7 @@ export default function Members() {
             <NRP059 />
             <NRP060 />
           </div>
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-61">
+          <div className="grid grid-cols-3 gap-5 w-full members-page-grid" id="target-61">
             <NRP061 />
             <NRP062 />
             <NRP063 />
@@ -255,7 +275,145 @@ export default function Members() {
             <NRP089 />
             <NRP090 />
           </div>
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-91">
+          <div className="grid grid-cols-3 gap-5 w-full members-page-grid" id="target-91">
+            <NRP091 />
+            <NRP092 />
+            <NRP093 />
+            <NRP094 />
+            <NRP095 />
+            <NRP096 />
+            <NRP097 />
+            <NRP098 />
+            <NRP099 />
+            <NRP100 />
+            <NRP101 />
+            <NRP102 />
+            <NRP103 />
+            <NRP104 />
+            <NRP105 />
+            <NRP106 />
+            <NRP107 />
+            <NRP108 />
+            <NRP109 />
+            <NRP110 />
+            <NRP111 />
+            <NRP112 />
+            <NRP113 />
+            <NRP114 />
+            <NRP115 />
+            <NRP116 />
+            <NRP117 />
+            <NRP118 />
+            <NRP119 />
+            <NRP120 />
+            <NRP121 />
+            <NRP122 />
+            <NRP123 />
+            <NRP124 />
+            <NRP125 />
+          </div>
+        </div>
+        </div>
+        
+        {/* Mobile Layout */}
+        <div className="block lg:hidden space-y-8">
+          <div className="members-page-grid" id="target-1">
+            <NRP001 />
+            <NRP002 />
+            <NRP003 />
+            <NRP004 />
+            <NRP005 />
+            <NRP006 />
+            <NRP007 />
+            <NRP008 />
+            <NRP009 />
+            <NRP010 />
+            <NRP011 />
+            <NRP012 />
+            <NRP013 />
+            <NRP014 />
+            <NRP015 />
+            <NRP016 />
+            <NRP017 />
+            <NRP018 />
+            <NRP019 />
+            <NRP020 />
+            <NRP021 />
+            <NRP022 />
+            <NRP023 />
+            <NRP024 />
+            <NRP025 />
+            <NRP026 />
+            <NRP027 />
+            <NRP028 />
+            <NRP029 />
+            <NRP030 />
+          </div>
+          <div className="members-page-grid" id="target-31">
+            <NRP031 />
+            <NRP032 />
+            <NRP033 />
+            <NRP034 />
+            <NRP035 />
+            <NRP036 />
+            <NRP037 />
+            <NRP038 />
+            <NRP039 />
+            <NRP040 />
+            <NRP041 />
+            <NRP042 />
+            <NRP043 />
+            <NRP044 />
+            <NRP045 />
+            <NRP046 />
+            <NRP047 />
+            <NRP048 />
+            <NRP049 />
+            <NRP050 />
+            <NRP051 />
+            <NRP052 />
+            <NRP053 />
+            <NRP054 />
+            <NRP055 />
+            <NRP056 />
+            <NRP057 />
+            <NRP058 />
+            <NRP059 />
+            <NRP060 />
+          </div>
+          <div className="members-page-grid" id="target-61">
+            <NRP061 />
+            <NRP062 />
+            <NRP063 />
+            <NRP064 />
+            <NRP065 />
+            <NRP066 />
+            <NRP067 />
+            <NRP068 />
+            <NRP069 />
+            <NRP070 />
+            <NRP071 />
+            <NRP072 />
+            <NRP073 />
+            <NRP074 />
+            <NRP075 />
+            <NRP076 />
+            <NRP077 />
+            <NRP078 />
+            <NRP079 />
+            <NRP080 />
+            <NRP081 />
+            <NRP082 />
+            <NRP083 />
+            <NRP084 />
+            <NRP085 />
+            <NRP086 />
+            <NRP087 />
+            <NRP088 />
+            <NRP089 />
+            <NRP090 />
+          </div>
+          <div className="members-page-grid" id="target-91">
             <NRP091 />
             <NRP092 />
             <NRP093 />

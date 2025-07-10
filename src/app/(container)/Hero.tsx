@@ -7,48 +7,55 @@ import "../globals.css";
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen m-0">
-      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pb-16 py-32">
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pb-8 sm:pb-12 md:pb-16 py-16 sm:py-24 md:py-32">
         <Starship />
-        <div className="absolute inset-0 pointer-events-none mt-40">
-          <div className="w-full h-80 absolute top-0 left-0 bg-gradient-to-b from-transparent via-cyan-400/20 to-blue-400/25 blur-3xl mix-blend-color-dodge" />
+        <div className="absolute inset-0 pointer-events-none mt-20 sm:mt-32 md:mt-40">
+          <div className="w-full h-40 sm:h-60 md:h-80 absolute top-0 left-0 bg-gradient-to-b from-transparent via-cyan-400/20 to-blue-400/25 blur-xl sm:blur-2xl md:blur-3xl mix-blend-color-dodge" />
 
-          <div className="w-[800px] h-[100px] absolute -left-40 top-1/4 bg-gradient-to-r from-cyan-400/35 via-blue-500/25 to-transparent blur-[40px] transform rotate-10 mix-blend-screen" />
-          <div className="w-[700px] h-[80px] absolute -left-20 top-1/3 bg-gradient-to-r from-cyan-300/30 via-blue-400/20 to-transparent blur-[50px] transform rotate-10 mix-blend-color-dodge" />
-          <div className="w-[600px] h-[60px] absolute -left-10 top-2/5 bg-gradient-to-r from-purple-400/25 via-violet-400/15 to-transparent blur-[60px] transform rotate-20 mix-blend-screen" />
+          {/* Left side gradients - responsive */}
+          <div className="w-[400px] sm:w-[600px] md:w-[800px] h-[50px] sm:h-[75px] md:h-[100px] absolute -left-20 sm:-left-30 md:-left-40 top-1/4 bg-gradient-to-r from-cyan-400/35 via-blue-500/25 to-transparent blur-[20px] sm:blur-[30px] md:blur-[40px] transform rotate-10 mix-blend-screen" />
+          <div className="w-[350px] sm:w-[525px] md:w-[700px] h-[40px] sm:h-[60px] md:h-[80px] absolute -left-10 sm:-left-15 md:-left-20 top-1/3 bg-gradient-to-r from-cyan-300/30 via-blue-400/20 to-transparent blur-[25px] sm:blur-[40px] md:blur-[50px] transform rotate-10 mix-blend-color-dodge" />
+          <div className="w-[300px] sm:w-[450px] md:w-[600px] h-[30px] sm:h-[45px] md:h-[60px] absolute -left-5 sm:-left-8 md:-left-10 top-2/5 bg-gradient-to-r from-purple-400/25 via-violet-400/15 to-transparent blur-[30px] sm:blur-[45px] md:blur-[60px] transform rotate-20 mix-blend-screen" />
 
-          <div className="w-[800px] h-[100px] absolute -right-40 top-1/3 bg-gradient-to-l from-emerald-400/35 via-teal-500/25 to-transparent blur-[40px] transform -rotate-20 mix-blend-screen" />
-          <div className="w-[700px] h-[80px] absolute -right-20 top-1/4 bg-gradient-to-l from-emerald-300/30 via-teal-400/20 to-transparent blur-[50px] transform -rotate-25 mix-blend-color-dodge" />
-          <div className="w-[600px] h-[60px] absolute -right-10 top-2/5 bg-gradient-to-l from-blue-400/25 via-cyan-400/15 to-transparent blur-[60px] transform -rotate-45 mix-blend-screen" />
+          {/* Right side gradients - responsive */}
+          <div className="w-[400px] sm:w-[600px] md:w-[800px] h-[50px] sm:h-[75px] md:h-[100px] absolute -right-20 sm:-right-30 md:-right-40 top-1/3 bg-gradient-to-l from-emerald-400/35 via-teal-500/25 to-transparent blur-[20px] sm:blur-[30px] md:blur-[40px] transform -rotate-20 mix-blend-screen" />
+          <div className="w-[350px] sm:w-[525px] md:w-[700px] h-[40px] sm:h-[60px] md:h-[80px] absolute -right-10 sm:-right-15 md:-right-20 top-1/4 bg-gradient-to-l from-emerald-300/30 via-teal-400/20 to-transparent blur-[25px] sm:blur-[40px] md:blur-[50px] transform -rotate-25 mix-blend-color-dodge" />
+          <div className="w-[300px] sm:w-[450px] md:w-[600px] h-[30px] sm:h-[45px] md:h-[60px] absolute -right-5 sm:-right-8 md:-right-10 top-2/5 bg-gradient-to-l from-blue-400/25 via-cyan-400/15 to-transparent blur-[30px] sm:blur-[45px] md:blur-[60px] transform -rotate-45 mix-blend-screen" />
 
-          <div className="w-full h-80 absolute bottom-60 left-0 bg-gradient-to-t from-violet-500/30 via-purple-400/20 to-transparent blur-2xl mix-blend-screen" />
-          <div className="w-120 h-64 absolute bottom-60 left-0 bg-gradient-to-t from-violet-600/25 via-purple-500/15 to-transparent blur-3xl mix-blend-color-dodge" />
+          {/* Bottom gradients - responsive */}
+          <div className="w-full h-40 sm:h-60 md:h-80 absolute bottom-40 sm:bottom-50 md:bottom-60 left-0 bg-gradient-to-t from-violet-500/30 via-purple-400/20 to-transparent blur-xl sm:blur-2xl md:blur-2xl mix-blend-screen" />
+          <div className="w-60 sm:w-80 md:w-120 h-32 sm:h-48 md:h-64 absolute bottom-40 sm:bottom-50 md:bottom-60 left-0 bg-gradient-to-t from-violet-600/25 via-purple-500/15 to-transparent blur-2xl sm:blur-3xl md:blur-3xl mix-blend-color-dodge" />
 
-          <div className="w-[500px] h-[40px] absolute top-6 right-1/4 bg-cyan-400/25 blur-xl animate-pulse mix-blend-screen transform rotate-30" />
-          <div className="w-[250px] h-[30px] absolute top-20 right-1/4 bg-cyan-300/20 blur-2xl animate-pulse mix-blend-color-dodge transform rotate-12" />
+          {/* Smaller effects - responsive */}
+          <div className="w-[250px] sm:w-[375px] md:w-[500px] h-[20px] sm:h-[30px] md:h-[40px] absolute top-6 right-1/4 bg-cyan-400/25 blur-lg sm:blur-xl md:blur-xl animate-pulse mix-blend-screen transform rotate-30" />
+          <div className="w-[125px] sm:w-[190px] md:w-[250px] h-[15px] sm:h-[23px] md:h-[30px] absolute top-20 right-1/4 bg-cyan-300/20 blur-xl sm:blur-2xl md:blur-2xl animate-pulse mix-blend-color-dodge transform rotate-12" />
           <div
-            className="w-[280px] h-[35px] absolute bottom-60 left-1/4 bg-emerald-400/25 blur-xl animate-pulse mix-blend-screen transform -rotate-12"
+            className="w-[140px] sm:w-[210px] md:w-[280px] h-[18px] sm:h-[27px] md:h-[35px] absolute bottom-40 sm:bottom-50 md:bottom-60 left-1/4 bg-emerald-400/25 blur-lg sm:blur-xl md:blur-xl animate-pulse mix-blend-screen transform -rotate-12"
             style={{ animationDelay: "2s" }}
           />
           <div
-            className="w-[230px] h-[25px] absolute bottom-64 left-1/4 bg-emerald-300/20 blur-2xl animate-pulse mix-blend-color-dodge transform -rotate-12"
+            className="w-[115px] sm:w-[173px] md:w-[230px] h-[13px] sm:h-[19px] md:h-[25px] absolute bottom-44 sm:bottom-56 md:bottom-64 left-1/4 bg-emerald-300/20 blur-xl sm:blur-2xl md:blur-2xl animate-pulse mix-blend-color-dodge transform -rotate-12"
             style={{ animationDelay: "2s" }}
           />
 
           <div
-            className="w-[400px] h-[60px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-pink-400/20 via-purple-500/15 to-blue-500/20 blur-[50px] mix-blend-screen animate-pulse rotate-6"
+            className="w-[200px] sm:w-[300px] md:w-[400px] h-[30px] sm:h-[45px] md:h-[60px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-pink-400/20 via-purple-500/15 to-blue-500/20 blur-[25px] sm:blur-[40px] md:blur-[50px] mix-blend-screen animate-pulse rotate-6"
             style={{ animationDelay: "4s" }}
           />
           <div
-            className="w-[350px] h-[40px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-pink-400/15 via-purple-400/10 to-blue-400/15 blur-[60px] mix-blend-color-dodge animate-pulse -rotate-6"
+            className="w-[175px] sm:w-[263px] md:w-[350px] h-[20px] sm:h-[30px] md:h-[40px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-pink-400/15 via-purple-400/10 to-blue-400/15 blur-[30px] sm:blur-[45px] md:blur-[60px] mix-blend-color-dodge animate-pulse -rotate-6"
             style={{ animationDelay: "4s" }}
           />
 
-          <div className="w-96 h-24 absolute top-2/3 left-0 bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent blur-xl transform rotate-12 mix-blend-screen" />
-          <div className="w-80 h-20 absolute top-2/3 left-0 bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent blur-2xl transform rotate-12 mix-blend-color-dodge" />
-          <div className="w-96 h-24 absolute top-1/4 right-0 bg-gradient-to-l from-transparent via-emerald-400/25 to-transparent blur-xl transform -rotate-12 mix-blend-screen" />
-          <div className="w-80 h-20 absolute top-1/4 right-0 bg-gradient-to-l from-transparent via-emerald-400/15 to-transparent blur-2xl transform -rotate-12 mix-blend-color-dodge" />
+          {/* Side gradients - responsive */}
+          <div className="w-48 sm:w-72 md:w-96 h-12 sm:h-18 md:h-24 absolute top-2/3 left-0 bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent blur-lg sm:blur-xl md:blur-xl transform rotate-12 mix-blend-screen" />
+          <div className="w-40 sm:w-60 md:w-80 h-10 sm:h-15 md:h-20 absolute top-2/3 left-0 bg-gradient-to-r from-transparent via-cyan-400/15 to-transparent blur-xl sm:blur-2xl md:blur-2xl transform rotate-12 mix-blend-color-dodge" />
+          <div className="w-48 sm:w-72 md:w-96 h-12 sm:h-18 md:h-24 absolute top-1/4 right-0 bg-gradient-to-l from-transparent via-emerald-400/25 to-transparent blur-lg sm:blur-xl md:blur-xl transform -rotate-12 mix-blend-screen" />
+          <div className="w-40 sm:w-60 md:w-80 h-10 sm:h-15 md:h-20 absolute top-1/4 right-0 bg-gradient-to-l from-transparent via-emerald-400/15 to-transparent blur-xl sm:blur-2xl md:blur-2xl transform -rotate-12 mix-blend-color-dodge" />
 
-          <div className="constellation-container absolute top-60 right-0 translate-x-1/5 rotate-30">
+          {/* Constellation containers - hide on small mobile */}
+          <div className="constellation-container hidden sm:block absolute top-40 md:top-60 right-0 translate-x-1/5 rotate-30"
+>
             <div
               className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-white/20 rounded-full blur-3xl animate-pulse mix-blend-screen"
               style={{ animationDelay: "1s" }}
@@ -303,23 +310,23 @@ export default function Hero() {
           />
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 py-[190px] relative z-10">
+        <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 md:py-40 lg:py-[190px] relative z-10">
           <img
-            className="w-[375px] h-[369px] mt-8"
+            className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-[300px] lg:h-[295px] xl:w-[375px] xl:h-[369px] mt-4 sm:mt-6 md:mt-8"
             src="/images/logo-eterion.png"
             alt="Eterion Logo"
           />
           <div
-            className={`text-center text-white text-6xl font-bold ${cormorantUnicase.className} pt-[84px]`}
+            className={`text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${cormorantUnicase.className} pt-8 sm:pt-12 md:pt-16 lg:pt-20 xl:pt-[84px] px-4`}
             style={{
               textShadow: "0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
             Welcome to the Constellation
           </div>
-          <div className="inline-flex justify-start items-center gap-4">
+          <div className="inline-flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 mt-4 sm:mt-0">
             <div
-              className={`w-20 h-20 text-center justify-start text-white text-6xl font-bold italic ${cormorant.className}`}
+              className={`text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold italic ${cormorant.className}`}
               style={{
                 textShadow: "0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5)",
               }}
@@ -327,7 +334,7 @@ export default function Hero() {
               of
             </div>
             <div
-              className={`text-center justify-start text-white text-7xl font-black ${nexa.className}`}
+              className={`text-center text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black ${nexa.className}`}
               style={{
                 textShadow: "0 6px 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.6)",
               }}
@@ -341,10 +348,10 @@ export default function Hero() {
               nextSection?.scrollIntoView({ behavior: "smooth" });
             }}
             data-style="Filled"
-            className="mt-[58px] mb-16 w-96 h-14 p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointers"
+            className="mt-8 sm:mt-12 md:mt-16 lg:mt-[58px] mb-8 sm:mb-12 md:mb-16 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:w-96 h-12 sm:h-14 p-4 sm:p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointer"
           >
             <div
-              className={`justify-center text-gray-950 text-l font-medium ${montserrat.className}`}
+              className={`text-center text-gray-950 text-sm sm:text-base md:text-lg font-medium ${montserrat.className} px-2`}
             >
               Join the constellation. Explore Eterion!
             </div>

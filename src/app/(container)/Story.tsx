@@ -118,7 +118,7 @@ export default function Story() {
   }, []);
 
   return (
-    <section className="h-[120vh]">
+    <section id="story" className="h-[120vh]">
       <div className="w-full h-[110vh] relative">
         <Container className="flex justify-start relative z-10">
           <div

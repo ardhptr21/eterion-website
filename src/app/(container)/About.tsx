@@ -10,8 +10,9 @@ const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function About() {
   return (
-    <Container as="section" className="flex min-h-screen flex-col items-center justify-center p-8">
-      <div className="w-full">
+    <section id="about">
+      <Container className="flex min-h-screen flex-col items-center justify-center p-8">
+        <div className="w-full">
         <h2 className="text-5xl font-bold text-white mb-8">About Us</h2>
         <div className="relative">
           <div className="bg-indigo-900/30 backdrop-blur-xl border border-white/10 rounded-3xl p-16 relative">
@@ -42,7 +43,8 @@ export default function About() {
           "
           />
         </div>
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </section>
   );
 }

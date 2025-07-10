@@ -49,87 +49,95 @@ export default function SlidingPhilosophyCards() {
     setCurrentIndex(index);
   };
 
+  const currentCard = philosophyCards[currentIndex];
+
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
-      {/* Carousel Container */}
-      <div className="relative overflow-hidden">
-        {/* Cards Track */}
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {philosophyCards.map((card) => (
-            <div key={card.id} className="w-full flex-shrink-0 px-4">
-              {/* Single Card */}
-              <div className="relative h-96 rounded-2xl overflow-hidden border mx-auto max-w-2xl">
-                {/* Background Image with Blur */}
-                <Image
-                  src="/images/philosophy-bg-card.png"
-                  alt="Card Background"
-                  fill
-                  className="object-cover scale-110"
-                />
-
-                {/* Blur Overlay */}
-                <div className="absolute inset-0 backdrop-blur-sm" />
-
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0" />
-
-                {/* Content */}
-                <div className="relative z-20 p-8 h-full flex flex-col justify-center text-center text-white">
-                  <h3 className="text-3xl font-nexa font-bold mb-6 text-white drop-shadow-lg">
-                    {card.title}
-                  </h3>
-                  <p className="text-lg leading-relaxed text-gray-200 drop-shadow-sm max-w-lg mx-auto">
-                    {card.content}
-                  </p>
-                </div>
-
-                {/* Decorative Elements */}
-                {/* <div className="absolute bottom-4 right-4 w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400/30 to-orange-400/30 blur-xl" /> */}
-                {/* <div className="absolute top-4 left-4 w-12 h-12 rounded-full bg-gradient-to-tr from-blue-400/20 to-cyan-400/20 blur-xl" /> */}
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      {/* Section Title */}
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-nexa font-bold text-center mb-8 sm:mb-12">
+        Philosophy
+      </h2>
+      
+      {/* Container with Navigation Outside */}
+      <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
+        {/* Main Card Container */}
+        <div className="relative bg-[#140c2c]/80 backdrop-blur-lg border-2 border-accent/50 rounded-2xl overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/philosophy-bg-card.png"
+              alt="Philosophy Background"
+              fill
+              className="object-cover opacity-20"
+            />
+          </div>
+          
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#140c2c]/85 via-[#140c2c]/60 to-[#301f66]/70"></div>
+          
+          {/* Content */}
+          <div className="relative z-10 p-6 sm:p-8 md:p-12 lg:p-16">
+            {/* Card Content - Centered and Well Spaced */}
+            <div className="text-center space-y-6 sm:space-y-8 min-h-[280px] sm:min-h-[320px] md:min-h-[360px] flex flex-col justify-center">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-nexa font-bold text-accent transition-all duration-500">
+                  {currentCard.title}
+                </h3>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-foreground/90 max-w-4xl mx-auto transition-all duration-500">
+                  {currentCard.content}
+                </p>
               </div>
             </div>
-          ))}
+          </div>
+          
+          {/* Decorative Elements */}
+          <div className="absolute top-4 right-4 w-16 h-16 bg-accent/15 rounded-full blur-xl"></div>
+          <div className="absolute bottom-4 left-4 w-12 h-12 bg-purple-400/15 rounded-full blur-lg"></div>
         </div>
-      </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm rounded-full p-4 hover:bg-white/20 transition-all duration-300 group z-20 shadow-lg"
-      >
-        <FiChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-sm rounded-full p-4 hover:bg-white/20 transition-all duration-300 group z-20 shadow-lg"
-      >
-        <FiChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-      </button>
-
-      {/* Card Counter */}
-      <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm rounded-full px-4 py-2 z-20">
-        <span className="text-white text-sm font-medium">
-          {currentIndex + 1} / {philosophyCards.length}
-        </span>
-      </div>
-
-      {/* Dots Indicator */}
-      <div className="flex justify-center mt-8 space-x-3">
-        {philosophyCards.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "bg-white scale-125" : "bg-white/40 hover:bg-white/60"
-            }`}
-          />
-        ))}
+        {/* Navigation Controls - Outside the Card */}
+        <div className="space-y-4 sm:space-y-6">
+          {/* Dots Indicator - Centered */}
+          <div className="flex justify-center">
+            <div className="flex gap-2 sm:gap-3">
+              {philosophyCards.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? "bg-accent scale-125 shadow-lg shadow-accent/50" 
+                      : "bg-accent/40 hover:bg-accent/60 hover:scale-110"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation Buttons - Left and Right */}
+          <div className="flex items-center justify-between max-w-md mx-auto">
+            {/* Previous Button */}
+            <button
+              onClick={prevSlide}
+              className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-accent/20 hover:bg-accent/30 rounded-full transition-all duration-300 border border-accent/50 hover:border-accent/80 hover:scale-105"
+            >
+              <FiChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+            </button>
+            
+            {/* Card Counter */}
+            <span className="bg-accent/20 backdrop-blur-sm rounded-full px-4 py-2 sm:px-6 sm:py-3 text-accent font-medium text-sm sm:text-base border border-accent/30">
+              {currentIndex + 1} of {philosophyCards.length}
+            </span>
+            
+            {/* Next Button */}
+            <button
+              onClick={nextSlide}
+              className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center bg-accent/20 hover:bg-accent/30 rounded-full transition-all duration-300 border border-accent/50 hover:border-accent/80 hover:scale-105"
+            >
+              <FiChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-accent" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
