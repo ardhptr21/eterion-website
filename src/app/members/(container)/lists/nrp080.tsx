@@ -16,7 +16,7 @@ const data = {
   tagline:
     "Telat kusadar hidup bukanlah,\nPerihal mengambil yang kau tebar,\nSedikit air yang kupunya,\nMilikmu juga,\nBersama...",
   instagram: "@yudinandanjaya_",
-  whatsapp: "6281234567890",
+  whatsapp: "6282145665062",
 };
 
 export default function NRP080() {
@@ -105,7 +105,6 @@ function MemberDialog(props: { open: boolean; onOpenChange: (open: boolean) => v
               </p>
             </div>
 
-            {/* Tombol Sosial Logo Saja */}
             <div className="flex justify-center gap-5 mt-6">
               <a
                 href={`https://instagram.com/${data.instagram.replace("@", "")}`}
