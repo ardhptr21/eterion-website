@@ -30,7 +30,7 @@ if (typeof document !== 'undefined') {
 
 const data = {
   name: "Mochammad Atha Tajuddin",
-  nrp: "502724093",
+  nrp: "5027241093",
   image: "093.jpg",
   funfact: "Sama orang2 yang gak kenal dipanggil bapak-bapak🤯",
   hobby: "Gym & Baca buku motivasi",
