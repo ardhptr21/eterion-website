@@ -14,7 +14,7 @@ const data = {
   origin: "Jombang",
 };
 
-export default function NRPCard() {
+export default function NRP123() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -60,6 +60,8 @@ export default function NRPCard() {
       <Dialog.Portal>
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
           <Dialog.Content className="bg-white rounded-lg p-6 max-w-md mx-auto">
+                        <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
+
             <h3 className="text-lg font-bold mb-4">Detail {data.name}</h3>
             <div className="space-y-2">
               <p><strong>NRP:</strong> {data.nrp}</p>
