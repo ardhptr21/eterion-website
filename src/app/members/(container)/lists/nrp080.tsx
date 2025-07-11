@@ -14,7 +14,7 @@ const data = {
   hobby: "Billiard & Sunset",
   origin: "Bali Island",
   tagline:
-    "Telat kusadar hidup bukanlah,\nPerihal mengambil yang kau tebar,\nSedikit air yang kupunya,\nMilikmu juga,\nBersama...",
+    "Telat ku jsadar hidup bukanlah,\nPerihal mengambil yang kau tebar,\nSedikit air yang kupunya,\nMilikmu juga,\nBersama...",
   instagram: "@yudinandanjaya_",
   whatsapp: "6282145665062",
 };
