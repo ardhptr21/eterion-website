@@ -6,12 +6,13 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Putu Yudi Nandanjaya Wiraguna",
+  nrp: "5027241080",
+  image: "080.jpg",
+  funfact: "Kalkulus ga ngulang",
+  hobby: "Billiard",
+  origin: "Bali",
+  instagram: "@yudinandanjaya_", 
 };
 
 export default function NRP080() {
@@ -82,6 +83,17 @@ function MemberDialog({
               </p>
               <p>
                 <strong>Funfact:</strong> {data.funfact}
+              </p>
+              <p>
+                <strong>Instagram:</strong>{" "}
+                <a
+                  href="https://instagram.com/yudinandanjaya_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-amber-400"
+                >
+                  {data.instagram}
+                </a>
               </p>
             </div>
           </Dialog.Content>
