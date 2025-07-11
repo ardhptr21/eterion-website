@@ -14,7 +14,7 @@ const data = {
   origin: "Solo",
 };
 
-export default function NRP066() {
+export default function NRP089() {
   const [open, setOpen] = useState(false);
 
   return (
