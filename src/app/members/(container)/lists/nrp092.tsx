@@ -130,7 +130,6 @@ function MemberDialog({
               backgroundImage: `url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIydmY0Z2w3czJteHp2NHA4emtqZTJtcHJ3NzZ4dTJvZHZiaThheiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rUxSaLgjcQbLO/giphy.gif")`,
             }}
           >
-            {/* Overlay gelap */}
             <div className="absolute inset-0 bg-black/40 rounded-2xl pointer-events-none z-0" />
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
@@ -142,8 +141,6 @@ function MemberDialog({
                 className="object-cover"
               />
             </div>
-
-            {/* Nama → LinkedIn */}
             <a
               href="https://www.linkedin.com/in/khairul-yahya-781683323/"
               target="_blank"
@@ -153,8 +150,6 @@ function MemberDialog({
             >
               {data.name}
             </a>
-
-            {/* NRP → Instagram */}
             <a
               href="https://www.instagram.com/kharlyahh/"
               target="_blank"
@@ -172,8 +167,6 @@ function MemberDialog({
               <p className="font-glitch"><strong>Hobi:</strong> {data.hobby}</p>
               <p className="font-glitch"><strong>Funfact:</strong> {data.funfact}</p>
             </div>
-
-            {/* YouTube embed */}
             <div className="mt-6 z-10 relative">
               <iframe
                 className="w-full aspect-video rounded-lg"
