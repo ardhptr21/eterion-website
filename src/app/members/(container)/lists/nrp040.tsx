@@ -294,11 +294,10 @@ function PanZoomImage({ src, alt }: { src: string; alt: string }) {
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     const rect = containerRef.current?.getBoundingClientRect();
     if (!rect) return;
-    // Hitung offset maksimal berdasarkan skala dan ukuran container
     const maxOffsetX = ((scale - 1) * rect.width) / (2 * scale);
     const maxOffsetY = ((scale - 1) * rect.height) / (2 * scale);
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; 
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
     setOffset({
       x: clamp(x * maxOffsetX, -maxOffsetX, maxOffsetX),
       y: clamp(y * maxOffsetY, -maxOffsetY, maxOffsetY),
@@ -309,7 +308,6 @@ function PanZoomImage({ src, alt }: { src: string; alt: string }) {
     setIsHover(false);
     setNoTransition(true);
     setOffset({ x: 0, y: 0 });
-    // Aktifkan kembali transition setelah satu frame
     requestAnimationFrame(() => setNoTransition(false));
   }
 
@@ -402,8 +400,8 @@ function SplashCursor({
   SIM_RESOLUTION = 64,
   DYE_RESOLUTION = 512,
   CAPTURE_RESOLUTION = 256,
-  DENSITY_DISSIPATION = 1.8, // Mengurangi dissipation agar warna lebih lama bertahan
-  VELOCITY_DISSIPATION = 1.2, // Mengurangi dissipation agar gerakan lebih lama
+  DENSITY_DISSIPATION = 1.8, 
+  VELOCITY_DISSIPATION = 1.2, 
   PRESSURE = 0.05,
   PRESSURE_ITERATIONS = 10,
   CURL = 2,
@@ -411,7 +409,7 @@ function SplashCursor({
   SPLAT_FORCE = 10000,
   SHADING = false,
   COLOR_UPDATE_SPEED = 5,
-  BACK_COLOR = { r: 0.5, g: 0.1, b: 0.1 }, // Menambah warna background
+  BACK_COLOR = { r: 0.5, g: 0.1, b: 0.1 }, 
   TRANSPARENT = true
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -821,7 +819,7 @@ function SplashCursor({
           #endif
 
           float a = max(c.r, max(c.g, c.b));
-          a = clamp(a * 0.9, 0.0, 1.0); // untuk mengurangi kecerahan gambar
+          a = clamp(a * 0.9, 0.0, 1.0);
           gl_FragColor = vec4(c, a);
       }
     `;
@@ -1344,8 +1342,7 @@ function SplashCursor({
       applyInputs();
       step(dt);
       render(null);
-      // Throttle frame rate for better performance
-      setTimeout(() => requestAnimationFrame(updateFrame), 16); // ~60fps
+      setTimeout(() => requestAnimationFrame(updateFrame), 16); 
     }
 
     function calcDeltaTime() {
@@ -1369,7 +1366,7 @@ function SplashCursor({
 
     function updateColors(dt: number) {
       colorUpdateTimer += dt * config.COLOR_UPDATE_SPEED;
-      if (colorUpdateTimer >= 2) { // Reduced frequency
+      if (colorUpdateTimer >= 2) { 
         colorUpdateTimer = wrap(colorUpdateTimer, 0, 2);
         pointers.forEach((p) => {
           p.color = generateColor();
@@ -1389,7 +1386,6 @@ function SplashCursor({
     function step(dt: number) {
       gl.disable(gl.BLEND);
 
-      // Simplified step function for better performance
       curlProgram.bind();
       if (curlProgram.uniforms.texelSize) {
         gl.uniform2f(
@@ -1429,7 +1425,6 @@ function SplashCursor({
       blit(velocity.write);
       velocity.swap();
 
-      // Simplified pressure solving
       divergenceProgram.bind();
       if (divergenceProgram.uniforms.texelSize) {
         gl.uniform2f(
@@ -1456,7 +1451,6 @@ function SplashCursor({
       blit(pressure.write);
       pressure.swap();
 
-      // Reduced pressure iterations for performance
       pressureProgram.bind();
       if (pressureProgram.uniforms.texelSize) {
         gl.uniform2f(
@@ -1505,7 +1499,6 @@ function SplashCursor({
       blit(velocity.write);
       velocity.swap();
 
-      // Simplified advection
       advectionProgram.bind();
       if (advectionProgram.uniforms.texelSize) {
         gl.uniform2f(
@@ -1594,7 +1587,6 @@ function SplashCursor({
     function splatPointer(pointer: Pointer) {
       const dx = pointer.deltaX * config.SPLAT_FORCE;
       const dy = pointer.deltaY * config.SPLAT_FORCE;
-      // Menambah intensitas warna untuk mouse move
       const enhancedColor = { ...pointer.color };
       enhancedColor.r *= 1.05;
       enhancedColor.g *= 1.05;
@@ -1604,9 +1596,9 @@ function SplashCursor({
 
     function clickSplat(pointer: Pointer) {
       const color = generateColor();
-      color.r *= 3; // Meningkatkan dari 5 ke 8
-      color.g *= 3; // Meningkatkan dari 5 ke 8
-      color.b *= 3; // Meningkatkan dari 5 ke 8
+      color.r *= 3; 
+      color.g *= 3; 
+      color.b *= 3; 
       const dx = 5 * (Math.random() - 0.5);
       const dy = 15 * (Math.random() - 0.5);
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
@@ -1717,9 +1709,9 @@ function SplashCursor({
 
     function generateColor(): ColorRGB {
       const c = HSVtoRGB(Math.random(), 0.8, 0.8);
-      c.r *= 0.11; // Meningkatkan dari 0.1 ke 0.3
-      c.g *= 0.11; // Meningkatkan dari 0.1 ke 0.3
-      c.b *= 0.11; // Meningkatkan dari 0.1 ke 0.3
+      c.r *= 0.11;
+      c.g *= 0.11; 
+      c.b *= 0.11; 
       return c;
     }
 
@@ -1766,7 +1758,6 @@ function SplashCursor({
           break;
       }
       
-      // Menambah opacity dengan mengatur nilai minimum
       r = Math.max(r, 0.1);
       g = Math.max(g, 0.1);
       b = Math.max(b, 0.1);
@@ -1783,7 +1774,6 @@ function SplashCursor({
     window.addEventListener("mousedown", (e) => {
       const target = e.target as HTMLElement;
       if (target.closest('[role="dialog"]')) return;
-      // Check if click is inside photo frame or chat area
       const isInPhotoFrame = target.closest('.photo-frame') || target.closest('[data-photo-frame]');
       const isInChatArea = target.closest('.chat-area') || target.closest('[data-chat-area]');
       
@@ -1799,7 +1789,6 @@ function SplashCursor({
     function handleFirstMouseMove(e: MouseEvent) {
       const target = e.target as HTMLElement;
       if (target.closest('[role="dialog"]')) return;
-      // Check if mouse is inside photo frame or chat area
       const isInPhotoFrame = target.closest('.photo-frame') || target.closest('[data-photo-frame]');
       const isInChatArea = target.closest('.chat-area') || target.closest('[data-chat-area]');
       
@@ -1818,7 +1807,6 @@ function SplashCursor({
     window.addEventListener("mousemove", (e) => {
       const target = e.target as HTMLElement;
       if (target.closest('[role="dialog"]')) return;
-      // Check if mouse is inside photo frame or chat area
       const isInPhotoFrame = target.closest('.photo-frame') || target.closest('[data-photo-frame]');
       const isInChatArea = target.closest('.chat-area') || target.closest('[data-chat-area]');
       
@@ -1834,7 +1822,6 @@ function SplashCursor({
     function handleFirstTouchStart(e: TouchEvent) {
       const target = e.target as HTMLElement;
       if (target.closest('[role="dialog"]')) return;
-      // Check if touch is inside photo frame or chat area
       const isInPhotoFrame = target.closest('.photo-frame') || target.closest('[data-photo-frame]');
       const isInChatArea = target.closest('.chat-area') || target.closest('[data-chat-area]');
       
@@ -1857,7 +1844,6 @@ function SplashCursor({
       (e) => {
         const target = e.target as HTMLElement;
         if (target.closest('[role="dialog"]')) return;
-        // Check if touch is inside photo frame or chat area
         const isInPhotoFrame = target.closest('.photo-frame') || target.closest('[data-photo-frame]');
         const isInChatArea = target.closest('.chat-area') || target.closest('[data-chat-area]');
         
@@ -1879,7 +1865,6 @@ function SplashCursor({
       (e) => {
         const target = e.target as HTMLElement;
         if (target.closest('[role="dialog"]')) return;
-        // Check if touch is inside photo frame or chat area
         const isInPhotoFrame = target.closest('.photo-frame') || target.closest('[data-photo-frame]');
         const isInChatArea = target.closest('.chat-area') || target.closest('[data-chat-area]');
         
@@ -1926,7 +1911,7 @@ function SplashCursor({
         position: "fixed",
         top: 0,
         left: 0,
-        zIndex: 50,
+        zIndex: 10,
         pointerEvents: "none",
         width: "100%",
         height: "100%",
