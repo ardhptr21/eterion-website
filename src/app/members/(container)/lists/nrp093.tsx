@@ -98,7 +98,7 @@ function MemberDialog({
     "",
     "> Hello! This is me,",
     "> Mochammad Atha Tajuddin",
-    "> Student ID: 502724093",
+    "> Student ID: 5027241093",
     "> From: Gresik",
     "> Hobby: Gym & Baca buku motivasi", 
     "> Fun fact: Sama orang2 yang gak kenal dipanggil bapak-bapak🤯",
