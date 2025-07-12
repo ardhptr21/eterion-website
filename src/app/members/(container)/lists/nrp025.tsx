@@ -6,22 +6,33 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Christiano Ronaldo Silalahi",
+  nrp: "5027241025",
+  image: "025.jpg",
+  funfact: "Kalau di Surabaya Mandi 3 kali sehari",
+  hobby: "berenang",
+  origin: "Jakarta",
 };
 
 export default function NRP025() {
   const [open, setOpen] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="card-container cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative backdrop-blur-lg transition-transform duration-300 overflow-hidden"
         onClick={() => setOpen(true)}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+        style={{
+          backgroundImage: isHovering
+            ? "url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjY4bDUwZHRxb2xhd3Y3OWJ3ZjllZWhwd2dtZHhucDN3eXpvenl4MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MSeKYlDNu4cFX5NW6U/giphy.gif')"
+            : "none",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "rgba(20,12,44,0.8)",
+        }}
       >
         <Noise />
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
@@ -32,7 +43,7 @@ export default function NRP025() {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="mt-5 z-10">
+        <div className="mt-5 z-10 text-white">
           <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>
         </div>
@@ -40,6 +51,21 @@ export default function NRP025() {
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
+
+      <style jsx>{`
+        @keyframes wiggle {
+          0%, 100% {
+            transform: rotate(-3deg);
+          }
+          50% {
+            transform: rotate(3deg);
+          }
+        }
+
+        .card-container:hover {
+          animation: wiggle 0.5s ease-in-out infinite;
+        }
+      `}</style>
     </>
   );
 }
