@@ -25,8 +25,9 @@ export default function NRP054() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg"
-        onClick={() => setOpen(true)}
+      className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg
+              transform transition-transform duration-300
+              hover:scale-[1.03] hover:shadow-2xl"
       >
         <Noise />
 
