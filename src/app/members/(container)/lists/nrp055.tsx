@@ -9,7 +9,7 @@ const data = {
   name: "Bayu Kurniawan",
   nrp: "5027241055",
   image: "055.jpg",
-  funfact: "Sering dikira jawa padalah asli banjar",
+  funfact: "Sering dikira jawa padahal asli banjar",
   hobby: "Volly, Denger Musik",
   origin: "Banjarmasin",
 };
