@@ -481,5 +481,5 @@ function MemberDialog({
         </div>
       </Dialog.Portal>
     </Dialog.Root>
-  ); 
+  ); // FIX
 }
