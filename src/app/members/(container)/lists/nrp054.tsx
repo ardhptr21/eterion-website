@@ -5,8 +5,13 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
 import Link from 'next/link';
+import { Anton } from 'next/font/google';
 
-
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+});
 
 const data = {
   name: "Nisrina Bilqis",
@@ -55,8 +60,8 @@ export default function NRP054() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
+          <h4 className="text-xl ${anton.className} font-bold">{data.name}</h4>
+          <h6 className="${anton.className}">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
       </div>
@@ -90,10 +95,10 @@ function MemberDialog({
             </div>
 
               <Link href={data.nameLink || '#'} className="block border border-white/0 rounded-x p-1 hover:bg-[#40E0D0]/50 transition">
-                  <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
+                  <h2 className="text-3xl font-bold ${anton.className} text-white mb-1">{data.name}</h2>
               </Link>   
               <Link href={data.nrpLink || '#'} className="block border border-white/0 p-1 hover:bg-[#40E0D0]/50 transition">
-                  <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+                  <p className="text-lg ${anton.className} text-white/70">{data.nrp}</p>
               </Link>
               
             
@@ -102,19 +107,19 @@ function MemberDialog({
 
             <div className="space-y-4">
               <Link href={data.originlink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
-                  <p className="text-white font-nexa text-base">
+                  <p className="text-white ${anton.className} text-base">
                     <strong>Asal:</strong> {data.origin}
                   </p>
               </Link>
 
               <Link href={data.hobbyLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
-                  <p className="text-white font-nexa text-base">
+                  <p className="text-white ${anton.className} text-base">
                     <strong>Hobi:</strong> {data.hobby}
                   </p>
               </Link>
 
               <Link href={data.funfactLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
-                  <p className="text-white font-nexa text-base">
+                  <p className="text-white ${anton.className} text-base">
                     <strong>Funfact:</strong> {data.funfact}
                   </p>
               </Link>
