@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef, CSSProperties } from "react";
 const data = {
   name: "Ahmad Yazid Arifuddin",
   nrp: "5027241040",
-  image: "040.png",
+  image: "040.jpg",
   funfact: "Bukan pendukung 02",
   hobby: "Do something fun",
   origin: "Sidoarjo",
@@ -107,6 +107,10 @@ function MemberDialog({
 }
 
 function YazidsAssistant() {
+  // Konfigurasi waktu loading
+  const LOADING_DELAY = 1000; // Waktu loading dalam milidetik (1 detik)
+  const DOT_ANIMATION_SPEED = 300; // Kecepatan animasi dot dalam milidetik
+  
   const botReplies = [
     "Maaf, aku paham maksudmu, tapi aku masih bot sederhana.",
     "Aku mengerti pertanyaanmu, tapi aku belum bisa menjawab detailnya.",
@@ -166,7 +170,7 @@ function YazidsAssistant() {
     if (!loading) return;
     const interval = setInterval(() => {
       setDotCount((prev: number) => (prev % 3) + 1);
-    }, 400);
+    }, DOT_ANIMATION_SPEED);
     return () => clearInterval(interval);
   }, [loading]);
 
@@ -194,12 +198,12 @@ function YazidsAssistant() {
       ]);
       setLoading(false);
       setDotCount(1);
-    }, 2000);
+    }, LOADING_DELAY);
     setInput("");
   }
 
   return (
-    <div className="flex flex-col h-120">
+    <div className="flex flex-col h-200">
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <span className="font-bold text-[#0097f6] text-lg">Yazid's Assistant</span>
@@ -232,7 +236,7 @@ function YazidsAssistant() {
             )}
           </div>
         ))}
-        {/* Loading bubble */}
+
         {loading && (
           <div className="flex items-start gap-2">
             <div className="flex flex-col items-start">
