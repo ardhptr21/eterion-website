@@ -20,7 +20,7 @@ const data = {
     name: "Jonathan Zelig Sutopo",
     nrp: "5027241047",
     image: "047.png",
-    hobby: "Calisthenics, read manhwa/manhua/manga, learn new things",
+    hobby: "Calisthenics, read manhwa/manhua/manga, learn new things, and listening to music 24/7",
     funfact: "Used to talking in English for 60-80% of my everyday life",
     origin: "Surabaya",
 };
