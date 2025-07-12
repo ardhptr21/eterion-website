@@ -4,7 +4,6 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState, useRef, MouseEvent } from "react";
-import { motion } from "framer-motion";
 
 const data = {
   name: "Ahmad Syauqi Reza",
@@ -15,6 +14,7 @@ const data = {
   origin: "Boyolali",
 };
 
+// Komponen untuk Dialog
 type MemberDialogProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -59,6 +59,7 @@ const MemberDialog = ({ open, onOpenChange }: MemberDialogProps) => {
   );
 };
 
+// INI ADALAH KOMPONEN UTAMA DENGAN EFEK BARU
 export default function NRP085() {
   const [open, setOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -77,6 +78,7 @@ export default function NRP085() {
 
     setStyle({
       transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
+      transition: "transform 0.1s ease-out", // Transisi cepat saat mouse bergerak
       "--mouse-x": `${x}px`,
       "--mouse-y": `${y}px`,
     } as React.CSSProperties);
@@ -86,11 +88,13 @@ export default function NRP085() {
     setStyle({
       transform:
         "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
+      transition: "transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)", // Transisi halus saat kembali
     });
   };
 
   return (
     <>
+      {/* Style untuk efek kilau (shine) */}
       <style jsx>{`
         .card-shine::after {
           content: "";
@@ -114,21 +118,20 @@ export default function NRP085() {
         }
       `}</style>
 
-      <motion.div
+      <div
         ref={cardRef}
         className="card-container cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-[#6F4E37]/50 relative bg-[#362419]/80 backdrop-blur-lg"
         onClick={() => setOpen(true)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        style={style}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        style={style} // Terapkan style dinamis di sini
       >
         <div
           className="card-shine absolute inset-0 rounded-xl overflow-hidden"
-          style={{ transform: "translateZ(20px)" }} // Efek kilau sedikit di atas
+          style={{ transform: "translateZ(20px)" }}
         />
         <Noise />
-        <motion.div
+        <div
           className="w-full h-full"
           style={{ transform: "translateZ(40px)" }} // Konten lebih terangkat (parallax)
         >
@@ -146,8 +149,8 @@ export default function NRP085() {
             </h4>
             <h6 className="font-nexa text-white/70">{data.nrp}</h6>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
     </>
