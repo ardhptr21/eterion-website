@@ -27,7 +27,7 @@ export default function NRP054() {
      <div
       className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg
               transform transition-transform duration-300
-              hover:scale-[1.03] hover:shadow-2xl"
+              hover:scale-[1.03] hover:shadow-2xl hover:bg-[#40E0D0]/3"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -51,8 +51,8 @@ export default function NRP054() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-college-block font-bold">{data.name}</h4>
-          <h6 className="font-college-block">{data.nrp}</h6>
+          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
+          <h6 className="font-nexa">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
       </div>
