@@ -7,6 +7,8 @@ import { useState } from "react";
 import Link from 'next/link';
 import { Anton } from 'next/font/google';
 
+
+
 const anton = Anton({
   subsets: ['latin'],
   weight: '400',
@@ -28,6 +30,7 @@ const data = {
 
 };
 
+
 export default function NRP054() {
   const [open, setOpen] = useState(false);
 
@@ -36,7 +39,7 @@ export default function NRP054() {
      <div
       className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg
               transform transition-transform duration-300
-              hover:scale-[1.03] hover:shadow-2xl" 
+              hover:scale-[1.03] hover:shadow-2xl {anton.className}" 
         onClick={() => setOpen(true)} 
       >
         <Noise />
@@ -69,6 +72,7 @@ export default function NRP054() {
     </>
   );
 }
+
 
 function MemberDialog({
   open,
@@ -128,5 +132,6 @@ function MemberDialog({
         </div>
       </Dialog.Portal>
     </Dialog.Root>
+    
   );
 }
