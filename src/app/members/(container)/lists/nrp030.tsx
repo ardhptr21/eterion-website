@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Erlangga Valdhio Putra Sulistio",
+  nrp: "5027241030",
+  image: "030.jpg",
+  funfact: "Dingin Tetapi Tetap Subuh",
+  hobby: "Jalan-jalan, Dengerin Musik",
+  origin: "Jakarta",
 };
 
 export default function NRP030() {
@@ -20,11 +20,13 @@ export default function NRP030() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent hover:border-white transition-all duration-300
+          relative bg-gradient-to-br from-purple-700 via-indigo-600 to-amber-400 backdrop-blur-lg 
+          hover:shadow-2xl hover:scale-[1.03]"
         onClick={() => setOpen(true)}
       >
         <Noise />
-        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
+        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden shadow-lg">
           <Image
             src={`/images/members/${data.image}`}
             alt={data.name}
@@ -33,8 +35,8 @@ export default function NRP030() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
+          <h4 className="text-xl font-nexa font-bold text-white">{data.name}</h4>
+          <h6 className="font-nexa text-white/80">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
       </div>
@@ -56,10 +58,10 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10 bg-gradient-to-br from-blue-700 via-indigo-800 to-purple-700">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
+            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative shadow-lg">
               <Image
                 src={`/images/members/${data.image}`}
                 alt={data.name}
@@ -71,7 +73,7 @@ function MemberDialog({
             <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
             <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
 
-            <hr className="my-6 border-t border-white/20" />
+            <hr className="my-6 border-t border-white/30" />
 
             <div className="space-y-2 text-white font-nexa text-base">
               <p>
