@@ -4,89 +4,252 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
+import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
+
+const cinzel = Cinzel_Decorative({
+    subsets: ["latin"],
+    weight: ["700"],
+});
+
+const cormorant = Cormorant_Garamond({
+    subsets: ["latin"],
+    weight: ["600"],
+});
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+    name: "Jonathan Zelig Sutopo",
+    nrp: "5027241047",
+    image: "047.png",
+    hobby: "Calisthenics, read manhwa/manhua/manga, learn new things",
+    funfact: "Used to talking in English for 60-80% of my everyday life",
+    origin: "Surabaya",
 };
 
+function CornerSigil({ position }: { position: string }) {
+    return (
+        <div
+            className={`absolute ${position} opacity-0 ease-in-out group-hover:opacity-100 transition-opacity duration-500`}
+        >
+            <Image
+                src="/images/zodiac/capricorn.svg"
+                alt="Capricorn Sigil"
+                width={32}
+                height={32}
+                className="animate-spin"
+                style={{ animationDuration: "20s" }}
+            />
+        </div>
+    );
+}
+
 export default function NRP047() {
-  const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
-  return (
-    <>
-      <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
-        onClick={() => setOpen(true)}
-      >
-        <Noise />
-        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
-          <Image
-            src={`/images/members/${data.image}`}
-            alt={data.name}
-            fill
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
-        </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
-      </div>
+    // This CSS is correct and does not need to change.
+    const borderAnimation = `
+        @keyframes rotate_border {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .animated-border::before,
+        .animated-border::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            aspect-ratio: 1 / 1;
+            animation: rotate_border linear infinite;
+        }
+        
+        .animated-border::before {
+            background: conic-gradient(
+                from 90deg at 50% 50%,
+                transparent 0%,
+                #6ee7b7 20%,
+                #67e8f9 30%,
+                transparent 50%,
+                transparent 100%
+            );
+            animation-duration: 8s;
+        }
 
-      <MemberDialog open={open} onOpenChange={setOpen} />
-    </>
-  );
+        .animated-border::after {
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0%,
+                #818cf8 20%,
+                #e879f9 30%,
+                transparent 50%,
+                transparent 100%
+            );
+            animation-duration: 12s;
+        }
+    `;
+
+    return (
+        <>
+            <style>{borderAnimation}</style>
+            <div
+                className="group relative w-full cursor-pointer rounded-xl animated-border overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_0_40px_5px_rgba(102,231,182,0.5)]"
+                onClick={() => setOpen(true)}
+            >
+                <div
+                    className="relative z-10 m-0.5 rounded-[10px] p-10 backdrop-blur-lg"
+                    style={{
+                        backgroundImage: `
+                                radial-gradient(circle at center, 
+                                    rgba(15, 21, 40, 0.95) 5%,
+                                    transparent 70%
+                                ),
+                                linear-gradient(to bottom,
+                                    rgba(15, 21, 40, 0.95),
+                                    rgba(47, 210, 134, 0.4),
+                                    rgba(15, 21, 40, 0.95)
+                                )
+                            `,
+                    }}
+                >
+                    <Noise />
+
+                    <div className="absolute inset-0 flex items-center justify-center animate-pulse opacity-[0.3] mix-blend-soft-light transition-all duration-500 ease-in-out group-hover:opacity-[0.2] group-hover:mix-blend-normal">
+                        <Image
+                            src="/images/zodiac/capricorn.svg"
+                            alt="Capricorn Zodiac"
+                            width={500}
+                            height={500}
+                        />
+                    </div>
+
+                    <CornerSigil position="top-3 left-3" />
+                    <CornerSigil position="top-3 right-3" />
+                    <CornerSigil position="bottom-3 left-3" />
+                    <CornerSigil position="bottom-3 right-3" />
+
+                    <div className="relative z-10 aspect-[4/5] overflow-hidden rounded-xl bg-black">
+                        <Image
+                            src={`/images/members/${data.image}`}
+                            alt={data.name}
+                            fill
+                            className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
+                        />
+                    </div>
+                    <div className="relative z-10 mt-5 text-center">
+                        <h4
+                            className={`text-xl font-bold text-white tracking-wider ${cinzel.className}`}
+                        >
+                            {data.name}
+                        </h4>
+                        <h6
+                            className={`text-lg text-slate-400 ${cormorant.className}`}
+                        >
+                            {data.nrp}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <MemberDialog open={open} onOpenChange={setOpen} />
+        </>
+    );
 }
 
 function MemberDialog({
-  open,
-  onOpenChange,
+    open,
+    onOpenChange,
 }: {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+    open: boolean;
+    onOpenChange: (open: boolean) => void;
 }) {
-  return (
-    <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
-            <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
+    return (
+        <Dialog.Root open={open} onOpenChange={onOpenChange}>
+            <Dialog.Portal>
+                <Dialog.Overlay className="fixed inset-0 bg-slate-950/70 z-40 backdrop-blur-md" />
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    <div className="relative rounded-xl animated-border overflow-hidden shadow-[0_0_60px_5px_rgba(102,231,182,0.7)]">
+                        <Dialog.Content
+                            className="relative z-10 m-0.5 w-full max-w-lg max-h-[95vh] rounded-[10px] overflow-y-auto p-10"
+                            style={{
+                                backgroundImage: `
+                                radial-gradient(circle at center, 
+                                    rgba(15, 21, 40, 0.95) 5%,
+                                    transparent 70%
+                                ),
+                                linear-gradient(to bottom,
+                                    rgba(15, 21, 40, 0.95),
+                                    rgba(47, 210, 134, 0.4),
+                                    rgba(15, 21, 40, 0.95)
+                                )
+                            `,
+                            }}
+                        >
+                            <Noise />
+                            <div className="absolute inset-0 flex items-center justify-center animate-[0.03] mix-blend-soft-light">
+                                <Image
+                                    src="/images/zodiac/capricorn.svg"
+                                    alt="Capricorn Zodiac"
+                                    width={500}
+                                    height={500}
+                                    className="opacity-30"
+                                />
+                            </div>
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
-              <Image
-                src={`/images/members/${data.image}`}
-                alt={data.name}
-                fill
-                className="object-cover"
-              />
-            </div>
+                            <Dialog.Title className="sr-only">
+                                {data.name}
+                            </Dialog.Title>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+                            <div className="w-full aspect-square max-w-[300px] mx-auto rounded-full overflow-hidden mb-8 relative">
+                                <Image
+                                    src={`/images/members/${data.image}`}
+                                    alt={data.name}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
 
-            <hr className="my-6 border-t border-white/20" />
+                            <div className="text-center">
+                                <h2
+                                    className={`text-2xl font-bold text-white mb-1 tracking-widest ${cinzel.className}`}
+                                >
+                                    {data.name}
+                                </h2>
+                                <p
+                                    className={`text-lg text-slate-300 ${cormorant.className}`}
+                                >
+                                    {data.nrp}
+                                </p>
+                            </div>
 
-            <div className="space-y-2 text-white font-nexa text-base">
-              <p>
-                <strong>Asal:</strong> {data.origin}
-              </p>
-              <p>
-                <strong>Hobi:</strong> {data.hobby}
-              </p>
-              <p>
-                <strong>Funfact:</strong> {data.funfact}
-              </p>
-            </div>
-          </Dialog.Content>
-        </div>
-      </Dialog.Portal>
-    </Dialog.Root>
-  );
+                            <div className="my-8 h-[2px] w-full bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent" />
+
+                            <div
+                                className={`space-y-4 text-white/90 text-lg ${cormorant.className}`}
+                            >
+                                <p>
+                                    <strong className="font-semibold text-slate-400">
+                                        Asal:
+                                    </strong>{" "}
+                                    {data.origin}
+                                </p>
+                                <p>
+                                    <strong className="font-semibold text-slate-400">
+                                        Hobi:
+                                    </strong>{" "}
+                                    {data.hobby}
+                                </p>
+                                <p>
+                                    <strong className="font-semibold text-slate-400">
+                                        Funfact:
+                                    </strong>{" "}
+                                    {data.funfact}
+                                </p>
+                            </div>
+                        </Dialog.Content>
+                    </div>
+                </div>
+            </Dialog.Portal>
+        </Dialog.Root>
+    );
 }
