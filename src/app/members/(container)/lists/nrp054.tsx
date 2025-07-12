@@ -35,7 +35,7 @@ export default function NRP054() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-20"
           >
           <source src="/videos/puzzle.webm" type="video/webm" />
         </video>
