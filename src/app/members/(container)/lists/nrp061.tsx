@@ -12,6 +12,7 @@ const data = {
   funfact: "pertama kali ke wiwin langsung ngutang",
   hobby: "ga ngapa-ngapain",
   origin: "Jakarta",
+  tiktokId: "7478595098167561478",
 };
 
 export default function NRP061() {
@@ -59,7 +60,9 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-xl bg-[#0f172a] rounded-3xl shadow-2xl overflow-y-auto focus:outline-none p-10 border border-cyan-400">
+          <Dialog.Content
+            className="w-full max-w-xl bg-[#0f172a] rounded-3xl shadow-2xl focus:outline-none border border-cyan-400 max-h-[90vh] overflow-y-auto p-10"
+          >
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="aspect-[4/5] relative overflow-hidden mx-auto w-72 mb-6">
@@ -76,7 +79,7 @@ function MemberDialog({
               <p className="text-base font-bold text-cyan-300">{data.nrp}</p>
             </div>
 
-            <div className="space-y-3 text-white text-sm font-medium">
+            <div className="space-y-3 text-white text-sm font-medium mb-6">
               <p>
                 <strong>Asal:</strong> {data.origin}
               </p>
@@ -87,6 +90,16 @@ function MemberDialog({
                 <strong>Funfact:</strong> {data.funfact}
               </p>
             </div>
+
+            {/* TikTok Embed */}
+            <iframe
+              src={`https://www.tiktok.com/embed/v2/${data.tiktokId}`}
+              width="325"
+              height="575"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="mx-auto rounded-xl mt-6"
+            />
           </Dialog.Content>
         </div>
       </Dialog.Portal>
