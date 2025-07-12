@@ -6,23 +6,25 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "Salsa Bil Ulla",
+  nrp: "5027241052",
+  image: "052.jpg",
+  funfact: "Pernah fomo jadi YouTuber Gaming pas SD",
+  hobby: "Main musik, Main game, Nonton, Dance",
   origin: "Surabaya",
 };
 
+// Komponen Card (tidak ada perubahan)
 export default function NRP052() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative overflow-hidden bg-cover bg-center bg-[url('https://img.freepik.com/free-vector/gradient-dark-wavy-background_23-2148385756.jpg?semt=ais_hybrid&w=740')]"
         onClick={() => setOpen(true)}
       >
+        <div className="absolute inset-0 bg-black/30" />
         <Noise />
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
@@ -32,7 +34,7 @@ export default function NRP052() {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="mt-5 z-10">
+        <div className="mt-5 z-10 relative">
           <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>
         </div>
@@ -44,6 +46,7 @@ export default function NRP052() {
   );
 }
 
+// Komponen Dialog Modal (KODE YANG DIPERBARUI DENGAN GIF YANG LEBIH BESAR & BISA DIKLIK)
 function MemberDialog({
   open,
   onOpenChange,
@@ -56,33 +59,63 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
-            <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
+          {/* 1. Container luar: untuk background dan clipping (sudut membulat) */}
+          <Dialog.Content
+            key={open.toString()}
+            className="w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative focus:outline-none bg-cover bg-center bg-[url('https://img.freepik.com/free-vector/gradient-dark-wavy-background_23-2148385756.jpg?semt=ais_hybrid&w=740')]">
+            
+            {/* Lapisan overlay gelap */}
+            <div className="absolute inset-0 bg-black/40" />
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
-              <Image
-                src={`/images/members/${data.image}`}
-                alt={data.name}
-                fill
-                className="object-cover"
-              />
-            </div>
+            {/* 2. Container dalam: untuk konten yang bisa di-scroll */}
+            <div className="relative w-full max-h-[95vh] overflow-y-auto p-10">
+              <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+              <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
+                <Image
+                  src={`/images/members/${data.image}`}
+                  alt={data.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
-            <hr className="my-6 border-t border-white/20" />
+              <h2 className="text-3xl font-bold font-nexa text-white mb-1">
+                {data.name}
+              </h2>
+              <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
 
-            <div className="space-y-2 text-white font-nexa text-base">
-              <p>
-                <strong>Asal:</strong> {data.origin}
-              </p>
-              <p>
-                <strong>Hobi:</strong> {data.hobby}
-              </p>
-              <p>
-                <strong>Funfact:</strong> {data.funfact}
-              </p>
+              <hr className="my-6 border-t border-white/20" />
+
+              <div className="space-y-2 text-white font-nexa text-base">
+                <p>
+                  <strong>Asal:</strong> {data.origin}
+                </p>
+                <p>
+                  <strong>Hobi:</strong> {data.hobby}
+                </p>
+                <p>
+                  <strong>Funfact:</strong> {data.funfact}
+                </p>
+
+               
+                <a 
+                  href="https://open.spotify.com/track/5H1sKFMzDeMtXwND3V6hRY?si=juUePYu-RVqZf-c9-0eyZA" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block mt-6 cursor-pointer" 
+                >
+                  <Image
+                    src="https://media1.tenor.com/m/wuuyrq4sJioAAAAd/marsha-marsha-jkt48.gif"
+                    alt="Marsha JKT48 GIF (Click to Spotify)"
+                    width={500} 
+                    height={300} 
+                    unoptimized={true} 
+                    className="w-full h-auto rounded-lg object-cover" 
+                  />
+                </a>
+                
+              </div>
             </div>
           </Dialog.Content>
         </div>
