@@ -150,14 +150,14 @@ function MemberDialog({
                 ))}
               </div>
 
-              {/* BLOK BARU UNTUK GIF DITAMBAHKAN DI SINI */}
+              
               <div className="mt-8 flex justify-center">
                 <Image
                   src="https://i.imgur.com/EJd1u.gif"
                   alt="Funny Reaction GIF"
-                  width={498} // Dimensi asli GIF
-                  height={278} // Dimensi asli GIF
-                  unoptimized={true} // Sangat penting untuk animasi GIF
+                  width={498}
+                  height={278} 
+                  unoptimized={true} 
                   className="rounded-lg"
                 />
               </div>
