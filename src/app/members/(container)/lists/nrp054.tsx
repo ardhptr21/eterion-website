@@ -5,19 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
 import Link from 'next/link';
-import localFont from 'next/font/local';
 
-const collegeBlock = localFont({
-  src: [
-    {
-      path: '/fonts/CollegeBlock.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  display: 'swap',           
-  variable: '--font-college' 
-});
 
 
 const data = {
@@ -41,7 +29,7 @@ export default function NRP054() {
      <div
       className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg
               transform transition-transform duration-300
-              hover:scale-[1.03] hover:shadow-2xl ${collegeBlock.className}" 
+              hover:scale-[1.03] hover:shadow-2xl" 
         onClick={() => setOpen(true)} 
       >
         <Noise />
@@ -70,7 +58,6 @@ export default function NRP054() {
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
       </div>
-
       <MemberDialog open={open} onOpenChange={setOpen} />
     </>
   );
@@ -88,7 +75,7 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10 ${collegeBlock.className}">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
