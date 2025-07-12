@@ -10,7 +10,7 @@ import localFont from 'next/font/local';
 const collegeBlock = localFont({
   src: [
     {
-      path: '/fonts/CollegeBlock.woff2',
+      path: 'src/fonts/college/CollegeBlock.woff2',
       weight: '400',
       style: 'normal',
     },
