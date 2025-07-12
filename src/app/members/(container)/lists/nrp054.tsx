@@ -4,14 +4,19 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
+import Link from 'next/link';
 
 const data = {
   name: "Nisrina Bilqis",
   nrp: "5027241054",
   image: "054.jpg",
-  funfact: "pou ku item koleksi banyak tai gemoy",
-  hobby: "main pouu",
-  origin: "Surabaya Coret",
+  funfact: "pacarku ada 5",
+  hobby: "hobiku pacaran",
+  origin: "Surabaya",
+  originlink: "https://maps.app.goo.gl/vmnpEBQXVDwbv8m4A",
+  hobbyLink:"https://www.instagram.com/fas.blqii?igsh=MXZwb2Rua2lia2s5dg==",
+  funfactLink:"https://www.instagram.com/txt_bighit?igsh=MTVuZDlkbTdsN2tjYg==",
+
 };
 
 export default function NRP054() {
@@ -73,16 +78,30 @@ function MemberDialog({
 
             <hr className="my-6 border-t border-white/20" />
 
-            <div className="space-y-2 text-white font-nexa text-base">
-              <p>
-                <strong>Asal:</strong> {data.origin}
-              </p>
-              <p>
-                <strong>Hobi:</strong> {data.hobby}
-              </p>
-              <p>
-                <strong>Funfact:</strong> {data.funfact}
-              </p>
+            <div className="space-y-4">
+              <Link href={data.originlink || '#'}>
+                <a className="block border border-white/20 rounded-xl p-4 hover:bg-white/10 transition">
+                  <p className="text-white font-nexa text-base">
+                    <strong>Asal:</strong> {data.origin}
+                  </p>
+                </a>
+              </Link>
+
+              <Link href={data.hobbyLink || '#'}>
+                <a className="block border border-white/20 rounded-xl p-4 hover:bg-white/10 transition">
+                  <p className="text-white font-nexa text-base">
+                    <strong>Hobi:</strong> {data.hobby}
+                  </p>
+                </a>
+              </Link>
+
+              <Link href={data.funfactLink || '#'}>
+                <a className="block border border-white/20 rounded-xl p-4 hover:bg-white/10 transition">
+                  <p className="text-white font-nexa text-base">
+                    <strong>Funfact:</strong> {data.funfact}
+                  </p>
+                </a>
+              </Link>
             </div>
           </Dialog.Content>
         </div>
