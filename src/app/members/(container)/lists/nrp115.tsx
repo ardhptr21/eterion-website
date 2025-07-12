@@ -1,5 +1,6 @@
 "use client";
 
+import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -27,15 +28,83 @@ export default function NRP115() {
 
   return (
     <>
-      {/* Custom Virgo-themed Card */}
+      {/* Custom Virgo-themed Card with Hover Effects */}
       <div
-        className="cursor-pointer w-full shrink-0 p-6 rounded-xl border-2 border-yellow-600/40 relative overflow-hidden"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-yellow-600/40 relative overflow-hidden transition-all duration-300 hover:border-yellow-400/80 hover:shadow-2xl group"
         onClick={() => setOpen(true)}
         style={{
           background: "linear-gradient(135deg, #2c1810 0%, #4a3728 50%, #6b5b47 100%)",
           boxShadow: "0 8px 32px rgba(139, 69, 19, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
         }}
       >
+        {/* Hover Effect - Enhanced Glowing Stars */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          {/* Magical glowing stars on hover - more prominent */}
+          {[...Array(60)].map((_, i) => (
+            <div
+              key={`hover-star-${i}`}
+              className="absolute text-yellow-300 animate-pulse"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                fontSize: `${6 + Math.random() * 12}px`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${0.8 + Math.random() * 1.5}s`,
+                filter: 'drop-shadow(0 0 8px #fbbf24) drop-shadow(0 0 16px #f59e0b)',
+              }}
+            >
+              ✦
+            </div>
+          ))}
+          
+          {/* Additional twinkling stars */}
+          {[...Array(40)].map((_, i) => (
+            <div
+              key={`twinkle-star-${i}`}
+              className="absolute text-yellow-400 animate-pulse"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                fontSize: `${3 + Math.random() * 6}px`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${1 + Math.random() * 2}s`,
+                filter: 'drop-shadow(0 0 4px #fbbf24)',
+              }}
+            >
+              ✨
+            </div>
+          ))}
+
+          {/* Constellation patterns on hover */}
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={`constellation-${i}`}
+              className="absolute text-yellow-400 animate-pulse"
+              style={{
+                top: `${20 + Math.random() * 60}%`,
+                left: `${20 + Math.random() * 60}%`,
+                fontSize: `${8 + Math.random() * 8}px`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                animationDelay: `${Math.random() * 2}s`,
+                animationDuration: `${1.5 + Math.random() * 2}s`,
+                filter: 'drop-shadow(0 0 12px #fbbf24) drop-shadow(0 0 20px #f59e0b)',
+              }}
+            >
+              ⭐
+            </div>
+          ))}
+          
+          {/* Enhanced glowing border effect on hover */}
+          <div className="absolute inset-0 rounded-xl border-4 border-yellow-400/80 animate-pulse" 
+               style={{ 
+                 filter: 'drop-shadow(0 0 12px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 24px rgba(245, 158, 11, 0.6))',
+                 animationDuration: '1.5s' 
+               }} />
+        </div>
+
+        <Noise />
         {/* Vintage paper texture overlay */}
         <div
           className="absolute inset-0 opacity-20 mix-blend-multiply"
@@ -43,10 +112,7 @@ export default function NRP115() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='13' cy='13' r='1'/%3E%3Ccircle cx='19' cy='19' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
-        {/* Card number - top left */}
-        <div className="absolute top-4 left-4 text-2xl font-bold text-yellow-300/80 font-serif">
-          115
-        </div>
+        
         {/* Constellation border effect */}
         <div className="absolute inset-2 border border-yellow-500/30 rounded-lg pointer-events-none">
           {/* Corner decorations */}
@@ -67,123 +133,111 @@ export default function NRP115() {
             <div className="w-full h-0.5 bg-yellow-400 mt-auto"></div>
           </div>
         </div>
+        {/* Card number - top left */}
+        <div className="absolute top-4 left-4 text-2xl font-bold text-yellow-300/80 font-serif">
+          115
+        </div>
         {/* Main content area */}
-        <div className="relative z-10 mt-8">
-          {/* Photo area with enhanced starfield background */}
-          <div className="aspect-[4/5] relative mb-4 flex items-center justify-center">
-            {/* Enhanced Background Stars - More density and coverage */}
-            <div className="absolute inset-0 overflow-hidden rounded-lg">
-              {/* Extra dense tiny stars covering entire area */}
+        <div className="relative z-10 mt-6">
+          {/* Photo area with stellar background - Fixed size */}
+          <div className="aspect-[4/5] relative mb-3 rounded-lg overflow-hidden bg-gradient-to-br from-indigo-900/50 via-purple-800/30 to-amber-700/40">
+            {/* Dense starfield background */}
+            <div className="absolute inset-0 overflow-hidden">
+              {/* Tiny background stars */}
               {[...Array(120)].map((_, i) => (
                 <div
                   key={`tiny-${i}`}
-                  className="absolute w-0.5 h-0.5 bg-yellow-200 rounded-full animate-pulse opacity-50"
+                  className="absolute w-0.5 h-0.5 bg-yellow-200 rounded-full animate-pulse opacity-60"
                   style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 8}s`,
-                    animationDuration: `${3 + Math.random() * 5}s`,
+                    animationDelay: `${Math.random() * 10}s`,
+                    animationDuration: `${3 + Math.random() * 6}s`,
                   }}
                 />
               ))}
 
-              {/* Medium background stars */}
-              {[...Array(60)].map((_, i) => (
+              {/* Medium stars */}
+              {[...Array(40)].map((_, i) => (
                 <div
-                  key={`small-${i}`}
-                  className="absolute w-1 h-1 bg-yellow-300 rounded-full animate-pulse opacity-60"
+                  key={`medium-${i}`}
+                  className="absolute w-1 h-1 bg-yellow-300 rounded-full animate-pulse opacity-70"
                   style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 5}s`,
+                    animationDelay: `${Math.random() * 8}s`,
                     animationDuration: `${2 + Math.random() * 4}s`,
                   }}
                 />
               ))}
 
-              {/* Sparkle stars scattered throughout */}
-              {[...Array(30)].map((_, i) => (
+              {/* Sparkle stars */}
+              {[...Array(20)].map((_, i) => (
                 <div
                   key={`sparkle-${i}`}
-                  className="absolute text-yellow-300 opacity-70 animate-pulse"
+                  className="absolute text-yellow-300 opacity-80 animate-pulse"
                   style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
-                    fontSize: `${3 + Math.random() * 5}px`,
+                    fontSize: `${4 + Math.random() * 6}px`,
                     transform: `rotate(${Math.random() * 360}deg)`,
-                    animationDelay: `${Math.random() * 4}s`,
-                    animationDuration: `${1.5 + Math.random() * 2.5}s`,
+                    animationDelay: `${Math.random() * 5}s`,
+                    animationDuration: `${1.5 + Math.random() * 3}s`,
                   }}
                 >
                   ✦
                 </div>
               ))}
 
-              {/* Larger prominent stars */}
-              {[...Array(15)].map((_, i) => (
+              {/* Large prominent stars */}
+              {[...Array(10)].map((_, i) => (
                 <div
                   key={`large-${i}`}
-                  className="absolute text-yellow-400 opacity-80 animate-pulse"
+                  className="absolute text-yellow-400 opacity-90 animate-pulse"
                   style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
-                    fontSize: `${6 + Math.random() * 4}px`,
+                    fontSize: `${8 + Math.random() * 6}px`,
                     transform: `rotate(${Math.random() * 360}deg)`,
-                    animationDelay: `${Math.random() * 3}s`,
-                    animationDuration: `${1 + Math.random() * 2}s`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    animationDuration: `${1 + Math.random() * 2.5}s`,
                   }}
                 >
                   ✦
                 </div>
-              ))}
-
-              {/* Multiple shooting stars */}
-              {[...Array(4)].map((_, i) => (
-                <div
-                  key={`shooting-${i}`}
-                  className="absolute w-16 h-0.5 bg-gradient-to-r from-transparent via-yellow-300 to-transparent opacity-40"
-                  style={{
-                    top: `${10 + Math.random() * 80}%`,
-                    left: `-20%`,
-                    transform: `rotate(${15 + Math.random() * 30}deg)`,
-                    animationDelay: `${2 + Math.random() * 10}s`,
-                    animationDuration: "4s",
-                    animationIterationCount: "infinite",
-                  }}
-                />
               ))}
             </div>
 
-            {/* Member photo - Clean grid/square format prominently displayed */}
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative flex items-center justify-center z-20">
-              <div className="w-full aspect-[4,3/5] rounded-xl overflow-hidden mb-6 relative border-2 border-yellow-400/70 bg-black/30 flex-shrink-0 rounded-lg shadow-lg">
-                <Image
-                  src={`/images/members/${data.image}`}
-                  alt={data.name}
-                  width={120}
-                  height={152}
-                  className="object-cover w-full h-full"
-                  style={{ objectPosition: "center" }}
-                />
-              </div>
+            {/* Member photo centered with matching theme - Larger size */}
+            <div className="absolute inset-2 rounded-lg overflow-hidden bg-amber-900/20 backdrop-blur-sm border border-yellow-600/30">
+              <Image
+                src={`/images/members/${data.image}`}
+                alt={data.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 480px) 180px, (max-width: 768px) 240px, 300px"
+                loading="lazy"
+              />
+              {/* Subtle overlay with theme colors */}
+              <div className="absolute inset-0 bg-gradient-to-t from-amber-900/15 via-transparent to-yellow-900/8"></div>
             </div>
           </div>
 
-          {/* Enhanced corner constellations and bright stars */}
+          {/* Enhanced corner decorations */}
           <div className="absolute inset-0 pointer-events-none">
-            {/* Bright corner stars - more prominent */}
+            {/* Corner stars clusters - More dense */}
             <div className="absolute top-2 left-2">
-              {[...Array(8)].map((_, i) => (
+              {[...Array(15)].map((_, i) => (
                 <div
                   key={`corner-tl-${i}`}
-                  className="absolute text-yellow-400 opacity-90 animate-pulse"
+                  className="absolute text-yellow-400 opacity-80 animate-pulse"
                   style={{
-                    top: `${Math.random() * 24}px`,
-                    left: `${Math.random() * 24}px`,
-                    fontSize: `${6 + Math.random() * 4}px`,
+                    top: `${Math.random() * 36}px`,
+                    left: `${Math.random() * 36}px`,
+                    fontSize: `${4 + Math.random() * 6}px`,
                     transform: `rotate(${Math.random() * 360}deg)`,
-                    animationDelay: `${Math.random() * 2}s`,
-                    animationDuration: `${1 + Math.random() * 1.5}s`,
+                    animationDelay: `${Math.random() * 3}s`,
+                    animationDuration: `${1.5 + Math.random() * 2}s`,
                   }}
                 >
                   ✦
@@ -192,17 +246,17 @@ export default function NRP115() {
             </div>
 
             <div className="absolute top-2 right-2">
-              {[...Array(8)].map((_, i) => (
+              {[...Array(15)].map((_, i) => (
                 <div
                   key={`corner-tr-${i}`}
-                  className="absolute text-yellow-400 opacity-90 animate-pulse"
+                  className="absolute text-yellow-400 opacity-80 animate-pulse"
                   style={{
-                    top: `${Math.random() * 24}px`,
-                    right: `${Math.random() * 24}px`,
-                    fontSize: `${6 + Math.random() * 4}px`,
+                    top: `${Math.random() * 36}px`,
+                    right: `${Math.random() * 36}px`,
+                    fontSize: `${4 + Math.random() * 6}px`,
                     transform: `rotate(${Math.random() * 360}deg)`,
-                    animationDelay: `${Math.random() * 2}s`,
-                    animationDuration: `${1 + Math.random() * 1.5}s`,
+                    animationDelay: `${Math.random() * 3}s`,
+                    animationDuration: `${1.5 + Math.random() * 2}s`,
                   }}
                 >
                   ✦
@@ -210,18 +264,18 @@ export default function NRP115() {
               ))}
             </div>
 
-            <div className="absolute bottom-20 left-2">
-              {[...Array(8)].map((_, i) => (
+            <div className="absolute bottom-2 left-2">
+              {[...Array(15)].map((_, i) => (
                 <div
                   key={`corner-bl-${i}`}
-                  className="absolute text-yellow-400 opacity-90 animate-pulse"
+                  className="absolute text-yellow-400 opacity-80 animate-pulse"
                   style={{
-                    bottom: `${Math.random() * 24}px`,
-                    left: `${Math.random() * 24}px`,
-                    fontSize: `${6 + Math.random() * 4}px`,
+                    bottom: `${Math.random() * 36}px`,
+                    left: `${Math.random() * 36}px`,
+                    fontSize: `${4 + Math.random() * 6}px`,
                     transform: `rotate(${Math.random() * 360}deg)`,
-                    animationDelay: `${Math.random() * 2}s`,
-                    animationDuration: `${1 + Math.random() * 1.5}s`,
+                    animationDelay: `${Math.random() * 3}s`,
+                    animationDuration: `${1.5 + Math.random() * 2}s`,
                   }}
                 >
                   ✦
@@ -229,18 +283,18 @@ export default function NRP115() {
               ))}
             </div>
 
-            <div className="absolute bottom-20 right-2">
-              {[...Array(8)].map((_, i) => (
+            <div className="absolute bottom-2 right-2">
+              {[...Array(15)].map((_, i) => (
                 <div
                   key={`corner-br-${i}`}
-                  className="absolute text-yellow-400 opacity-90 animate-pulse"
+                  className="absolute text-yellow-400 opacity-80 animate-pulse"
                   style={{
-                    bottom: `${Math.random() * 24}px`,
-                    right: `${Math.random() * 24}px`,
-                    fontSize: `${6 + Math.random() * 4}px`,
+                    bottom: `${Math.random() * 36}px`,
+                    right: `${Math.random() * 36}px`,
+                    fontSize: `${4 + Math.random() * 6}px`,
                     transform: `rotate(${Math.random() * 360}deg)`,
-                    animationDelay: `${Math.random() * 2}s`,
-                    animationDuration: `${1 + Math.random() * 1.5}s`,
+                    animationDelay: `${Math.random() * 3}s`,
+                    animationDuration: `${1.5 + Math.random() * 2}s`,
                   }}
                 >
                   ✦
@@ -248,151 +302,93 @@ export default function NRP115() {
               ))}
             </div>
 
-            {/* Top left constellation */}
-            <svg className="absolute top-6 left-6 w-12 h-12 opacity-70" viewBox="0 0 48 48">
-              <defs>
-                <filter id="corner-glow-1">
-                  <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <path
-                d="M 6 12 L 18 6 L 30 18 L 24 30 L 12 24 Z"
-                stroke="#fbbf24"
-                strokeWidth="1"
-                fill="none"
-                filter="url(#corner-glow-1)"
-              />
-              <circle cx="6" cy="12" r="1.5" fill="#fbbf24" filter="url(#corner-glow-1)" />
-              <circle cx="18" cy="6" r="1" fill="#fbbf24" filter="url(#corner-glow-1)" />
-              <circle cx="30" cy="18" r="1.5" fill="#fbbf24" filter="url(#corner-glow-1)" />
-              <circle cx="24" cy="30" r="1" fill="#fbbf24" filter="url(#corner-glow-1)" />
-              <circle cx="12" cy="24" r="1.5" fill="#fbbf24" filter="url(#corner-glow-1)" />
-            </svg>
+            {/* Additional constellation clusters in center areas */}
+            <div className="absolute top-1/4 left-1/4">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={`center-cluster-1-${i}`}
+                  className="absolute text-yellow-300 opacity-70 animate-pulse"
+                  style={{
+                    top: `${Math.random() * 20}px`,
+                    left: `${Math.random() * 20}px`,
+                    fontSize: `${5 + Math.random() * 4}px`,
+                    transform: `rotate(${Math.random() * 360}deg)`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    animationDuration: `${2 + Math.random() * 2}s`,
+                  }}
+                >
+                  ✦
+                </div>
+              ))}
+            </div>
 
-            {/* Top right constellation */}
-            <svg className="absolute top-6 right-6 w-12 h-12 opacity-70" viewBox="0 0 48 48">
-              <defs>
-                <filter id="corner-glow-2">
-                  <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <path
-                d="M 42 12 L 30 6 L 18 18 L 24 30 L 36 24 Z"
-                stroke="#fbbf24"
-                strokeWidth="1"
-                fill="none"
-                filter="url(#corner-glow-2)"
-              />
-              <circle cx="42" cy="12" r="1.5" fill="#fbbf24" filter="url(#corner-glow-2)" />
-              <circle cx="30" cy="6" r="1" fill="#fbbf24" filter="url(#corner-glow-2)" />
-              <circle cx="18" cy="18" r="1.5" fill="#fbbf24" filter="url(#corner-glow-2)" />
-              <circle cx="24" cy="30" r="1" fill="#fbbf24" filter="url(#corner-glow-2)" />
-              <circle cx="36" cy="24" r="1.5" fill="#fbbf24" filter="url(#corner-glow-2)" />
-            </svg>
+            <div className="absolute top-1/4 right-1/4">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={`center-cluster-2-${i}`}
+                  className="absolute text-yellow-300 opacity-70 animate-pulse"
+                  style={{
+                    top: `${Math.random() * 20}px`,
+                    right: `${Math.random() * 20}px`,
+                    fontSize: `${5 + Math.random() * 4}px`,
+                    transform: `rotate(${Math.random() * 360}deg)`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    animationDuration: `${2 + Math.random() * 2}s`,
+                  }}
+                >
+                  ✦
+                </div>
+              ))}
+            </div>
 
-            {/* Bottom left constellation */}
-            <svg className="absolute bottom-24 left-6 w-12 h-12 opacity-70" viewBox="0 0 48 48">
-              <defs>
-                <filter id="corner-glow-3">
-                  <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <path
-                d="M 6 36 L 18 42 L 30 30 L 24 18 L 12 24 Z"
-                stroke="#fbbf24"
-                strokeWidth="1"
-                fill="none"
-                filter="url(#corner-glow-3)"
-              />
-              <circle cx="6" cy="36" r="1.5" fill="#fbbf24" filter="url(#corner-glow-3)" />
-              <circle cx="18" cy="42" r="1" fill="#fbbf24" filter="url(#corner-glow-3)" />
-              <circle cx="30" cy="30" r="1.5" fill="#fbbf24" filter="url(#corner-glow-3)" />
-              <circle cx="24" cy="18" r="1" fill="#fbbf24" filter="url(#corner-glow-3)" />
-              <circle cx="12" cy="24" r="1.5" fill="#fbbf24" filter="url(#corner-glow-3)" />
-            </svg>
+            <div className="absolute bottom-1/4 left-1/4">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={`center-cluster-3-${i}`}
+                  className="absolute text-yellow-300 opacity-70 animate-pulse"
+                  style={{
+                    bottom: `${Math.random() * 20}px`,
+                    left: `${Math.random() * 20}px`,
+                    fontSize: `${5 + Math.random() * 4}px`,
+                    transform: `rotate(${Math.random() * 360}deg)`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    animationDuration: `${2 + Math.random() * 2}s`,
+                  }}
+                >
+                  ✦
+                </div>
+              ))}
+            </div>
 
-            {/* Bottom right constellation */}
-            <svg className="absolute bottom-24 right-6 w-12 h-12 opacity-70" viewBox="0 0 48 48">
-              <defs>
-                <filter id="corner-glow-4">
-                  <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-              <path
-                d="M 42 36 L 30 42 L 18 30 L 24 18 L 36 24 Z"
-                stroke="#fbbf24"
-                strokeWidth="1"
-                fill="none"
-                filter="url(#corner-glow-4)"
-              />
-              <circle cx="42" cy="36" r="1.5" fill="#fbbf24" filter="url(#corner-glow-4)" />
-              <circle cx="30" cy="42" r="1" fill="#fbbf24" filter="url(#corner-glow-4)" />
-              <circle cx="18" cy="30" r="1.5" fill="#fbbf24" filter="url(#corner-glow-4)" />
-              <circle cx="24" cy="18" r="1" fill="#fbbf24" filter="url(#corner-glow-4)" />
-              <circle cx="36" cy="24" r="1.5" fill="#fbbf24" filter="url(#corner-glow-4)" />
-            </svg>
+            <div className="absolute bottom-1/4 right-1/4">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={`center-cluster-4-${i}`}
+                  className="absolute text-yellow-300 opacity-70 animate-pulse"
+                  style={{
+                    bottom: `${Math.random() * 20}px`,
+                    right: `${Math.random() * 20}px`,
+                    fontSize: `${5 + Math.random() * 4}px`,
+                    transform: `rotate(${Math.random() * 360}deg)`,
+                    animationDelay: `${Math.random() * 4}s`,
+                    animationDuration: `${2 + Math.random() * 2}s`,
+                  }}
+                >
+                  ✦
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Name and NRP */}
-          <div className="text-center space-y-1 mb-4">
-            <h3 className="text-yellow-200 font-serif text-sm font-semibold tracking-wide">
+          {/* Name and NRP - consistent with default cards */}
+          <div className="mt-5 z-10 px-1">
+            <h4 className="text-xl font-nexa font-bold leading-tight line-clamp-2 text-yellow-200">
               {data.name}
-            </h3>
-            <p className="text-yellow-300/70 text-xs font-mono">{data.nrp}</p>
+            </h4>
+            <h6 className="font-nexa text-yellow-300/70 line-clamp-1">{data.nrp}</h6>
           </div>
 
-          {/* Social media icons */}
-          <div className="flex justify-center space-x-4 mb-4">
-            <a
-              href={data.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-yellow-600/20 border border-yellow-500/40 flex items-center justify-center hover:bg-yellow-500/30 transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <svg className="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </a>
 
-            <a
-              href={data.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-8 h-8 rounded-full bg-yellow-600/20 border border-yellow-500/40 flex items-center justify-center hover:bg-yellow-500/30 transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <svg className="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
-          </div>
-
-          {/* Bottom title */}
-          <div className="text-center border-t border-yellow-600/30 pt-3">
-            <h2 className="text-yellow-200 font-serif text-lg font-bold tracking-wider">
-              THE VIRGO
-            </h2>
-            <p className="text-yellow-400/60 text-xs mt-1 font-serif italic">
-              Perfectionist • Detail-Oriented • Analytical
-            </p>
-          </div>
         </div>{" "}
       </div>
 
