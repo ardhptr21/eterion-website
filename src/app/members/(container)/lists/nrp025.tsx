@@ -27,7 +27,7 @@ export default function NRP025() {
         onMouseLeave={() => setIsHovering(false)}
         style={{
           backgroundImage: isHovering
-            ? "url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjY4bDUwZHRxb2xhd3Y3OWJ3ZjllZWhwd2dtZHhucDN3eXpvenl4MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MSeKYlDNu4cFX5NW6U/giphy.gif')"
+            ? "url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzd0d3hma2Rwb2Flcm94NGp3b3p4MXJ2NXgxM2IwOWtqNXgzeTRjcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CZUoJhyPs7q1O/giphy.gif')"
             : "none",
           backgroundSize: "cover",
           backgroundPosition: "center",
