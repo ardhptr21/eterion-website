@@ -89,16 +89,12 @@ function MemberDialog({
               />
             </div>
 
-             <div className="space-y-4">
               <Link href={data.nameLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
                   <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
               </Link>
-              </div>
-              <div className="space-y-4">
               <Link href={data.nrpLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
                   <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
               </Link>
-              </div>
             
 
             <hr className="my-6 border-t border-white/20" />
