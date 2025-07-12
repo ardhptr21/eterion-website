@@ -92,19 +92,19 @@ function MemberDialog({
             <hr className="my-6 border-t border-white/20" />
 
             <div className="space-y-4">
-              <Link href={data.originlink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/30 transition">
+              <Link href={data.originlink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
                   <p className="text-white font-nexa text-base">
                     <strong>Asal:</strong> {data.origin}
                   </p>
               </Link>
 
-              <Link href={data.hobbyLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/30 transition">
+              <Link href={data.hobbyLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
                   <p className="text-white font-nexa text-base">
                     <strong>Hobi:</strong> {data.hobby}
                   </p>
               </Link>
 
-              <Link href={data.funfactLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/30 transition">
+              <Link href={data.funfactLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
                   <p className="text-white font-nexa text-base">
                     <strong>Funfact:</strong> {data.funfact}
                   </p>
