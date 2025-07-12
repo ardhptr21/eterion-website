@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Mochkamad Maulana Syafaat", 
+  nrp: "5027241021",
+  image: "021.jpg", 
+  funfact: "Dibawa ke barak militer waktu smk", 
+  hobby: "Naik Gunung(yang sepi)", 
+  origin: "Kediri", 
 };
 
 export default function NRP021() {
@@ -29,7 +29,7 @@ export default function NRP021() {
             src={`/images/members/${data.image}`}
             alt={data.name}
             fill
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
           />
         </div>
         <div className="mt-5 z-10">
@@ -56,34 +56,77 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
-            <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
+         <Dialog.Content className="relative w-full max-w-lg max-h-[95vh] bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+  <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
-              <Image
-                src={`/images/members/${data.image}`}
-                alt={data.name}
-                fill
-                className="object-cover"
-              />
-            </div>
+  <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
+      <Image
+        src={`/images/members/${data.image}`}
+        alt={data.name}
+        fill
+        className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
+      />
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+  </div>
 
-            <hr className="my-6 border-t border-white/20" />
+        <div className="space-y-2 text-[10px] text-yellow-400">
+          {/* Nama */}
+          <a
+            href="https://www.instagram.com/maulana.syafaatt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mb-1 p-2 rounded-md bg-yellow-400/10 border border-yellow-300/30 transform transition duration-300 hover:scale-105 hover:bg-yellow-300/10 hover:shadow-md"
+          >
+            <p className="text-[10px] font-semibold text-yellow-300">Nama :</p>
+            <p className="text-sm font-bold text-yellow-100">{data.name}</p>
+          </a>
 
-            <div className="space-y-2 text-white font-nexa text-base">
-              <p>
-                <strong>Asal:</strong> {data.origin}
-              </p>
-              <p>
-                <strong>Hobi:</strong> {data.hobby}
-              </p>
-              <p>
-                <strong>Funfact:</strong> {data.funfact}
-              </p>
-            </div>
+          {/* NRP */}
+          <a
+            href="https://www.instagram.com/jkt48.ella.a?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mb-1 p-2 rounded-md bg-yellow-400/10 border border-yellow-300/30 transform transition duration-300 hover:scale-105 hover:bg-yellow-300/10 hover:shadow-md"
+          >
+            <p className="text-[10px] font-semibold text-yellow-300">NRP :</p>
+            <p className="text-sm font-bold text-yellow-100">{data.nrp}</p>
+          </a>
+
+          {/* Asal */}
+          <a
+            href="https://id.wikipedia.org/wiki/Kabupaten_Kediri"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mb-1 p-2 rounded-md bg-yellow-400/10 border border-yellow-300/30 transform transition duration-300 hover:scale-105 hover:bg-yellow-300/10 hover:shadow-md"
+          >
+            <p className="text-[10px] font-semibold text-yellow-300">Asal :</p>
+            <p className="text-sm font-bold text-yellow-100">{data.origin}</p>
+          </a>
+
+          {/* Hobi */}
+          <a
+            href="https://www.instagram.com/jkt48.ella.a?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mb-1 p-2 rounded-md bg-yellow-400/10 border border-yellow-300/30 transform transition duration-300 hover:scale-105 hover:bg-yellow-300/10 hover:shadow-md"
+          >
+            <p className="text-[10px] font-semibold text-yellow-300">Hobi :</p>
+            <p className="text-sm font-bold text-yellow-100">{data.hobby}</p>
+          </a>
+
+          {/* Funfact */}
+          <a
+            href="https://www.instagram.com/jkt48.ella.a?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block p-2 rounded-md bg-yellow-400/10 border border-yellow-300/30 transform transition duration-300 hover:scale-105 hover:bg-yellow-300/10 hover:shadow-md"
+          >
+            <p className="text-[10px] font-semibold text-yellow-300">Funfact :</p>
+            <p className="text-sm font-bold text-yellow-100">{data.funfact}</p>
+          </a>
+        </div>
+
+
           </Dialog.Content>
         </div>
       </Dialog.Portal>
