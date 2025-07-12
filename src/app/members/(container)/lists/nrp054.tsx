@@ -14,7 +14,7 @@ const anton = Anton({
 });
 
 const data = {
-  name: "Nisrina Bilqis",
+  name: "NISRINA BILQIS",
   nrp: "5027241054",
   image: "054.jpg",
   funfact: "pacarku ada 5",
