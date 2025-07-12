@@ -27,7 +27,7 @@ export default function NRP054() {
      <div
       className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg
               transform transition-transform duration-300
-              hover:scale-[1.03] hover:shadow-2xl hover:bg-[#40E0D0]/30"
+              hover:scale-[1.03] hover:shadow-2xl"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -92,19 +92,19 @@ function MemberDialog({
             <hr className="my-6 border-t border-white/20" />
 
             <div className="space-y-4">
-              <Link href={data.originlink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-white/10 transition">
+              <Link href={data.originlink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/30 transition">
                   <p className="text-white font-nexa text-base">
                     <strong>Asal:</strong> {data.origin}
                   </p>
               </Link>
 
-              <Link href={data.hobbyLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-white/10 transition">
+              <Link href={data.hobbyLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/30 transition">
                   <p className="text-white font-nexa text-base">
                     <strong>Hobi:</strong> {data.hobby}
                   </p>
               </Link>
 
-              <Link href={data.funfactLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-white/10 transition">
+              <Link href={data.funfactLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/30 transition">
                   <p className="text-white font-nexa text-base">
                     <strong>Funfact:</strong> {data.funfact}
                   </p>
