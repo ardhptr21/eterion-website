@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Ahmad Wildan Fawwaz",
+  nrp: "5027241001",
+  image: "001.jpg",
+  funfact: "Kadang IPA, IPS, atau Bahasa",
+  hobby: "Baca buku, Menjelajah Google Maps",
+  origin: "Gresik",
 };
 
 export default function NRP001() {
@@ -20,7 +20,14 @@ export default function NRP001() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_32px_0_rgba(80,80,255,0.4)] hover:border-blue-400"
+        style={{
+          backgroundImage:
+            "url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnJvMjRjMm1sOXYzZm4wemE2MXJ3MWJreTkybjk5MWxxNm02OGE4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lkceXNDw4Agryfrwz8/giphy.gif')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: "rgba(13, 20, 90, 0.8)",
+        }}
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -36,7 +43,7 @@ export default function NRP001() {
           <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>
         </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
+       <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-black/60 via-60% to-black/80 rounded-xl pointer-events-none" />
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
@@ -56,7 +63,7 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-[#0B1B32] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
