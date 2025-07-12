@@ -37,7 +37,7 @@ export default function NRP054() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
           >
-          <source src="/videos/falling-puzzle.webm" type="video/webm" />
+          <source src="/videos/puzzle.webm" type="video/webm" />
         </video>
 
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
