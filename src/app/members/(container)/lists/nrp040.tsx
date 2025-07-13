@@ -288,7 +288,7 @@ function PanZoomImage({ src, alt }: { src: string; alt: string }) {
   const [_containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [_noTransition, setNoTransition] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const scale = 1.3;
+  const scale = 1.1;
 
   useEffect(() => {
     function updateSize() {
