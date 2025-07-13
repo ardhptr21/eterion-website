@@ -6,11 +6,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "Revalina Erica Permatasari",
+  nrp: "5027241007",
+  image: "007.jpg",
+  funfact: "suka koleksi kacamata",
+  hobby: "membaca dan dengerin musik",
   origin: "Surabaya",
 };
 
@@ -51,15 +51,51 @@ function MemberDialog({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const starColors = ["#ffffff", "#b1f5ff", "#8df9f1", "#c0f7e3"];
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content
+            className="relative w-full max-w-lg max-h-[95vh] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10"
+            style={{
+              background: "linear-gradient(to bottom, #0c0a1d, #281a57, #476fa0)",
+            }}
+          >
+          
+            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    {Array.from({ length: 60 }).map((_, i) => {
+      const top = Math.random() * 100;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 5;
+      const duration = 4 + Math.random() * 6;
+      const size = 8 + Math.random() * 8;
+      const color = starColors[Math.floor(Math.random() * starColors.length)];
+
+      return (
+        <span
+          key={i}
+          className="fade-star"
+          style={{
+            top: `${top}%`,
+            left: `${left}%`,
+            animationDelay: `${delay}s`,
+            animationDuration: `${duration}s`,
+            fontSize: `${size}px`,
+            color,
+          }}
+        />
+      );
+    })}
+  </div>
+
+  <div className="relative z-10"></div>
+
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
+            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative z-10">
               <Image
                 src={`/images/members/${data.image}`}
                 alt={data.name}
@@ -68,12 +104,14 @@ function MemberDialog({
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+            <h2 className="text-3xl font-bold font-nexa text-white mb-1 z-10">
+              {data.name}
+            </h2>
+            <p className="text-lg font-nexa text-white/70 z-10">{data.nrp}</p>
 
-            <hr className="my-6 border-t border-white/20" />
+            <hr className="my-6 border-t border-white/20 z-10" />
 
-            <div className="space-y-2 text-white font-nexa text-base">
+            <div className="space-y-2 text-white font-nexa text-base z-10">
               <p>
                 <strong>Asal:</strong> {data.origin}
               </p>
@@ -83,10 +121,67 @@ function MemberDialog({
               <p>
                 <strong>Funfact:</strong> {data.funfact}
               </p>
+              <p>
+                <strong>Get to know me 🌟</strong>
+                <br />
+                <a
+                  href="https://www.instagram.com/revaericaa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-white"
+                >
+                  📸 Instagram
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://www.linkedin.com/in/revalinaerica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-white"
+                >
+                  💼 LinkedIn
+                </a>{" "}
+                |{" "}
+                <a
+                  href="https://open.spotify.com/user/reva.erica24"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-white"
+                >
+                  🎧 Spotify
+                </a>
+              </p>
             </div>
           </Dialog.Content>
         </div>
       </Dialog.Portal>
+
+      <style jsx>{`
+  .fade-star {
+    position: absolute;
+    opacity: 0.06;
+    animation: fadeTwinkle ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .fade-star::before {
+    content: "✦";
+    display: inline-block;
+    text-shadow: 0 0 6px currentColor;
+  }
+
+  @keyframes fadeTwinkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+`}</style>
+
     </Dialog.Root>
   );
 }
