@@ -6,12 +6,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "Azaria Raissa Maulidinnisa",
+  nrp: "5027241043",
+  image: "043.jpg",
+  funfact: "Bukan raisa penyanyi please",
+  hobby: "Nonton gose",
   origin: "Surabaya",
+  instagram: "https://instagram.com/raiisaazr",
+  youtube: "https://youtube.com/playlist?list=PLk_UmMfvZDx21Z9eEQ9DcIlUfZp1uwEup&si=nbQiSkZWnZYsB0_M"
 };
 
 export default function NRP043() {
@@ -20,9 +22,13 @@ export default function NRP043() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
-        onClick={() => setOpen(true)}
+      className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg
+      transition duration-300 hover:shadow-xl hover:border-white hover:scale-[1.02] active:scale-95 active:shadow-sm
+      ${open
+        "
+      onClick={() => setOpen(true)}
       >
+
         <Noise />
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
@@ -68,20 +74,38 @@ function MemberDialog({
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
+            <h2 className="text-3xl font-bold font-nexa text-white mb-1">
+              <a
+              href={data.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+                {data.name}
+              </a>
+            </h2>
             <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
 
             <hr className="my-6 border-t border-white/20" />
 
-            <div className="space-y-2 text-white font-nexa text-base">
+            <div className="space-y-2 text-white text-base">
               <p>
-                <strong>Asal:</strong> {data.origin}
+                <strong>Asal:</strong>{" "}
+                <span className="font-mono"> {data.origin}</span>
               </p>
               <p>
-                <strong>Hobi:</strong> {data.hobby}
+                <strong>Hobi:</strong>{" "}
+                <a
+                href={data.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono"
+                >
+                  {data.hobby}
+                </a>
               </p>
               <p>
-                <strong>Funfact:</strong> {data.funfact}
+                <strong>Funfact:</strong>{" "}
+                <span className="font-mono"> {data.funfact}</span>
               </p>
             </div>
           </Dialog.Content>

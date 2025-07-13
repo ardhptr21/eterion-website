@@ -12,6 +12,7 @@ const data = {
   funfact: "Mau confess, sebenernya aku ini ultraman",
   hobby: "jalan-jalan",
   origin: "Bandung",
+  lagu_fav : "https://www.youtube.com/embed/Aft_WAKkQls",
 };
 
 export default function NRP122() {
