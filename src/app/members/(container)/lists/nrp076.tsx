@@ -20,7 +20,7 @@ export default function NRP076() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-[2.5px] border-white/60 shadow-[0_0_30px_rgba(255,255,255,0.5)] relative bg-gradient-to-b from-black to-blue-900 backdrop-blur-md transition-all duration-300"
         onClick={() => setOpen(true)}
       >
         <Noise />
