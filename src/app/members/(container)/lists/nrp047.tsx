@@ -5,6 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
 import { Cinzel_Decorative, Cormorant_Garamond } from "next/font/google";
+import { Instagram, Linkedin, Github } from "lucide-react";
 
 const cinzel = Cinzel_Decorative({
     subsets: ["latin"],
@@ -23,7 +24,29 @@ const data = {
     hobby: "Calisthenics, read manhwa/manhua/manga, learn new things, and listening to music 24/7",
     funfact: "Used to talking in English for 60-80% of my everyday life",
     origin: "Surabaya",
+    socials: {
+        instagram: "https://www.instagram.com/zelebwr/",
+        linkedin: "https://www.linkedin.com/in/jonathanzelig/",
+        github: "https://github.com/zelebwr",
+    }
 };
+
+function SocialsButton({ href, icon: Icon, children } : { href: string; icon: React.ComponentType<{ className?: string }>; children: React.ReactNode }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center justify-center gap-3 w-full px-6 py-3 rounded-lg bg-slate-800/50 text-white/80 transition-all duration-300 ease-out overflow-hidden backdrop-blur-sm hover:text-white hover:shadow-[0_0_20px_0_rgba(102,231,183,0.5)]"
+        >
+            <Noise />
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/30 via-sky-500/30 to-indigo-500/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+            <Icon className="relative z-10 h-5 w-5" />
+            <span className={`relative z-10 font-semibold ${cormorant.className}`}>{children}</span>
+        </a>
+    )
+}
 
 function CornerSigil({ position }: { position: string }) {
     return (
@@ -174,15 +197,15 @@ function MemberDialog({
                             style={{
                                 backgroundImage: `
                                 radial-gradient(circle at center, 
-                                    rgba(15, 21, 40, 0.95) 5%,
-                                    transparent 70%
+                                rgba(15, 21, 40, 0.95) 5%,
+                                transparent 70%
                                 ),
                                 linear-gradient(to bottom,
-                                    rgba(15, 21, 40, 0.95),
-                                    rgba(47, 210, 134, 0.4),
-                                    rgba(15, 21, 40, 0.95)
+                                rgba(15, 21, 40, 0.95),
+                                rgba(47, 210, 134, 0.4),
+                                rgba(15, 21, 40, 0.95)
                                 )
-                            `,
+                                `,
                             }}
                         >
                             <Noise />
@@ -246,6 +269,26 @@ function MemberDialog({
                                     {data.funfact}
                                 </p>
                             </div>
+
+                            <div className="my-8 h-[2px] w-full bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent" />
+
+                            <div className="mt-8">
+                                <h3 className={`text-center text-xl text-white mb-4 tracking-widest ${cinzel.className}`}>
+                                    Get to Know Me
+                                </h3>
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <SocialsButton href={data.socials.instagram} icon={Instagram}>
+                                        Instagram
+                                    </SocialsButton>
+                                    <SocialsButton href={data.socials.linkedin} icon={Linkedin}>
+                                        LinkedIn
+                                    </SocialsButton>
+                                    <SocialsButton href={data.socials.github} icon={Github}>
+                                        GitHub
+                                    </SocialsButton>
+                                </div>
+                            </div>
+
                         </Dialog.Content>
                     </div>
                 </div>
