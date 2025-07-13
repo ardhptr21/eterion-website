@@ -121,7 +121,7 @@ export function MonsterGame({ onWin, onClose }: MonsterGameProps) {
   const [gameWon, setGameWon] = useState<boolean>(false);
   const [gameOver, setGameOver] = useState<boolean>(false);
   const [gameStarted, setGameStarted] = useState<boolean>(false);
-  const [gameStats, setGameStats] = useState<GameStats>({ orbs: 0, monsters: 0, lives: 3 });
+  const [_, setGameStats] = useState<GameStats>({ orbs: 0, monsters: 0, lives: 3 });
 
   const initializeGameState = (): GameState => ({
     tamer: {
@@ -670,7 +670,7 @@ export function MemberProfile({ onClose, data = defaultData }: MemberProfileProp
     const canvasRefs = useRef<(HTMLCanvasElement | null)[]>([]);
     
     useEffect(() => {
-      canvasRefs.current.forEach((canvas, i) => {
+      canvasRefs.current.forEach((canvas) => {
         if (canvas) {
           const ctx = canvas.getContext("2d");
           if (ctx) {
@@ -809,7 +809,7 @@ export function MemberProfile({ onClose, data = defaultData }: MemberProfileProp
           CONGRATULATIONS!
         </h1>
         <p className="text-xl text-[#E0B7C2] animate-fade-in">
-          You've unlocked the profile!
+          You{"'"}ve unlocked the profile!
         </p>
       </div>
 
@@ -1001,14 +1001,6 @@ interface MemberData {
   image: string;
   linkedin: string;
   instagram: string;
-}
-
-interface NRP036Props {
-  data: MemberData;
-  pixelFont?: { className: string };
-  Noise: React.ComponentType;
-  MonsterGame: React.ComponentType<{ onWin: () => void; onClose: () => void }>;
-  MemberProfile: React.ComponentType<{ onClose: () => void; data: MemberData }>;
 }
 
 export default function NRP036() {

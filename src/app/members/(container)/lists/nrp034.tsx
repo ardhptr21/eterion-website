@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
-import { useState, useId } from "react";
+import Image from "next/image";
+import { useState } from "react";
 
 const LeafIllustration = ({ className }: { className?: string }) => (
   <svg className={className} width="120" height="120" viewBox="0 0 159 159" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,7 +142,7 @@ function MemberDialog({
 
                     <div className="bg-white/60 p-4 rounded-lg backdrop-blur-sm">
                         <strong className="block mb-1 text-sm text-gray-500">Funfact:</strong>
-                        <p className="italic text-gray-700">"{data.funfact}"</p>
+                        <p className="italic text-gray-700">{data.funfact}</p>
                     </div>
                 </div>
             </div>

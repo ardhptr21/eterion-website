@@ -354,16 +354,16 @@ type ARViewProps = {
   imageval: string;
 };
 
-const CustomControls = ({ controlsRef }: { controlsRef: any }) => {
+const CustomControls = ({ controlsRef }: { controlsRef: React.RefObject<any> }) => {
   const { gl, camera } = useThree();
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      if (e.ctrlKey && controlsRef.current) {
+      if (e.ctrlKey && controlsRef?.current) {
         e.preventDefault();
         const zoomSpeed = 0.7;
         const direction = e.deltaY > 0 ? 1 : -1;
-        const target = controlsRef.current.target;
+        const target = controlsRef?.current.target;
         const vec = camera.position.clone().sub(target);
 
         const distance = vec.length();

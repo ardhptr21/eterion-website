@@ -74,7 +74,7 @@ export default function NRP057() {
         </div>
 
         <div className="absolute bottom-5 right-6 text-sm text-white/50 font-mono z-10">
-          alive, '20s atm
+          alive, {"'"}20s atm
         </div>
 
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />

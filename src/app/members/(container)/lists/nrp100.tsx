@@ -4,7 +4,6 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
-import { Instagram, Phone } from "lucide-react"; // Tambahkan import icon
 
 const data = {
   name: "Imam Mahmud Dalil Fauzan",

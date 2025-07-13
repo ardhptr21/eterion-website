@@ -3,7 +3,6 @@
 import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
-import Head from "next/head";
 import { useState } from "react";
 
 const data = {
@@ -24,13 +23,6 @@ const data = {
       className="cursor-pointer w-full shrink-0 p-10 border-2 border-black relative bg-white text-black border-4 border-[#0000]"
       onClick={() => setOpen(true)}
       >
-      <Head>
-       <link
-       href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
-      rel="stylesheet"
-       />
-       </Head>
-
         <Noise />
         <div className="w-full aspect-[4/5] border-2 border-black overflow-hidden mb-6 relative">
           <Image
@@ -64,7 +56,6 @@ function MemberDialog({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
-   const [hovered, setHovered] = useState(false);
    const [hoverName, setHoverName] = useState(false);
    const [hoverOrigin, setHoverOrigin] = useState(false);
    const [hoverHobby, setHoverHobby] = useState(false);
@@ -78,16 +69,6 @@ function MemberDialog({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-white text-black border-2 border-black overflow-y-auto focus:outline-none p-10">
              <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
-             <Head>
-              <link
-                href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
-                rel="stylesheet"
-              />
-              <link
-                href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap"
-                rel="stylesheet"
-              />
-            </Head>
 
             <div className="w-full aspect-[4/5] border-2 border-black overflow-hidden mb-6 relative">
               <Image
