@@ -2,120 +2,8 @@
 
 import Container from "@/components/commons/Container";
 import ARView from "@/components/layouts/Story/StorySection";
-import { useEffect } from "react";
 
 export default function Story() {
-  // Starfield effect
-  useEffect(() => {
-    const canvas = document.getElementById("starfield-story") as HTMLCanvasElement;
-    if (!canvas) return;
-    
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    
-    // Set canvas size
-    const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    setCanvasSize();
-    
-    // Create stars
-    const stars = Array.from({ length: 1500 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      size: Math.random() * 2,
-      speed: Math.random() * 0.5 + 0.1,
-      opacity: Math.random() * 0.8 + 0.2,
-      twinkle: Math.random() * 0.02 + 0.01
-    }));
-    
-    let animationId: number;
-    let time = 0;
-    
-    const animate = () => {
-      time += 0.01;
-      
-      // Clear canvas completely untuk efek bersih
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw stars dengan efek neon/xenon
-      stars.forEach(star => {
-        // Update position
-        star.y += star.speed;
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-        
-        // Enhanced twinkling untuk efek neon
-        const twinkleIntensity = star.opacity + Math.sin(time * star.twinkle) * 0.5;
-        const brightness = Math.max(0.4, Math.min(1, twinkleIntensity));
-        
-        // Pilih warna neon/xenon berdasarkan posisi
-        const colorVariant = Math.floor((star.x + star.y) / 150) % 4;
-        let starColor;
-        
-        switch(colorVariant) {
-          case 0:
-            starColor = `rgba(0, 255, 255, ${brightness})`; // Cyan neon
-            break;
-          case 1:
-            starColor = `rgba(255, 255, 255, ${brightness})`; // White xenon
-            break;
-          case 2:
-            starColor = `rgba(150, 220, 255, ${brightness})`; // Light blue neon
-            break;
-          default:
-            starColor = `rgba(200, 240, 255, ${brightness})`; // Pale blue xenon
-        }
-        
-        // Core star dengan brightness tinggi
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = starColor;
-        ctx.fill();
-        
-        // Tambah sparkle hanya untuk bintang terang
-        if (brightness > 0.8 && star.size > 1.2) {
-          ctx.strokeStyle = starColor;
-          ctx.lineWidth = 0.8;
-          ctx.beginPath();
-          
-          // Horizontal sparkle
-          ctx.moveTo(star.x - star.size * 2.5, star.y);
-          ctx.lineTo(star.x + star.size * 2.5, star.y);
-          
-          // Vertical sparkle
-          ctx.moveTo(star.x, star.y - star.size * 2.5);
-          ctx.lineTo(star.x, star.y + star.size * 2.5);
-          
-          ctx.stroke();
-        }
-      });
-      
-      animationId = requestAnimationFrame(animate);
-    };
-    
-    animate();
-    
-    // Handle resize
-    const handleResize = () => {
-      setCanvasSize();
-      // Redistribute stars
-      stars.forEach(star => {
-        star.x = Math.random() * canvas.width;
-        star.y = Math.random() * canvas.height;
-      });
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <section className="h-[120vh]">
@@ -131,12 +19,30 @@ export default function Story() {
             }}
           />
           <h1 className="text-5xl font-bold font-nexa">Our Story</h1>
-        </Container>
-        <div className="w-full -top-10 h-full">
+        </Container>        
+        <div
+          className="w-full h-full overflow-hidden"
+          style={{                
+                backgroundImage: `radial-gradient(circle at center, rgba(25, 43, 166, 0.45), rgba(12, 11, 12, 0.92) 55%)`
+          }}
+        >
           <ARView imageval="/images/background.png" />
         </div>
+        
         <img
-          className="absolute w-4 h-4 right-1/2 top-25 opacity-20 animate-pulse mix-blend-screen"
+          className="absolute w-4 h-4 right-1/2 top-47 opacity-20 animate-pulse mix-blend-screen"
+          src="/images/zodiac/star.png"
+          alt="Star"
+          style={{ animationDelay: "6s" }}
+        />
+         <img
+          className="absolute w-3 h-3 right-[45%] top-37 opacity-20 animate-pulse mix-blend-screen"
+          src="/images/zodiac/star.png"
+          alt="Star"
+          style={{ animationDelay: "6s" }}
+        />
+        <img
+          className="absolute w-2 h-2 right-[45%] top-27 opacity-20 animate-pulse mix-blend-screen"
           src="/images/zodiac/star.png"
           alt="Star"
           style={{ animationDelay: "6s" }}
@@ -184,31 +90,30 @@ export default function Story() {
           style={{ animationDelay: "6s" }}
         />
         <img
-          className="constellation-image bottom-20 left-10 relative w-[250px] brightness-150 contrast-125 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] mix-blend-screen animate-pulse filter opacity-60"
+          className="constellation-image bottom-20 left-10 relative w-[250px] brightness-50 contrast-5 drop-shadow-[0_0_6px_rgba(255,255,255,0.2)] mix-blend-screen animate-pulse filter opacity-5"
           src="/images/zodiac/aries.svg"
           alt="Aries"
           style={{
             filter:
-              "brightness(1.5) contrast(1.25) drop-shadow(0 0 20px rgba(255,255,255,0.8)) drop-shadow(0 0 40px rgba(0,255,255,0.4))",
-            animationDelay: "1.5s",
+              "brightness(0.5) contrast(0.25) drop-shadow(0 0 10px rgba(255,255,255,0.8)) drop-shadow(0 0 20px rgba(0,255,255,0.4))",
+            animationDelay: "5s",
           }}
-        />
-        <div className="w-50 h-20 absolute -bottom-25 left-1/2 bg-gradient-to-r from-transparent via-purple-400/25 to-transparent blur-xl transform rotate-12 mix-blend-screen" />
-        <div className="w-80 h-20 absolute bottom-2 -right-13 bg-gradient-to-r from-transparent via-blue-400/25 to-transparent blur-xl transform rotate-90 mix-blend-screen" />
+        />      
+        
+        <div className="w-40 h-40 absolute -bottom-15 left-10 bg-gradient-to-tl from-cyan-300/20 via-fuchsia-500/30 to-transparent blur-3xl rotate-6 mix-blend-screen" />
+        <div className="w-40 h-40 absolute top-15 right-10 bg-gradient-to-tl from-cyan-300/20 via-blue-500/30 to-transparent blur-3xl rotate-6 mix-blend-screen" />        
+        <div className="w-[250px] h-[40px] absolute bottom-6 right-10 bg-green-400/25 blur-xl animate-pulse mix-blend-screen transform rotate-30" />
+        <div className="w-[175px] h-[40px] absolute -bottom-12 right-8 bg-blue-800/25 blur-md animate-pulse mix-blend-screen transform rotate-30" />                
+        <div className="absolute top-[60%] left-[70%] w-1 h-1 bg-white rounded-full blur-[1px] opacity-60"></div>
+        <div className="absolute top-[70%] left-[20%] w-2 h-2 bg-white rounded-full blur-[1px] opacity-60"></div>
+        <div className="absolute top-[20%] left-[10%] w-2 h-2 bg-white rounded-full blur-[5px] opacity-80"></div>
+        <div className="absolute top-[23%] right-[10%] w-3 h-3 bg-white rounded-full blur-[4px] opacity-80"></div>
+        <div className="absolute top-[28%] right-[8%] w-2 h-2 bg-white rounded-full blur-[3px] opacity-80"></div>
+        <div className="absolute top-[31%] right-[12%] w-2 h-2 bg-white rounded-full blur-[2px] opacity-80"></div>
+        <div className="absolute top-[29%] right-[15%] w-2 h-2 bg-white rounded-full blur-[1px] opacity-50"></div>
+        
         {/* <StorySection /> */}
-        {/* jangan dihapus dulu yang masih dicomment */}
-
-        {/* Starfield Background - bintang-bintang kecil yang banyak */}
-        <div className="absolute inset-0 pointer-events-none">
-          <canvas 
-            id="starfield-story" 
-            className="absolute inset-0 w-full h-full opacity-40"
-            style={{
-              mixBlendMode: "screen",
-              zIndex: 0
-            }}
-          ></canvas>
-        </div>
+        {/* jangan dihapus dulu yang masih dicomment */}      
       </div>
     </section>
   );
