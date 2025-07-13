@@ -112,7 +112,7 @@ function MemberDialog({
             {/* YouTube Embed Section End */}
             
             {/* SplashCursor Effect Start*/}
-            <SplashCursor />
+            <SplashCursor SPLAT_RADIUS={0.5} SPLAT_FORCE={20000} />
             {/* SplashCursor Effect End*/}
             
           </Dialog.Content>
