@@ -10,7 +10,7 @@ const data = {
   nrp: "5027241037",
   image: "037.jpg",
   funfact: "Gabisa Berenang",
-  hobby: "Olahraga, Main game, ",
+  hobby: "Olahraga, Main game",
   origin: "Jakarta",
 };
 
@@ -20,11 +20,11 @@ export default function NRP037() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-white relative bg-black backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border border-white/20 relative bg-[#d8eefe]/40 backdrop-blur-md shadow-lg transition-transform duration-300 hover:scale-[1.01]"
         onClick={() => setOpen(true)}
       >
-        <Noise /> 
-        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
+        <Noise />
+        <div className="aspect-[4/5] bg-white/10 backdrop-blur-sm rounded-xl z-10 relative overflow-hidden border border-white/20 shadow-md">
           <Image
             src={`/images/members/${data.image}`}
             alt={data.name}
@@ -33,10 +33,10 @@ export default function NRP037() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
+          <h4 className="text-2xl font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>
         </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
+<div className="absolute -z-10 inset-0 bg-gradient-to-t from-[#1d1d1b] via-[#cfcfc6] to-[#e5e5db] to-30% rounded-xl pointer-events-none" />
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
@@ -56,10 +56,10 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl shadow-xl overflow-y-auto focus:outline-none p-10 transition-all duration-300 animate-fade-in">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
+            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative border border-white/20 shadow-md">
               <Image
                 src={`/images/members/${data.image}`}
                 alt={data.name}
