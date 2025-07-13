@@ -29,16 +29,18 @@ export default function NRP010() {
 
         {/* Star Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-          {[...Array(30)].map((_, i) => (
+          {Array.from({ length: 50 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-[2px] h-[2px] bg-white/80 rounded-full animate-twinkle"
+              className="absolute text-white opacity-80 text-[6px] animate-pulse drop-shadow-[0_0_3px_#ffffffaa]"
               style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
+                top: `${(i * 73 + Math.random() * 50) % 100}%`,
+                left: `${(i * 37 + Math.random() * 60) % 100}%`,
                 animationDelay: `${Math.random() * 5}s`,
               }}
-            />
+            >
+              ✦
+            </div>
           ))}
         </div>
 
