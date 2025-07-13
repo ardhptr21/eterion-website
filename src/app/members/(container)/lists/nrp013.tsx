@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Tiara Putri Prasetya",
+  nrp: "5027241013",
+  image: "013.jpg",
+  funfact: "Suka jus durian",
+  hobby: "Rebahan dan nonton",
+  origin: "Tulungagung",
 };
 
 export default function NRP013() {
@@ -20,11 +20,11 @@ export default function NRP013() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-pink-500 relative bg-[#140c2c]/80 backdrop-blur-lg"
         onClick={() => setOpen(true)}
       >
         <Noise />
-        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
+        <div className="aspect-[4/5] bg-pink rounded-xl z-10 relative overflow-hidden">
           <Image
             src={`/images/members/${data.image}`}
             alt={data.name}
@@ -32,11 +32,20 @@ export default function NRP013() {
             className="object-cover w-full h-full"
           />
         </div>
-        <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
+
+        <div className="mt-5 z-10 text-center">
+          <h4
+            className="text-2xl text-pink-300 glow-text"
+            style={{ fontFamily: '"Luckiest Guy", cursive' }}
+          >
+            {data.name}
+          </h4>
+          <h6 className="text-purple-200 text-base">
+            {data.nrp}
+          </h6>
         </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
+
+        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-purple-400/20 via-pink-300/70 to-blue-400/30 rounded-xl pointer-events-none" />
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />

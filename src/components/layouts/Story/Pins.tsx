@@ -110,16 +110,46 @@ type PinsProps = {
 
 const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
   // const { size } = useThree()
+  const handlePointerOver = () => {
+    document.body.style.cursor = 'pointer';    
+  };
+
+  const handlePointerOut = () => {
+    document.body.style.cursor = 'grab';    
+  };
+
+  const handlePointerDown = () => {
+    document.body.style.cursor = 'click';    
+  };
+
+  const handlePointerUp = () => {
+    document.body.style.cursor = 'pointer';    
+  };
 
   return (
     <>
       {pinPositions.map((pin) => (
-        <group key={pin.id} position={pin.position} onClick={() => setSelectedPinId(pin.id)}>
-          <Sphere args={[0.15, 30, 30]}>
+        <group 
+            key={pin.id} 
+            position={pin.position} 
+            onClick={() => setSelectedPinId(pin.id)} 
+            onPointerOver={handlePointerOver}
+            onPointerOut={handlePointerOut}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}>
+          <Sphere args={[0.20, 30, 30]}> 
             <meshStandardMaterial color={pin.color} emissive={pin.color} emissiveIntensity={1} />
           </Sphere>
+          <mesh>
+            <sphereGeometry args={[0.25, 32, 32]} />
+            <meshBasicMaterial
+              color={pin.color}
+              transparent
+              opacity={0.5}
+            />
+          </mesh>
           <mesh position={[0, 0, -0.5]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.02, 0.02, 1, 16]} />
+            <cylinderGeometry args={[0.04, 0.04, 1, 16]} />
             <meshStandardMaterial color={pin.color} emissive={pin.color} emissiveIntensity={0.5} />
           </mesh>
 

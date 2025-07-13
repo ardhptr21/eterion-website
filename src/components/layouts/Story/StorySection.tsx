@@ -206,21 +206,46 @@
 
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import Pins from './Pins';
 import { OrbitControls, useTexture } from "@react-three/drei";
+import { useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
 type MyModelProps = {
   imageval: string;
 };
 
-const MyModel: React.FC<MyModelProps> = ({ imageval }) => {
+const MyModel: React.FC<MyModelProps> = ({
+  imageval,
+}) => {  
   const texture = useTexture(imageval);
+  const handlePointerOver = () => {
+    document.body.style.cursor = 'grab';
+  };
+
+  const handlePointerOut = () => {
+    document.body.style.cursor = 'default';
+  };
+
+  const handlePointerDown = () => {
+    document.body.style.cursor = 'grabbing';
+  };
+
+  const handlePointerUp = () => {
+    document.body.style.cursor = 'grab';
+  };
 
   return (
-    <mesh rotation={[0, 0, 0]} position={[0, 0, 0]}>
+    <mesh 
+      rotation={[0, 0, 0]} 
+      position={[0, 0, 0]} 
+      onPointerOver={handlePointerOver}
+      onPointerOut={handlePointerOut}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}>
+
       <planeGeometry args={[20, 20]} />
       <meshStandardMaterial
         map={texture}
@@ -234,7 +259,7 @@ const MyModel: React.FC<MyModelProps> = ({ imageval }) => {
 const RotatingGroup: React.FC<{
   imageval: string;
   selectedPinId: number | null;
-  setSelectedPinId: (id: number | null) => void;
+  setSelectedPinId: (id: number | null) => void;  
 }> = ({ imageval, selectedPinId, setSelectedPinId }) => {
 
   const groupRef = useRef<THREE.Group>(null);
@@ -319,7 +344,7 @@ const RotatingGroup: React.FC<{
       onPointerLeave={handlePointerUp}
       onPointerMove={handlePointerMove}
     >
-      <MyModel imageval={imageval} />
+      <MyModel imageval={imageval}  />
       <Pins selectedPinId={selectedPinId} setSelectedPinId={setSelectedPinId} />
     </group>
   );
@@ -329,31 +354,72 @@ type ARViewProps = {
   imageval: string;
 };
 
-const ARView: React.FC<ARViewProps> = ({ imageval }) => {
-  const [selectedPinId, setSelectedPinId] = useState<number | null>(null);
+const CustomControls = ({ controlsRef }: { controlsRef: React.RefObject<any> }) => {
+  const { gl, camera } = useThree();
 
-  return (    
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (e.ctrlKey && controlsRef?.current) {
+        e.preventDefault();
+        const zoomSpeed = 0.7;
+        const direction = e.deltaY > 0 ? 1 : -1;
+        const target = controlsRef?.current.target;
+        const vec = camera.position.clone().sub(target);
+
+        const distance = vec.length();
+        const minDistance = 10;   
+        const maxDistance = 80;  
+
+        const newDistance = distance * (1 + direction * zoomSpeed * 0.1);
+
+        if (newDistance >= minDistance && newDistance <= maxDistance) {
+          vec.multiplyScalar(1 + direction * zoomSpeed * 0.1);
+          camera.position.copy(vec.add(target));
+        }
+      }
+    };
+
+    gl.domElement.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      gl.domElement.removeEventListener("wheel", handleWheel);
+    };
+  }, [gl, camera, controlsRef]);
+
+  return (
+    <OrbitControls
+      ref={controlsRef}
+      enableZoom={false}
+      enablePan={false}
+      enableRotate={false}
+      minDistance={1}
+      maxDistance={40}
+    />
+  );
+};
+
+
+const ARView: React.FC<ARViewProps> = ({ imageval }) => {
+  const [selectedPinId, setSelectedPinId] = useState<number | null>(null);  
+  const controlsRef = useRef<any>(null);
+
+  return (   
+    <>
     <Canvas 
       shadows 
       camera={{ position: [0, -50, 25], fov: 25 }}
-      onPointerMissed={() => setSelectedPinId(null)}
-    >
+      onPointerMissed={() => setSelectedPinId(null)}        
+    >      
       <ambientLight intensity={2} />
       <directionalLight position={[50, 50, 90]} intensity={3} />
       <pointLight position={[90, -90, 90]} intensity={5} />      
       <RotatingGroup
         imageval={imageval}
         selectedPinId={selectedPinId}
-        setSelectedPinId={setSelectedPinId}
-      />
-      <OrbitControls
-        enableZoom={true}
-        enablePan={false}
-        enableRotate={false} 
-        minDistance={1}   
-        maxDistance={40}   
-      />
+        setSelectedPinId={setSelectedPinId}        
+      />    
+      <CustomControls controlsRef={controlsRef} />
     </Canvas>
+    </>
   );
 };
 
