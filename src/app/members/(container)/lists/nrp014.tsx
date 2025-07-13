@@ -13,13 +13,13 @@ const data = {
   funfact: "pernah kesetrum sampe ga napak kaki waktu kecil :D",
   hobby: "ngelukis, nonton film, baca buku",
   origin: "Lumajang",
-  quote: "Don't chase, don't beg, don't stress, don't be desperate, just relax. When you relax it will come to you. Make your wants, want you.",
-  instagram: "clarissazea"
+  quote:
+    "Don't chase, don't beg, don't stress, don't be desperate, just relax. When you relax it will come to you. Make your wants, want you.",
+  instagram: "clarissazea",
 };
 
-// Add this flower cursor image to your public folder at: public/cursors/flower-cursor.png
-// Or use this direct URL to a sample flower cursor:
-const FLOWER_CURSOR_URL = "https://www.cursor.cc/cursor/481/481/cursor.png";
+const FLOWER_CURSOR_URL =
+  "https://www.cursor.cc/cursor/481/481/cursor.png";
 
 export default function NRP014() {
   const [open, setOpen] = useState(false);
@@ -54,30 +54,30 @@ export default function NRP014() {
       >
         {/* Grain Effect */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 z-0" />
-        
+
         {/* Animated Particles */}
-        <div 
+        <div
           className="absolute w-2 h-2 rounded-full bg-amber-400/30 blur-sm z-0 transition-all duration-1000"
           style={{
             top: "20%",
             left: "30%",
-            transform: `translate(${position.x}px, ${position.y}px)`
+            transform: `translate(${position.x}px, ${position.y}px)`,
           }}
         />
-        <div 
+        <div
           className="absolute w-3 h-3 rounded-full bg-amber-600/30 blur-sm z-0 transition-all duration-1500"
           style={{
             top: "60%",
             left: "70%",
-            transform: `translate(${position.y}px, ${position.x}px)`
+            transform: `translate(${position.y}px, ${position.x}px)`,
           }}
         />
-        <div 
+        <div
           className="absolute w-1 h-1 rounded-full bg-amber-300/30 blur-sm z-0 transition-all duration-2000"
           style={{
             top: "40%",
             left: "50%",
-            transform: `translate(${-position.x}px, ${-position.y}px)`
+            transform: `translate(${-position.x}px, ${-position.y}px)`,
           }}
         />
 
@@ -121,7 +121,7 @@ function MemberDialog({
           <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-gradient-to-br from-[#3a2518] to-[#5a3a2a] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10 relative overflow-hidden">
             {/* Grain Effect for Dialog */}
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10" />
-            
+
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative ring-2 ring-amber-700/30">
@@ -137,8 +137,8 @@ function MemberDialog({
             <p className="text-lg font-nexa text-amber-200/70">{data.nrp}</p>
 
             {/* Instagram Link */}
-            <a 
-              href={`https://instagram.com/${data.instagram}`} 
+            <a
+              href={`https://instagram.com/${data.instagram}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-2 text-amber-300 hover:text-amber-200 transition-colors"
@@ -148,11 +148,11 @@ function MemberDialog({
 
             <hr className="my-6 border-t border-amber-700/30" />
 
-            {/* Quote Section with Transparent Shape */}
+            {/* Quote Section */}
             <div className="mb-6 relative">
               <div className="absolute inset-0 bg-amber-900/20 rounded-lg -rotate-1 transform"></div>
               <div className="relative p-4 italic text-amber-100 text-center font-light leading-relaxed">
-                "{data.quote}"
+                &quot;{data.quote}&quot;
               </div>
             </div>
 
