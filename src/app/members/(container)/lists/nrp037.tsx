@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Danuja Prasasta Bastu",
+  nrp: "5027241037",
+  image: "037.jpg",
+  funfact: "Gabisa Berenang",
+  hobby: "Olahraga, Main game, ",
+  origin: "Jakarta",
 };
 
 export default function NRP037() {
@@ -20,10 +20,10 @@ export default function NRP037() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-white relative bg-black backdrop-blur-lg"
         onClick={() => setOpen(true)}
       >
-        <Noise />
+        <Noise /> 
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
             src={`/images/members/${data.image}`}
