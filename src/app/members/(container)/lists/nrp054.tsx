@@ -4,26 +4,56 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
+import Link from 'next/link';
+import { Anton } from 'next/font/google';
+
+
+
+const anton = Anton({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+});
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "NISRINA BILQIS",
+  nrp: "5027241054",
+  image: "054.jpg",
+  funfact: "pacarku ada 5",
+  hobby: "hobiku pacaran",
   origin: "Surabaya",
+  nameLink: "https://www.instagram.com/liz.yeyo?igsh=MWVmOHE3ejl0Y3o0Yg==",
+  nrpLink: "https://www.instagram.com/nisrinanira?igsh=MXRwMnZoMWI5ejV3aQ==",
+  originlink: "https://maps.app.goo.gl/vmnpEBQXVDwbv8m4A",
+  hobbyLink:"https://www.instagram.com/fas.blqii?igsh=MXZwb2Rua2lia2s5dg==",
+  funfactLink:"https://www.instagram.com/txt_bighit?igsh=MTVuZDlkbTdsN2tjYg==",
+
 };
+
 
 export default function NRP054() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
-        onClick={() => setOpen(true)}
+     <div
+      className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#0b0a5c]/80 backdrop-blur-lg
+              transform transition-transform duration-300
+              hover:scale-[1.03] hover:shadow-2xl {anton.className}" 
+        onClick={() => setOpen(true)} 
       >
         <Noise />
+
+         <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none z-20"
+          >
+          <source src="/videos/puzzle.webm" type="video/webm" />
+        </video>
+
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
             src={`/images/members/${data.image}`}
@@ -33,16 +63,16 @@ export default function NRP054() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
+          <h4 className="text-xl ${anton.className} font-bold">{data.name}</h4>
+          <h6 className="${anton.className}">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
       </div>
-
       <MemberDialog open={open} onOpenChange={setOpen} />
     </>
   );
 }
+
 
 function MemberDialog({
   open,
@@ -68,25 +98,40 @@ function MemberDialog({
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+              <Link href={data.nameLink || '#'} className="block border border-white/0 rounded-x p-1 hover:bg-[#40E0D0]/50 transition">
+                  <h2 className="text-3xl font-bold ${anton.className} text-white mb-1">{data.name}</h2>
+              </Link>   
+              <Link href={data.nrpLink || '#'} className="block border border-white/0 p-1 hover:bg-[#40E0D0]/50 transition">
+                  <p className="text-lg ${anton.className} text-white/70">{data.nrp}</p>
+              </Link>
+              
+            
 
             <hr className="my-6 border-t border-white/20" />
 
-            <div className="space-y-2 text-white font-nexa text-base">
-              <p>
-                <strong>Asal:</strong> {data.origin}
-              </p>
-              <p>
-                <strong>Hobi:</strong> {data.hobby}
-              </p>
-              <p>
-                <strong>Funfact:</strong> {data.funfact}
-              </p>
+            <div className="space-y-4">
+              <Link href={data.originlink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
+                  <p className="text-white ${anton.className} text-base">
+                    <strong>Asal:</strong> {data.origin}
+                  </p>
+              </Link>
+
+              <Link href={data.hobbyLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
+                  <p className="text-white ${anton.className} text-base">
+                    <strong>Hobi:</strong> {data.hobby}
+                  </p>
+              </Link>
+
+              <Link href={data.funfactLink || '#'} className="block border border-white/20 rounded-xl p-4 hover:bg-[#40E0D0]/50 transition">
+                  <p className="text-white ${anton.className} text-base">
+                    <strong>Funfact:</strong> {data.funfact}
+                  </p>
+              </Link>
             </div>
           </Dialog.Content>
         </div>
       </Dialog.Portal>
     </Dialog.Root>
+    
   );
 }
