@@ -4,14 +4,18 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
+import { Instagram, Phone } from "lucide-react"; // Tambahkan import icon
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "Imam Mahmud Dalil Fauzan",
+  nrp: "5027241100",
+  image1: "100-1.jpg",
+  image2: "100-2.jpg",
+  funfact: "Suka ngumpulin Arsip perjalanan hidup",
+  hobby: "Travelling Motoran",
   origin: "Surabaya",
+  phone: "082210006306",
+  instagram: "@imdfauzan",
 };
 
 export default function NRP100() {
@@ -26,7 +30,7 @@ export default function NRP100() {
         <Noise />
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
-            src={`/images/members/${data.image}`}
+            src={`/images/members/${data.image1}`}
             alt={data.name}
             fill
             className="object-cover w-full h-full"
@@ -56,24 +60,24 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-[#CFDED5] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
               <Image
-                src={`/images/members/${data.image}`}
+                src={`/images/members/${data.image2}`}
                 alt={data.name}
                 fill
                 className="object-cover"
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+            <h2 className="text-3xl font-bold font-nexa text-[#122D4F] mb-1">{data.name}</h2>
+            <p className="text-lg font-nexa text-[#122D4F]">{data.nrp}</p>
 
-            <hr className="my-6 border-t border-white/20" />
+            <hr className="my-6 border-t border-[#122D4F]/30" />
 
-            <div className="space-y-2 text-white font-nexa text-base">
+            <div className="space-y-2 text-[#122D4F] font-nexa text-base">
               <p>
                 <strong>Asal:</strong> {data.origin}
               </p>
