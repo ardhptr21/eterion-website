@@ -8,9 +8,9 @@ import React, { CSSProperties, useEffect, useRef, useState } from "react";
 const data = {
   name: "Ahmad Yazid Arifuddin",
   nrp: "5027241040",
-  image: "040.png",
-  funfact: "Bukan pendukung 02",
-  hobby: "Do something fun",
+  image: "040.jpg",
+  funfact: "Never thought about entering a state university when I was in high school",
+  hobby: "alpha cuma sekali selama kuliah",
   origin: "Sidoarjo",
 
 };
@@ -59,7 +59,7 @@ function MemberDialog({
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
+        <Dialog.Overlay className="fixed inset-0 bg-black/80 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-[#fbed1f] rounded-2xl 
                                     overflow-y-auto focus:outline-none p-10 shadow-[0px_0px_100px_#0098ff]
@@ -95,6 +95,22 @@ function MemberDialog({
             </div>
             {/* YazidsAssistant Section End */}
             
+            {/* YouTube Embed Section Start */}
+            <div className="mt-4">
+              <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/C2AFd1PLsF8?si=0KQ5y3J4i1oASe3k&start=65&autoplay=1&mute=0&volume=60&loop=1&playlist=C2AFd1PLsF8" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+                className="w-full rounded-xl"
+              ></iframe>
+            </div>
+            {/* YouTube Embed Section End */}
+            
             {/* SplashCursor Effect Start*/}
             <SplashCursor />
             {/* SplashCursor Effect End*/}
@@ -107,28 +123,28 @@ function MemberDialog({
 }
 
 const botReplies = [
-  "Maaf, aku paham maksudmu, tapi aku masih bot sederhana.",
-  "Aku mengerti pertanyaanmu, tapi aku belum bisa menjawab detailnya.",
-  "Wah, pertanyaan bagus! Tapi aku tidak mau menjawabnya.",
-  "Aku paham, tapi aku hanya bisa jawab seputar Yazid.",
-  "Maaf, aku belum bisa kasih jawaban yang kamu harapkan.",
-  "Aku mengerti, tapi aku masih bot basic.",
-  "Pertanyaanmu menarik, tapi aku belum bisa jawab dengan baik.",
-  "Maaf, aku hanya bisa jawab pertanyaan seputar Yazid.",
-  "Aku paham, tapi aku masih dalam tahap pengembangan.",
-  "Maaf, aku belum cukup pintar untuk menjawab itu."
+  "Sorry, I understand your question, but I'm still a simple bot.",
+  "I get your question, but I can't answer it in detail yet.",
+  "That's a good question! But I don't want to answer it.",
+  "I understand, but I can only answer about Yazid.",
+  "Sorry, I can't give you the answer you're expecting yet.",
+  "I get it, but I'm still a basic bot.",
+  "Interesting question, but I can't answer it well yet.",
+  "Sorry, I can only answer questions about Yazid.",
+  "I understand, but I'm still under development.",
+  "Sorry, I'm not smart enough to answer that yet."
 ];
 const faq = [
-  "Siapa nama lengkap Yazid?",
-  "Yazid asal mana?",
-  "Apa hobi Yazid?",
-  "Apa funfact tentang Yazid?",
-  "NRP Yazid berapa?",
+  "What is Yazid's full name?",
+  "Where is Yazid from?",
+  "What is Yazid's hobby?",
+  "What's a fun fact about Yazid?",
+  "What is Yazid's student number?",
 ];
 
 function YazidsAssistant() {
   const [messages, setMessages] = useState([
-    { from: "bot", text: "Halo, aku Yazid's assistant, Ada yang ingin kamu tanyakan tentang Yazid ? Yuk, ngobrol bareng aku!", time: new Date() },
+    { from: "bot", text: "Hello, I'm Yazid's assistant. Do you want to ask anything about Yazid? Let's chat!", time: new Date() },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -152,10 +168,8 @@ function YazidsAssistant() {
         setFaqIdx((prev: number) => (prev + 1) % faq.length);
       }, 1000);
     }
-    setPlaceholder(typed || "Tulis pesan...");
+    setPlaceholder(typed || "Type a message...");
     return () => clearTimeout(timeout);
-
-
   }, [typed, faqIdx]);
 
   useEffect(() => {
@@ -185,11 +199,11 @@ function YazidsAssistant() {
     setTimeout(() => {
       const lower = input.toLowerCase();
       let reply = "";
-      if (lower.includes("nama")) reply = "Nama lengkap Yazid adalah Ahmad Yazid Arifuddin.";
-      else if (lower.includes("asal")) reply = "Yazid berasal dari Sidoarjo.";
-      else if (lower.includes("hobi")) reply = "Hobi Yazid adalah Do something fun.";
-      else if (lower.includes("funfact")) reply = "Funfact tentang Yazid: Bukan pendukung 02.";
-      else if (lower.includes("nrp")) reply = "NRP Yazid adalah 5027241040.";
+      if (lower.includes("name")) reply = "Yazid's full name is Ahmad Yazid Arifuddin.";
+      else if (lower.includes("from")) reply = "Yazid is from Sidoarjo.";
+      else if (lower.includes("hobby")) reply = "Yazid's hobby is doing something fun.";
+      else if (lower.includes("funfact") || lower.includes("fun fact")) reply = "Fun fact about Yazid: Never thought about entering a state university when I was in high school.";
+      else if (lower.includes("student number") || lower.includes("nrp")) reply = "Yazid's student number is 5027241040.";
       else reply = botReplies[Math.floor(Math.random() * botReplies.length)];
       setMessages((msgs: any[]) => [
         ...msgs,
@@ -202,13 +216,13 @@ function YazidsAssistant() {
   }
 
   return (
-    <div className="flex flex-col h-120">
+    <div className="flex flex-col">
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
-        <span className="font-bold text-[#0097f6] text-lg">Yazid{"'"}s Assistant</span>
+        <span className="font-bold text-[#0097f6] text-lg">Yazid&apos;s Assistant</span>
       </div>
       {/* Chat area */}
-      <div className="flex-1 overflow-y-auto space-y-2 mb-2 pr-1 bg-white/0">
+      <div className="overflow-y-auto space-y-2 mb-2 pr-1 bg-white/0 h-60 max-h-60" style={{minHeight: '180px'}}>
         {messages.map((msg: any, i: number) => (
           <div key={i} className={
             msg.from === "bot"
@@ -217,7 +231,7 @@ function YazidsAssistant() {
           }>
             {msg.from === "bot" && (
               <div className="flex flex-col items-start">
-                <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid{"'"}s Assistant</span>
+                <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid&apos;s Assistant</span>
                 <div className="text-base bg-[#e3f1ff] text-[#0097f6] rounded-lg p-2 max-w-[80%] min-w-[40%] text-left whitespace-normal self-start ml-2">
                   {msg.text}
                 </div>
@@ -239,7 +253,7 @@ function YazidsAssistant() {
         {loading && (
           <div className="flex items-start gap-2">
             <div className="flex flex-col items-start">
-              <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid{"'"}s Assistant</span>
+              <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid&apos;s Assistant</span>
               <div className="text-base bg-[#e3f1ff] text-[#0097f6] rounded-lg p-2 max-w-[80%] min-w-[40%] text-left whitespace-normal self-start ml-2">
                 <span className="inline-block animate-pulse">{'.'.repeat(dotCount)}</span>
               </div>
@@ -261,7 +275,7 @@ function YazidsAssistant() {
           type="submit"
           className="bg-[#0097f6] text-white px-4 py-1 rounded-lg font-bold hover:bg-[#0076c1] transition-colors"
         >
-          Kirim
+          Send
         </button>
       </form>
     </div>
@@ -274,7 +288,7 @@ function PanZoomImage({ src, alt }: { src: string; alt: string }) {
   const [_containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [_noTransition, setNoTransition] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const scale = 1.3;
+  const scale = 1.1;
 
   useEffect(() => {
     function updateSize() {
@@ -399,22 +413,24 @@ function pointerPrototype(): Pointer {
   };
 }
 
-function SplashCursor({
-  SIM_RESOLUTION = 64,
-  DYE_RESOLUTION = 512,
-  CAPTURE_RESOLUTION = 256,
-  DENSITY_DISSIPATION = 1.8, 
-  VELOCITY_DISSIPATION = 1.2, 
-  PRESSURE = 0.05,
-  PRESSURE_ITERATIONS = 10,
-  CURL = 2,
-  SPLAT_RADIUS = 0.2,
-  SPLAT_FORCE = 10000,
-  SHADING = false,
-  COLOR_UPDATE_SPEED = 5,
-  BACK_COLOR = { r: 0.5, g: 0.1, b: 0.1 }, 
-  TRANSPARENT = true
-}: SplashCursorProps) {
+function SplashCursor(props: SplashCursorProps) {
+  const {
+    SIM_RESOLUTION = 128,
+    DYE_RESOLUTION = 1440,
+    CAPTURE_RESOLUTION = 512,
+    DENSITY_DISSIPATION = 3.5,
+    VELOCITY_DISSIPATION = 2,
+    PRESSURE = 0.1,
+    PRESSURE_ITERATIONS = 20,
+    CURL = 3,
+    SPLAT_RADIUS = 0.2,
+    SPLAT_FORCE = 6000,
+    SHADING = true,
+    COLOR_UPDATE_SPEED = 10,
+    BACK_COLOR = { r: 0.5, g: 0, b: 0 },
+    TRANSPARENT = true
+  } = props;
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
