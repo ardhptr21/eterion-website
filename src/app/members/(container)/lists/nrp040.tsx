@@ -199,11 +199,11 @@ function YazidsAssistant() {
     setTimeout(() => {
       const lower = input.toLowerCase();
       let reply = "";
-      if (lower.includes("nama")) reply = "Yazid's full name is Ahmad Yazid Arifuddin.";
-      else if (lower.includes("asal")) reply = "Yazid is from Sidoarjo.";
+      if (lower.includes("name")) reply = "Yazid's full name is Ahmad Yazid Arifuddin.";
+      else if (lower.includes("from")) reply = "Yazid is from Sidoarjo.";
       else if (lower.includes("hobby")) reply = "Yazid's hobby is doing something fun.";
       else if (lower.includes("funfact") || lower.includes("fun fact")) reply = "Fun fact about Yazid: Never thought about entering a state university when I was in high school.";
-      else if (lower.includes("NRP") || lower.includes("nrp")) reply = "Yazid's student number is 5027241040.";
+      else if (lower.includes("student number") || lower.includes("nrp")) reply = "Yazid's student number is 5027241040.";
       else reply = botReplies[Math.floor(Math.random() * botReplies.length)];
       setMessages((msgs: any[]) => [
         ...msgs,
