@@ -10,7 +10,7 @@ const data = {
   nrp: "5027241040",
   image: "040.jpg",
   funfact: "Never thought about entering a state university when I was in high school",
-  hobby: "Do something fun",
+  hobby: "alpha cuma sekali selama kuliah",
   origin: "Sidoarjo",
 
 };
@@ -112,7 +112,7 @@ function MemberDialog({
             {/* YouTube Embed Section End */}
             
             {/* SplashCursor Effect Start*/}
-            <SplashCursor SPLAT_RADIUS={0.5} SPLAT_FORCE={20000} />
+            <SplashCursor />
             {/* SplashCursor Effect End*/}
             
           </Dialog.Content>
@@ -413,22 +413,24 @@ function pointerPrototype(): Pointer {
   };
 }
 
-function SplashCursor({
-  SIM_RESOLUTION = 64,
-  DYE_RESOLUTION = 512,
-  CAPTURE_RESOLUTION = 256,
-  DENSITY_DISSIPATION = 1.8, 
-  VELOCITY_DISSIPATION = 1.2, 
-  PRESSURE = 0.05,
-  PRESSURE_ITERATIONS = 10,
-  CURL = 2,
-  SPLAT_RADIUS = 0.2,
-  SPLAT_FORCE = 10000,
-  SHADING = false,
-  COLOR_UPDATE_SPEED = 5,
-  BACK_COLOR = { r: 0.5, g: 0.1, b: 0.1 }, 
-  TRANSPARENT = true
-}: SplashCursorProps) {
+function SplashCursor(props: SplashCursorProps) {
+  const {
+    SIM_RESOLUTION = 128,
+    DYE_RESOLUTION = 1440,
+    CAPTURE_RESOLUTION = 512,
+    DENSITY_DISSIPATION = 3.5,
+    VELOCITY_DISSIPATION = 2,
+    PRESSURE = 0.1,
+    PRESSURE_ITERATIONS = 20,
+    CURL = 3,
+    SPLAT_RADIUS = 0.2,
+    SPLAT_FORCE = 6000,
+    SHADING = true,
+    COLOR_UPDATE_SPEED = 10,
+    BACK_COLOR = { r: 0.5, g: 0, b: 0 },
+    TRANSPARENT = true
+  } = props;
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
