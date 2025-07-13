@@ -26,6 +26,22 @@ export default function NRP010() {
         onClick={() => setOpen(true)}
       >
         <Noise />
+
+        {/* Star Particles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-[2px] h-[2px] bg-white/80 rounded-full animate-twinkle"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+              }}
+            />
+          ))}
+        </div>
+
         <div className="aspect-[4/5] bg-gradient-to-tl from-[#C6C6C6] to-[#1a1a1a] rounded-xl z-10 relative overflow-hidden ring-1 ring-[#00A19C]/40 shadow-[inset_0_0_10px_#00A19C33]">
           <Image
             src={`/images/members/${data.image}`}
@@ -93,7 +109,6 @@ function MemberDialog({
               </p>
             </div>
 
-            {/* Instagram Button */}
             <div className="flex justify-center mt-6">
               <a
                 href="https://instagram.com/vaneshasshen"
@@ -107,7 +122,6 @@ function MemberDialog({
               </a>
             </div>
 
-            {/* YouTube Shorts embed */}
             <div className="mt-6">
               <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg ring-1 ring-[#00A19C]/30">
                 <iframe
