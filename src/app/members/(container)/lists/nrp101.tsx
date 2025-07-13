@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Binar Najmuddin Mahya",
+  nrp: "5027241101",
+  image: "101.jpg",
+  funfact: "Suka kopi pait",
+  hobby: "Fotografi",
+  origin: "Ngalam",
 };
 
 export default function NRP101() {
@@ -20,10 +20,15 @@ export default function NRP101() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-black backdrop-blur-lg overflow-hidden"
         onClick={() => setOpen(true)}
       >
+        {/* Floating Blue Circles */}
+        <div className="absolute w-60 h-60 bg-blue-500 rounded-full blur-3xl opacity-40 animate-float1 -top-10 -left-10 pointer-events-none" />
+        <div className="absolute w-32 h-32 bg-blue-300 rounded-full blur-2xl opacity-40 animate-float2 bottom-0 right-0 pointer-events-none" />
+
         <Noise />
+
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
             src={`/images/members/${data.image}`}
@@ -33,10 +38,12 @@ export default function NRP101() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
+          <h4 className="text-xl font-nexa font-bold text-white">{data.name}</h4>
+          <h6 className="font-nexa text-white/70">{data.nrp}</h6>
         </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
+
+        {/* Gradient overlay (optional, can remove if too distracting) */}
+        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent via-blue-500/10 to-black/80 rounded-xl pointer-events-none" />
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
