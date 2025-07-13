@@ -92,6 +92,35 @@ function MemberDialog({
                 <strong className="text-[#C6C6C6]">Funfact:</strong> {data.funfact}
               </p>
             </div>
+
+            {/* Instagram Button */}
+            <div className="flex justify-center mt-6">
+              <a
+                href="https://instagram.com/vaneshasshen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-white font-nexa text-sm font-semibold
+                  bg-gradient-to-r from-[#0f0f0f] to-[#00A19C] hover:brightness-110 transition
+                  shadow-[0_0_10px_#00A19C44]"
+              >
+                Instagram
+              </a>
+            </div>
+
+            {/* YouTube Shorts embed */}
+            <div className="mt-6">
+              <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg ring-1 ring-[#00A19C]/30">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/gZ_-8a1WCJk"
+                  title="Oscar Piastri Shorts"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
           </Dialog.Content>
         </div>
       </Dialog.Portal>
