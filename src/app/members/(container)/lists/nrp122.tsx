@@ -8,7 +8,7 @@ import { useState } from "react";
 const data = {
   name: "Muhammad Ziddan Habibi",
   nrp: "5027241122",
-  image: "/images/members/122.jpg",
+  image: "122.jpg",
   funfact: "Mau confess, sebenernya aku ini ultraman",
   hobby: "jalan-jalan",
   origin: "Bandung",
