@@ -113,7 +113,7 @@ function MemberDialog({
                 <iframe
                   width="100%"
                   height="100%"
-                  src="https://www.youtube.com/embed/gZ_-8a1WCJk"
+                  src="https://www.youtube.com/embed/gZ_-8a1WCJk?autoplay=1&mute=1"
                   title="Oscar Piastri Shorts"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
