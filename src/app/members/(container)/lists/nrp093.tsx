@@ -84,7 +84,7 @@ function MemberDialog({
   onOpenChange: (open: boolean) => void;
 }) {
   const [terminalText, setTerminalText] = useState("");
-  const [currentStep, setCurrentStep] = useState(0);
+  const [_currentStep, setCurrentStep] = useState(0);
   const [showProfile, setShowProfile] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
 
@@ -150,6 +150,8 @@ function MemberDialog({
     };
 
     typeText();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   return (

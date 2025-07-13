@@ -3,17 +3,8 @@
 import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
-import { useState } from "react";
 import Link from 'next/link';
-import { Anton } from 'next/font/google';
-
-
-
-const anton = Anton({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-});
+import { useState } from "react";
 
 const data = {
   name: "NISRINA BILQIS",

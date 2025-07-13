@@ -4,7 +4,6 @@ import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
-import Script from "next/script";
 
 const data = {
   name: "Evan Christian Nainggolan",
@@ -79,9 +78,7 @@ function MemberDialog({
               />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">
-              {data.name}
-            </h2>
+            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
             <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
 
             <hr className="my-6 border-t border-white/20" />

@@ -17,9 +17,7 @@ const data = {
 
 function SprinkleDots({ count = 15 }: { count?: number }) {
   const colors = ["bg-yellow-300", "bg-blue-300", "bg-green-300", "bg-pink-300", "bg-purple-300"];
-  const [dots, setDots] = useState<
-    { top: number; left: number; color: string }[]
-  >([]);
+  const [dots, setDots] = useState<{ top: number; left: number; color: string }[]>([]);
 
   useEffect(() => {
     const generated = Array.from({ length: count }, (_, i) => ({
@@ -28,6 +26,8 @@ function SprinkleDots({ count = 15 }: { count?: number }) {
       color: colors[i % colors.length],
     }));
     setDots(generated);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   return (

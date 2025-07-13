@@ -2,9 +2,9 @@
 
 import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
-import Image from "next/image";
-import { useState, useRef, useLayoutEffect, useState as useStateReact } from "react";
 import { Press_Start_2P } from "next/font/google";
+import Image from "next/image";
+import { useLayoutEffect, useRef, useState, useState as useStateReact } from "react";
 
 const pixelFont = Press_Start_2P({
   subsets: ["latin"],
@@ -54,14 +54,11 @@ export default function NRP027() {
         <div className="mt-5 z-10">
           <h4
             className="text-xl font-nexa font-bold text-white fade-in"
-            style={{ animationDelay: '200ms' }}
+            style={{ animationDelay: "200ms" }}
           >
             {data.name}
           </h4>
-          <h6
-            className="font-nexa text-white/80 fade-in"
-            style={{ animationDelay: '400ms' }}
-          >
+          <h6 className="font-nexa text-white/80 fade-in" style={{ animationDelay: "400ms" }}>
             {data.nrp}
           </h6>
         </div>
@@ -74,14 +71,26 @@ export default function NRP027() {
       {/* Global keyframes and fade-in styles */}
       <style jsx global>{`
         @keyframes floatUpDown {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0); }
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0);
+          }
         }
 
         @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(10px); }
-          to   { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         .fade-in {
@@ -101,13 +110,15 @@ function MemberDialog({
   onOpenChange: (open: boolean) => void;
 }) {
   const modalRef = useRef<HTMLDivElement>(null);
-  const [modalX, setModalX] = useStateReact(0);
+  const [_, setModalX] = useStateReact(0);
 
   useLayoutEffect(() => {
     if (modalRef.current) {
       const rect = modalRef.current.getBoundingClientRect();
       setModalX(rect.left);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   return (
@@ -121,7 +132,7 @@ function MemberDialog({
             className="absolute top-1/2 -translate-y-1/2 z-40 w-14 pointer-events-none"
             style={{
               left: `15%`,
-              animation: 'floatUpDown 3s ease-in-out infinite'
+              animation: "floatUpDown 3s ease-in-out infinite",
             }}
           />
           <img
@@ -130,8 +141,8 @@ function MemberDialog({
             className="absolute top-1/2 -translate-y-1/2 z-40 w-16 md:w-20 lg:w-24 pointer-events-none"
             style={{
               right: `12%`,
-              animation: 'floatUpDown 3s ease-in-out infinite',
-              animationDirection: 'reverse'
+              animation: "floatUpDown 3s ease-in-out infinite",
+              animationDirection: "reverse",
             }}
           />
 
@@ -159,35 +170,20 @@ function MemberDialog({
             </div>
 
             <div className="bg-black/70 rounded-lg p-4 space-y-3">
-              <h2
-                className="text-xl font-bold fade-in"
-                style={{ animationDelay: '200ms' }}
-              >
+              <h2 className="text-xl font-bold fade-in" style={{ animationDelay: "200ms" }}>
                 {data.name}
               </h2>
-              <p
-                className="text-sm fade-in"
-                style={{ animationDelay: '400ms' }}
-              >
+              <p className="text-sm fade-in" style={{ animationDelay: "400ms" }}>
                 {data.nrp}
               </p>
               <div className="space-y-2 text-sm">
-                <p
-                  className="fade-in"
-                  style={{ animationDelay: '600ms' }}
-                >
+                <p className="fade-in" style={{ animationDelay: "600ms" }}>
                   <strong>Asal:</strong> {data.origin}
                 </p>
-                <p
-                  className="fade-in"
-                  style={{ animationDelay: '800ms' }}
-                >
+                <p className="fade-in" style={{ animationDelay: "800ms" }}>
                   <strong>Hobi:</strong> {data.hobby}
                 </p>
-                <p
-                  className="fade-in"
-                  style={{ animationDelay: '1000ms' }}
-                >
+                <p className="fade-in" style={{ animationDelay: "1000ms" }}>
                   <strong>Funfact:</strong> {data.funfact}
                 </p>
               </div>

@@ -3,7 +3,7 @@
 import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
-import React, { useState, useEffect, useRef, CSSProperties } from "react";
+import React, { CSSProperties, useEffect, useRef, useState } from "react";
 
 const data = {
   name: "Ahmad Yazid Arifuddin",
@@ -106,26 +106,27 @@ function MemberDialog({
   );
 }
 
+const botReplies = [
+  "Maaf, aku paham maksudmu, tapi aku masih bot sederhana.",
+  "Aku mengerti pertanyaanmu, tapi aku belum bisa menjawab detailnya.",
+  "Wah, pertanyaan bagus! Tapi aku tidak mau menjawabnya.",
+  "Aku paham, tapi aku hanya bisa jawab seputar Yazid.",
+  "Maaf, aku belum bisa kasih jawaban yang kamu harapkan.",
+  "Aku mengerti, tapi aku masih bot basic.",
+  "Pertanyaanmu menarik, tapi aku belum bisa jawab dengan baik.",
+  "Maaf, aku hanya bisa jawab pertanyaan seputar Yazid.",
+  "Aku paham, tapi aku masih dalam tahap pengembangan.",
+  "Maaf, aku belum cukup pintar untuk menjawab itu."
+];
+const faq = [
+  "Siapa nama lengkap Yazid?",
+  "Yazid asal mana?",
+  "Apa hobi Yazid?",
+  "Apa funfact tentang Yazid?",
+  "NRP Yazid berapa?",
+];
+
 function YazidsAssistant() {
-  const botReplies = [
-    "Maaf, aku paham maksudmu, tapi aku masih bot sederhana.",
-    "Aku mengerti pertanyaanmu, tapi aku belum bisa menjawab detailnya.",
-    "Wah, pertanyaan bagus! Tapi aku tidak mau menjawabnya.",
-    "Aku paham, tapi aku hanya bisa jawab seputar Yazid.",
-    "Maaf, aku belum bisa kasih jawaban yang kamu harapkan.",
-    "Aku mengerti, tapi aku masih bot basic.",
-    "Pertanyaanmu menarik, tapi aku belum bisa jawab dengan baik.",
-    "Maaf, aku hanya bisa jawab pertanyaan seputar Yazid.",
-    "Aku paham, tapi aku masih dalam tahap pengembangan.",
-    "Maaf, aku belum cukup pintar untuk menjawab itu."
-  ];
-  const faq = [
-    "Siapa nama lengkap Yazid?",
-    "Yazid asal mana?",
-    "Apa hobi Yazid?",
-    "Apa funfact tentang Yazid?",
-    "NRP Yazid berapa?",
-  ];
   const [messages, setMessages] = useState([
     { from: "bot", text: "Halo, aku Yazid's assistant, Ada yang ingin kamu tanyakan tentang Yazid ? Yuk, ngobrol bareng aku!", time: new Date() },
   ]);
@@ -153,7 +154,9 @@ function YazidsAssistant() {
     }
     setPlaceholder(typed || "Tulis pesan...");
     return () => clearTimeout(timeout);
-  }, [typed, faqIdx, faq]);
+
+
+  }, [typed, faqIdx]);
 
   useEffect(() => {
     if (messages.length > prevMsgLen.current && chatEndRef.current) {
@@ -202,7 +205,7 @@ function YazidsAssistant() {
     <div className="flex flex-col h-120">
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
-        <span className="font-bold text-[#0097f6] text-lg">Yazid's Assistant</span>
+        <span className="font-bold text-[#0097f6] text-lg">Yazid{"'"}s Assistant</span>
       </div>
       {/* Chat area */}
       <div className="flex-1 overflow-y-auto space-y-2 mb-2 pr-1 bg-white/0">
@@ -214,7 +217,7 @@ function YazidsAssistant() {
           }>
             {msg.from === "bot" && (
               <div className="flex flex-col items-start">
-                <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid's Assistant</span>
+                <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid{"'"}s Assistant</span>
                 <div className="text-base bg-[#e3f1ff] text-[#0097f6] rounded-lg p-2 max-w-[80%] min-w-[40%] text-left whitespace-normal self-start ml-2">
                   {msg.text}
                 </div>
@@ -236,7 +239,7 @@ function YazidsAssistant() {
         {loading && (
           <div className="flex items-start gap-2">
             <div className="flex flex-col items-start">
-              <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid's Assistant</span>
+              <span className="text-xs text-[#0097f6] font-semibold mb-0.5">Yazid{"'"}s Assistant</span>
               <div className="text-base bg-[#e3f1ff] text-[#0097f6] rounded-lg p-2 max-w-[80%] min-w-[40%] text-left whitespace-normal self-start ml-2">
                 <span className="inline-block animate-pulse">{'.'.repeat(dotCount)}</span>
               </div>
@@ -268,8 +271,8 @@ function YazidsAssistant() {
 function PanZoomImage({ src, alt }: { src: string; alt: string }) {
   const [isHover, setIsHover] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
-  const [noTransition, setNoTransition] = useState(false);
+  const [_containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [_noTransition, setNoTransition] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scale = 1.3;
 
@@ -418,9 +421,9 @@ function SplashCursor({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    let pointers: Pointer[] = [pointerPrototype()];
+    const pointers: Pointer[] = [pointerPrototype()];
 
-    let config = {
+    const config = {
       SIM_RESOLUTION: SIM_RESOLUTION!,
       DYE_RESOLUTION: DYE_RESOLUTION!,
       CAPTURE_RESOLUTION: CAPTURE_RESOLUTION!,
@@ -491,7 +494,7 @@ function SplashCursor({
 
       gl.clearColor(0, 0, 0, 1);
 
-      const halfFloatTexType = isWebGL2
+      const halfFloatTexType: number = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
         : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0;
 
@@ -504,7 +507,7 @@ function SplashCursor({
           gl,
           (gl as WebGL2RenderingContext).RGBA16F,
           gl.RGBA,
-          halfFloatTexType
+          halfFloatTexType 
         );
         formatRG = getSupportedFormat(
           gl,
@@ -652,7 +655,7 @@ function SplashCursor({
     }
 
     function getUniforms(program: WebGLProgram) {
-      let uniforms: Record<string, WebGLUniformLocation | null> = {};
+      const uniforms: Record<string, WebGLUniformLocation | null> = {};
       const uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
         const uniformInfo = gl.getActiveUniform(program, i);
@@ -1315,7 +1318,7 @@ function SplashCursor({
       const w = gl.drawingBufferWidth;
       const h = gl.drawingBufferHeight;
       const aspectRatio = w / h;
-      let aspect = aspectRatio < 1 ? 1 / aspectRatio : aspectRatio;
+      const aspect = aspectRatio < 1 ? 1 / aspectRatio : aspectRatio;
       const min = Math.round(resolution);
       const max = Math.round(resolution * aspect);
       if (w > h) {

@@ -19,7 +19,6 @@ export default function NRP107() {
   return (
     <>
     {/* efek glowing border */}
-    <style> @import url('https://fonts.cdnfonts.com/css/open-sauce-one'); </style>
     <div className="relative group w-full shrink-0">
       <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-25 group-hover:opacity-100 group-hover:scale-[1.06] transition duration-300 ease-in-out"
       style={{ zIndex: 0 }}></div> 
