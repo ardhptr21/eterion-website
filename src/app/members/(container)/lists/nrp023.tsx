@@ -167,13 +167,15 @@ export default function NRP023() {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const generatePetal = useCallback(() => {
-    if (cardRef.current && open) { // Only generate petals when dialog is open
+    if (cardRef.current && open) {
+      // Only generate petals when dialog is open
       const cardRect = cardRef.current.getBoundingClientRect();
       const spawnAreaWidth = cardRect.width * 3; // Wider spawn area for more petals
       const spawnAreaLeft = cardRect.left - (spawnAreaWidth - cardRect.width) / 2;
 
       // Generate multiple petals at once for higher density
-      for (let i = 0; i < 5; i++) { // Increased to 5 petals per interval
+      for (let i = 0; i < 5; i++) {
+        // Increased to 5 petals per interval
         const startX = spawnAreaLeft + Math.random() * spawnAreaWidth;
         const startY = cardRect.top - 100;
         const commonDelay = Math.random() * 1;
@@ -190,39 +192,50 @@ export default function NRP023() {
         };
         setSakuraPetals((prev) => [...prev, newPetal]);
 
-        setTimeout(
-          () => {
-            setSakuraPetals((prev) => prev.filter((p) => p.id !== newPetal.id));
-          },
-          newPetal.duration * 1000 + 1000,
-        );
+        setTimeout(() => {
+          setSakuraPetals((prev) => prev.filter((p) => p.id !== newPetal.id));
+        }, newPetal.duration * 1000 + 1000);
       }
     }
   }, [open]);
 
-  useEffect(() => {
-    let trailId = 0;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const trail: CursorTrail = {
-        id: trailId++,
-        x: e.clientX,
-        y: e.clientY,
-      };
-
-      setCursorTrails((prev) => [...prev, trail]);
-
-      setTimeout(() => {
-        setCursorTrails((prev) => prev.filter((t) => t.id !== trail.id));
-      }, 1000);
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const trail: CursorTrail = {
+      id: Date.now(), // Use timestamp instead of incremental ID
+      x: e.clientX,
+      y: e.clientY,
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
+    setCursorTrails((prev) => [...prev, trail]);
 
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+    setTimeout(() => {
+      setCursorTrails((prev) => prev.filter((t) => t.id !== trail.id));
+    }, 1000);
+  };
+
+  // useEffect(() => {
+  //   let trailId = 0;
+
+  //   const handleMouseMove = (e: MouseEvent) => {
+  //     const trail: CursorTrail = {
+  //       id: trailId++,
+  //       x: e.clientX,
+  //       y: e.clientY,
+  //     };
+
+  //     setCursorTrails((prev) => [...prev, trail]);
+
+  //     setTimeout(() => {
+  //       setCursorTrails((prev) => prev.filter((t) => t.id !== trail.id));
+  //     }, 1000);
+  //   };
+
+  //   document.addEventListener("mousemove", handleMouseMove);
+
+  //   return () => {
+  //     document.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (open) {
@@ -252,7 +265,11 @@ export default function NRP023() {
       ))}
       <div
         ref={cardRef}
-        className={`cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-cyan-400/60 relative bg-slate-900/90 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/50 hover:shadow-2xl group ${zanpakutoCursor ? "zanpakuto-cursor" : ""} always-glowing-border`}
+        onMouseMove={handleCardMouseMove}
+        onMouseLeave={() => setCursorTrails([])}
+        className={`zodiac-card cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-cyan-400/60 relative bg-slate-900/90 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-cyan-400/50 hover:shadow-2xl group ${
+          zanpakutoCursor ? "zanpakuto-cursor" : ""
+        } always-glowing-border`}
         onClick={() => {
           setOpen(true);
           setZanpakutoCursor(true);
@@ -277,7 +294,9 @@ export default function NRP023() {
 
         {/* Spiritual energy top accent */}
         <div className="absolute top-2 left-2 text-cyan-400 animate-pulse text-sm">★</div>
-        <div className="absolute top-3 right-3 text-purple-400 animate-pulse delay-200 text-xs">✦</div>
+        <div className="absolute top-3 right-3 text-purple-400 animate-pulse delay-200 text-xs">
+          ✦
+        </div>
 
         {/* Reishi Pulse Effect (TYBW inspired) */}
         <div className="absolute inset-0 bg-cyan-500/10 rounded-xl animate-reishi-pulse pointer-events-none"></div>
@@ -304,7 +323,9 @@ export default function NRP023() {
           <h4 className="text-xl font-nexa font-bold bg-gradient-to-r from-cyan-300 via-white to-purple-300 bg-clip-text text-transparent animate-fade-in font-hover-glow interactive-text">
             {data.name}
           </h4>
-          <h6 className="font-nexa text-cyan-200/80 interactive-text font-hover-glow">{data.nrp}</h6>
+          <h6 className="font-nexa text-cyan-200/80 interactive-text font-hover-glow">
+            {data.nrp}
+          </h6>
         </div>
 
         {/* Spiritual energy divider */}
@@ -312,44 +333,13 @@ export default function NRP023() {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent blur-sm"></div>
         </div>
 
-        <div className="space-y-2 text-white font-nexa text-base relative z-10">
-          <p className="animate-fade-in-delay">
-            <strong className="text-cyan-300 interactive-text font-hover-glow">Asal:</strong>{" "}
-            <span className="text-slate-300 interactive-text font-hover-glow">{data.origin}</span>
-          </p>
-          <p className="animate-fade-in-delay-200">
-            <strong className="text-cyan-300 interactive-text font-hover-glow">Hobi:</strong>{" "}
-            <span className="text-slate-300 interactive-text font-hover-glow">{data.hobby}</span>
-          </p>
-          <p className="animate-fade-in-delay-400">
-            <strong className="text-cyan-300 interactive-text font-hover-glow">Funfact:</strong>{" "}
-            <span className="text-slate-300 interactive-text font-hover-glow">{data.funfact}</span>
-          </p>
-        </div>
-
-        {/* Social Media Icons with Bleach styling */}
-        <div className="flex justify-center gap-6 mt-6 animate-fade-in-delay-600 relative z-10">
-          <a
-            href="https://www.linkedin.com/in/muhammad-fatihul-qolbi-ash-shiddiqi/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center border border-blue-400/30 hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-400/40 interactive-text font-hover-glow"
-          >
-            <FaLinkedin size={20} className="text-white" />
-          </a>
-          <a
-            href="https://www.instagram.com/fatihulqolbi.js/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-10 h-10 bg-gradient-to-br from-pink-600 to-purple-700 rounded-lg flex items-center justify-center border border-pink-400/30 hover:from-pink-500 hover:to-purple-600 transition-all duration-300 shadow-lg shadow-pink-500/25 hover:shadow-pink-400/40 interactive-text font-hover-glow"
-          >
-            <FaInstagram size={20} className="text-white" />
-          </a>
-        </div>
-
         {/* Bottom zodiac accent */}
-        <div className="absolute bottom-2 left-2 text-purple-400 animate-pulse delay-400 text-xs">✦</div>
-        <div className="absolute bottom-3 right-2 text-cyan-400 animate-pulse delay-500 text-sm">★</div>
+        <div className="absolute bottom-2 left-2 text-purple-400 animate-pulse delay-400 text-xs">
+          ✦
+        </div>
+        <div className="absolute bottom-3 right-2 text-cyan-400 animate-pulse delay-500 text-sm">
+          ★
+        </div>
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
@@ -409,7 +399,9 @@ function MemberDialog({
             <h2 className="text-3xl font-bold font-nexa bg-gradient-to-r from-cyan-300 via-white to-purple-300 bg-clip-text text-transparent mb-1 animate-text-glow font-hover-glow interactive-text">
               {data.name}
             </h2>
-            <p className="text-lg font-nexa text-cyan-200/80 interactive-text font-hover-glow">{data.nrp}</p>
+            <p className="text-lg font-nexa text-cyan-200/80 interactive-text font-hover-glow">
+              {data.nrp}
+            </p>
 
             {/* Spiritual energy divider */}
             <div className="my-6 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent relative">
@@ -419,15 +411,21 @@ function MemberDialog({
             <div className="space-y-2 text-white font-nexa text-base relative z-10">
               <p className="animate-fade-in-delay">
                 <strong className="text-cyan-300 interactive-text font-hover-glow">Asal:</strong>{" "}
-                <span className="text-slate-300 interactive-text font-hover-glow">{data.origin}</span>
+                <span className="text-slate-300 interactive-text font-hover-glow">
+                  {data.origin}
+                </span>
               </p>
               <p className="animate-fade-in-delay-200">
                 <strong className="text-cyan-300 interactive-text font-hover-glow">Hobi:</strong>{" "}
-                <span className="text-slate-300 interactive-text font-hover-glow">{data.hobby}</span>
+                <span className="text-slate-300 interactive-text font-hover-glow">
+                  {data.hobby}
+                </span>
               </p>
               <p className="animate-fade-in-delay-400">
                 <strong className="text-cyan-300 interactive-text font-hover-glow">Funfact:</strong>{" "}
-                <span className="text-slate-300 interactive-text font-hover-glow">{data.funfact}</span>
+                <span className="text-slate-300 interactive-text font-hover-glow">
+                  {data.funfact}
+                </span>
               </p>
             </div>
 
@@ -469,9 +467,15 @@ function MemberDialog({
 
             {/* Decorative Zodiac Stars with Bleach theme */}
             <div className="absolute top-4 left-4 text-cyan-400 animate-pulse text-lg">★</div>
-            <div className="absolute top-6 left-8 text-purple-400 animate-pulse delay-200 text-sm">✦</div>
-            <div className="absolute bottom-4 right-4 text-cyan-400 animate-pulse delay-300 text-lg">★</div>
-            <div className="absolute bottom-6 right-8 text-purple-400 animate-pulse delay-500 text-sm">✦</div>
+            <div className="absolute top-6 left-8 text-purple-400 animate-pulse delay-200 text-sm">
+              ✦
+            </div>
+            <div className="absolute bottom-4 right-4 text-cyan-400 animate-pulse delay-300 text-lg">
+              ★
+            </div>
+            <div className="absolute bottom-6 right-8 text-purple-400 animate-pulse delay-500 text-sm">
+              ✦
+            </div>
 
             {/* Spiritual energy particles */}
             <div className="absolute top-1/4 left-2 w-1 h-1 bg-cyan-400 rounded-full animate-ping"></div>
