@@ -24,6 +24,18 @@ export default function NRP032() {
         onClick={() => setOpen(true)}
       >
         <Noise />
+
+        <div
+          className="absolute inset-0 rounded-xl -z-10"
+          style={{
+            backgroundImage: "url('https://media.tenor.com/GUKsQOn_3pwAAAAC/ultraman-tiga-ultraman-tiga-rise.gif')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.5,
+            filter: "blur(1px)",
+          }}
+        />
+
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           {/* Foto utama */}
           <Image
@@ -36,8 +48,8 @@ export default function NRP032() {
           {/* Banner PNG nempel kiri-kanan-bawah */}
           <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
           <Image
-            src="/images/032Asset/tiga.png"
-            alt="tiga"
+            src="/images/032Asset/Ultramantiga.png"
+            alt="Ultramantiga"
             width={800} 
             height={150} 
             className="w-full h-auto"
