@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Bima Aria Perthama",
+  nrp: "5027241060",
+  image: "060.jpg",
+  funfact: "Gregtech enjoyer",
+  hobby: "Koleksi game steam",
+  origin: "Malang",
 };
 
 export default function NRP060() {
@@ -23,6 +23,12 @@ export default function NRP060() {
         className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
         onClick={() => setOpen(true)}
       >
+                        <div
+          className="absolute inset-0 z-0 bg-cover bg-center opacity-30"
+          style={{
+            backgroundImage: `url("https://raw.githubusercontent.com/AV2NEWMODEL/AV2NEWMODEL/refs/heads/main/IMAGES/20240830224039_1.jpg")`,
+          }}
+        />
         <Noise />
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
           <Image
@@ -54,9 +60,15 @@ function MemberDialog({
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
+        
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+                    <Dialog.Content
+                      className="relative w-full max-w-lg max-h-[95vh] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10 bg-cover bg-center"
+                      style={{
+                        backgroundImage: `url("https://raw.githubusercontent.com/AV2NEWMODEL/AV2NEWMODEL/refs/heads/main/IMAGES/20240830224238_1.jpg")`,
+                      }}
+                    >
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
@@ -83,7 +95,16 @@ function MemberDialog({
               <p>
                 <strong>Funfact:</strong> {data.funfact}
               </p>
-            </div>
+                          <div className="mt-6 z-10 relative">
+              <iframe
+                className="w-full aspect-video rounded-lg"
+                src="https://youtube.com/embed/LASPVcLJWZs"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div></div>
           </Dialog.Content>
         </div>
       </Dialog.Portal>
