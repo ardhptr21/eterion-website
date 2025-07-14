@@ -24,21 +24,25 @@ const OurStory = () => {
 
       <div className="relative mx-auto">
         <div
-          className="absolute w-[60%] h-[100px] bg-gradient-to-t from-[#0B068E] to-[#310E61] opacity-90 blur-xl -z-10"
+          className="absolute w-full  md:w-[60%] h-[100px] bg-gradient-to-t from-[#0B068E] to-[#310E61] opacity-90 blur-xl -z-10"
           style={{
             borderRadius: "60% 40% 60% 40% / 60% 60% 40% 40%",
             left: "-70px",
             top: "-20px",
           }}
         />
-        <Container className="mb-12 space-y-10">
-          <h2 className="text-6xl font-bold text-left text-white font-nexa">Our Name & Story</h2>
-          <p className="text-2xl text-left text-blue-200 font-nexa">The Meaning of Eterion</p>
+        <Container className="mb-12 space-y-5 md:space-y-10">
+          <h2 className="text-3xl md:text-6xl font-bold text-left text-white font-nexa">
+            Our Name & Story
+          </h2>
+          <p className="text-xl md:text-2xl text-left text-blue-200 font-nexa">
+            The Meaning of Eterion
+          </p>
         </Container>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 relative">
+        <Container className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16 relative">
           <div
-            className="rounded-full px-12 py-4 shadow-lg"
+            className="rounded-full px-12 py-4 shadow-lg w-full md:w-max text-center"
             style={{ backgroundImage: "linear-gradient(90deg, #C1FFE7 0%, #B2E5FC 100%)" }}
           >
             <span className="text-2xl font-semibold text-gray-900 font-nexa">Eternal</span>
@@ -50,16 +54,16 @@ const OurStory = () => {
           </div>
 
           <div
-            className="rounded-full px-12 py-4 shadow-lg"
+            className="rounded-full px-12 py-4 shadow-lg w-full md:w-max  text-center"
             style={{ backgroundImage: "linear-gradient(90deg, #B2E5FC 0%, #F5FCFF 100%)" }}
           >
             <span className="text-2xl font-semibold text-gray-900 font-nexa">Orion</span>
           </div>
-        </div>
+        </Container>
 
         <Container className="relative">
           <div
-            className="rounded-2xl p-14 text-left border shadow-2xl"
+            className="rounded-2xl p-6 md:p-14 text-left border shadow-2xl"
             style={{
               background: "rgba(255,255,255,0.05)",
               backdropFilter: "blur(6px)",
@@ -67,7 +71,7 @@ const OurStory = () => {
             }}
           >
             <Noise />
-            <p className="mb-10 text-white text-3xl font-nexa">
+            <p className="mb-10 text-white text-xl md:text-3xl font-nexa">
               <strong className="text-blue-200">ETERION</strong> merupakan nama angkatan{" "}
               <strong className="text-white">Teknologi Informasi 2024</strong> yang mengandung makna{" "}
               <span className="underline decoration-accent">
@@ -75,7 +79,7 @@ const OurStory = () => {
               </span>
               .
             </p>
-            <p className="text-white text-3xl font-nexa">
+            <p className="text-white text-xl md:text-3xl font-nexa">
               Layaknya rasi bintang Orion yang bersinar abadi di langit malam dan menjadi panduan
               bagi para pelaut dan pengembara. <strong className="text-blue-200">ETERION</strong>{" "}
               hadir sebagai generasi pembaharu yang teguh, visioner, dan tak gentar menghadapi
