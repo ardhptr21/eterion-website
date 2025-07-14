@@ -3,14 +3,14 @@
 import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const data = {
   name: "Kanafira Vanesha Putri",
   nrp: "5027241010",
   image: "010.jpg",
   funfact: "Gasuka minum air putih kalo bukan cleo",
-  hobby: "Nonton f1",
+  hobby: "Nonton F1",
   origin: "Surabaya",
 };
 
@@ -21,8 +21,8 @@ export default function NRP010() {
     <>
       <div
         className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-[#00A19C] relative 
-          bg-gradient-to-br from-[#111111] via-[#1f1f1f] to-[#00A19C]/20 
-          backdrop-blur-lg shadow-[0_0_30px_#00A19C44]"
+        bg-gradient-to-br from-[#111111] via-[#1f1f1f] to-[#00A19C]/20 
+        backdrop-blur-lg shadow-[0_0_30px_#00A19C44]"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -54,9 +54,7 @@ export default function NRP010() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-[#00A19C]/10" />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold text-[#00A19C] drop-shadow-[0_0_2px_#00A19C]">
-            {data.name}
-          </h4>
+          <h4 className="text-xl font-nexa font-bold text-[#00A19C] drop-shadow-[0_0_2px_#00A19C]">{data.name}</h4>
           <h6 className="font-nexa text-[#C6C6C6]">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent via-[#80142B]/30 to-[#00A19C]/30 rounded-xl pointer-events-none" />
@@ -97,9 +95,7 @@ function MemberDialog({
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-[#00A19C]/10" />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-[#00A19C] mb-1 drop-shadow-[0_0_2px_#00A19C]">
-              {data.name}
-            </h2>
+            <h2 className="text-3xl font-bold font-nexa text-[#00A19C] mb-1 drop-shadow-[0_0_2px_#00A19C]">{data.name}</h2>
             <p className="text-lg font-nexa text-[#C6C6C6]">{data.nrp}</p>
 
             <hr className="my-6 border-t border-[#80142B]/40" />
@@ -127,7 +123,6 @@ function MemberDialog({
               >
                 Instagram
               </a>
-
               <a
                 href="https://open.spotify.com/user/i3f8mf0172ywnygt3nwlzk05c?si=db5abf4d83334eb8"
                 target="_blank"
@@ -140,7 +135,9 @@ function MemberDialog({
               </a>
             </div>
 
-            <div className="mt-6">
+            <MemoryCardGame />
+
+            <div className="mt-8">
               <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg ring-1 ring-[#00A19C]/30">
                 <iframe
                   width="100%"
@@ -157,5 +154,88 @@ function MemberDialog({
         </div>
       </Dialog.Portal>
     </Dialog.Root>
+  );
+}
+
+function MemoryCardGame() {
+  const emojis = ["🏁", "🚦", "🏎️", "⛽", "🔧", "🛞", "🎮", "🥇"];
+
+  const shuffle = (array: string[]) => {
+    return array
+      .map((val) => ({ val, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ val }) => val);
+  };
+
+  const [cards, setCards] = useState(() => {
+    const pairs = [...emojis, ...emojis];
+    return shuffle(pairs).map((emoji, idx) => ({
+      id: idx,
+      emoji,
+      flipped: false,
+      matched: false,
+    }));
+  });
+
+  const [selected, setSelected] = useState<number[]>([]);
+  const [disableAll, setDisableAll] = useState(false);
+  const [matchedCount, setMatchedCount] = useState(0);
+
+  useEffect(() => {
+    if (selected.length === 2) {
+      setDisableAll(true);
+      const [first, second] = selected;
+      if (cards[first].emoji === cards[second].emoji) {
+        const updated = [...cards];
+        updated[first].matched = true;
+        updated[second].matched = true;
+        setCards(updated);
+        setMatchedCount((prev) => prev + 1);
+        setTimeout(() => {
+          setSelected([]);
+          setDisableAll(false);
+        }, 800);
+      } else {
+        setTimeout(() => {
+          const updated = [...cards];
+          updated[first].flipped = false;
+          updated[second].flipped = false;
+          setCards(updated);
+          setSelected([]);
+          setDisableAll(false);
+        }, 1000);
+      }
+    }
+  }, [selected]);
+
+  const handleFlip = (index: number) => {
+    if (disableAll || cards[index].flipped || cards[index].matched) return;
+    const updated = [...cards];
+    updated[index].flipped = true;
+    setCards(updated);
+    setSelected((prev) => [...prev, index]);
+  };
+
+  return (
+    <div className="mt-10 text-center">
+      <h3 className="text-xl text-white font-bold font-nexa mb-2">🏎️ F1 Memory Card Game 🏎️</h3>
+      <p className="text-[#00A19C] font-nexa mb-4">
+        {matchedCount === 8 ? "🏆 Finished! All cards matched!" : "Match the F1-themed emojis!"}
+      </p>
+
+      <div className="grid grid-cols-4 gap-3 w-[280px] mx-auto">
+        {cards.map((card, idx) => (
+          <div
+            key={card.id}
+            onClick={() => handleFlip(idx)}
+            className={`w-14 h-14 rounded-lg flex items-center justify-center text-xl cursor-pointer ring-1 
+              ${card.flipped || card.matched ? "bg-[#00A19C]/10" : "bg-[#1a1a1a]"} 
+              text-white ring-[#00A19C]/30 hover:brightness-110 transition select-none`}
+          >
+            {card.flipped || card.matched ? card.emoji : ""}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
