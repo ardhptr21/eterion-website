@@ -95,6 +95,7 @@ function MemberDialog({
 
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <Dialog.Content className="relative w-full max-w-lg max-h-[95vh] overflow-y-auto rounded-2xl shadow-2xl border border-pink-500/40 bg-white/10 backdrop-blur-md animate-fadeIn text-white p-6 sm:p-10 font-nexa">
+             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
             <video
               autoPlay
               loop
