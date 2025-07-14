@@ -102,13 +102,13 @@ function MemberDialog({
 
             <div className="space-y-2 text-white font-nexa text-base">
               <p>
-                <strong className="text-[#C6C6C6]">Asal:</strong> {data.origin}
+                <strong className="text-[#C6C6C6]">Origin:</strong> {data.origin}
               </p>
               <p>
-                <strong className="text-[#C6C6C6]">Hobi:</strong> {data.hobby}
+                <strong className="text-[#C6C6C6]">Hobby:</strong> {data.hobby}
               </p>
               <p>
-                <strong className="text-[#C6C6C6]">Funfact:</strong> {data.funfact}
+                <strong className="text-[#C6C6C6]">Fun fact:</strong> {data.funfact}
               </p>
             </div>
 
@@ -132,6 +132,16 @@ function MemberDialog({
                   shadow-[0_0_10px_#00A19C44]"
               >
                 Spotify
+              </a>
+              <a
+                href="https://github.com/shenaavv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full text-white font-nexa text-sm font-semibold
+                  bg-gradient-to-r from-[#0f0f0f] to-[#00A19C] hover:brightness-110 transition
+                  shadow-[0_0_10px_#00A19C44]"
+              >
+                GitHub
               </a>
             </div>
 
@@ -158,7 +168,7 @@ function MemberDialog({
 }
 
 function MemoryCardGame() {
-  const emojis = ["🏁", "🚦", "🏎️", "⛽", "🔧", "🛞", "🎮", "🥇"];
+  const emojis = ["🏁", "🚦", "🏎️", "⛽", "🔧", "🥂", "🎮", "🥇"];
 
   const shuffle = (array: string[]) => {
     return array
@@ -218,9 +228,11 @@ function MemoryCardGame() {
 
   return (
     <div className="mt-10 text-center">
-      <h3 className="text-xl text-white font-bold font-nexa mb-2">🏎️ F1 Memory Card Game 🏎️</h3>
+      <h3 className="text-xl text-white font-bold font-nexa mb-2">🏎️ Memory Card Game 🏎️</h3>
       <p className="text-[#00A19C] font-nexa mb-4">
-        {matchedCount === 8 ? "🏆 Finished! All cards matched!" : "Match the F1-themed emojis!"}
+        {matchedCount === 8
+          ? "🏆 Finished! All cards matched!"
+          : "Match the emojis!"}
       </p>
 
       <div className="grid grid-cols-4 gap-3 w-[280px] mx-auto">
