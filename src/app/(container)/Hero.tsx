@@ -142,7 +142,7 @@ export default function Hero() {
             />
           </div>
 
-          <div className="constellation-container absolute top-220 left-3 translate-x-1/5">
+          <div className="constellation-container hidden md:block absolute top-220 left-3 translate-x-1/5">
             <div
               className="constellation-glow absolute inset-0 w-[235px] h-[200px] bg-green-300/15 rounded-full blur-2xl animate-pulse mix-blend-color-dodge"
               style={{ animationDelay: "3.5s" }}
@@ -185,7 +185,7 @@ export default function Hero() {
             />
           </div>
 
-          <div className="constellation-container absolute top-220 right-20 translate-x-1/5 rotate-270">
+          <div className="constellation-container hidden md:block absolute top-220 right-20 translate-x-1/5 rotate-270">
             <div
               className="constellation-glow absolute inset-0 w-[235px] h-[368px] bg-white/20 rounded-full blur-3xl animate-pulse mix-blend-screen"
               style={{ animationDelay: "2.5s" }}
@@ -303,23 +303,24 @@ export default function Hero() {
           />
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 py-[190px] relative z-10">
+        <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto px-4 py-32 md:py-[190px] relative z-10 text-center">
           <img
-            className="w-[375px] h-[369px] mt-8"
+            className="w-52 md:w-[375px] h-auto mt-8"
             src="/images/logo-eterion.png"
             alt="Eterion Logo"
           />
           <div
-            className={`text-center text-white text-6xl font-bold ${cormorantUnicase.className} pt-[84px]`}
+            className={`text-white text-4xl md:text-6xl font-bold ${cormorantUnicase.className} pt-14 md:pt-[84px]`}
             style={{
               textShadow: "0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
             Welcome to the Constellation
           </div>
-          <div className="inline-flex justify-start items-center gap-4">
+
+          <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 mt-4">
             <div
-              className={`w-20 h-20 text-center justify-start text-white text-6xl font-bold italic ${cormorant.className}`}
+              className={`text-white text-4xl md:text-6xl font-bold italic ${cormorant.className}`}
               style={{
                 textShadow: "0 4px 8px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5)",
               }}
@@ -327,7 +328,7 @@ export default function Hero() {
               of
             </div>
             <div
-              className={`text-center justify-start text-white text-7xl font-black ${nexa.className}`}
+              className={`text-white text-5xl md:text-7xl font-black ${nexa.className}`}
               style={{
                 textShadow: "0 6px 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.6)",
               }}
@@ -335,16 +336,17 @@ export default function Hero() {
               ETERION
             </div>
           </div>
+
           <button
             onClick={() => {
               const nextSection = document.querySelector("section:nth-of-type(2)");
               nextSection?.scrollIntoView({ behavior: "smooth" });
             }}
             data-style="Filled"
-            className="mt-[58px] mb-16 w-96 h-14 p-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] inline-flex justify-center items-center gap-2.5 overflow-hidden hover:opacity-90 transition-opacity cursor-pointers"
+            className="mt-12 md:mt-[58px] mb-16 w-full sm:w-80 h-14 px-5 bg-gradient-to-l from-green-200 via-white to-slate-500 rounded-[20px] shadow-[2px_2px_15px_0px_rgba(255,255,255,1.00)] flex justify-center items-center gap-2.5 hover:opacity-90 transition-opacity cursor-pointer"
           >
             <div
-              className={`justify-center text-gray-950 text-l font-medium ${montserrat.className}`}
+              className={`text-gray-950 text-base md:text-lg font-medium ${montserrat.className}`}
             >
               Join the constellation. Explore Eterion!
             </div>

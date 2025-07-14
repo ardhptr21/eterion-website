@@ -139,12 +139,12 @@ export default function Members() {
 
   return (
     <>
-      <Container as="section" className="mb-32 pt-80 space-y-12">
-        <h1 className="text-6xl font-nexa font-bold">Faces of Eterion</h1>
-        <p className="text-3xl font-nexa">Meet the people behind Eterion!</p>
+      <Container as="section" className="mb-24 pt-40 md:pt-80 space-y-5 md:space-y-12 text-center">
+        <h1 className="text-4xl md:text-6xl font-nexa font-bold">Faces of Eterion</h1>
+        <p className="text-xl md:text-3xl font-nexa">Meet the people behind Eterion!</p>
       </Container>
       <Container as="section" className="my-32 relative flex items-start gap-10">
-        <div className="w-1/6 space-y-5 sticky top-10">
+        <div className="hidden md:block w-1/6 space-y-5 sticky top-10">
           <Buttton className="w-full" onClick={() => handleScrollTo("target-1")}>
             001 - 030
           </Buttton>
@@ -158,8 +158,8 @@ export default function Members() {
             091 - 120
           </Buttton>
         </div>
-        <div className="w-5/6 space-y-10">
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-1">
+        <div className="w-full md:w-5/6 space-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-1">
             <NRP001 />
             <NRP002 />
             <NRP003 />
@@ -191,7 +191,7 @@ export default function Members() {
             <NRP029 />
             <NRP030 />
           </div>
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-31">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-31">
             <NRP031 />
             <NRP032 />
             <NRP033 />
@@ -223,7 +223,7 @@ export default function Members() {
             <NRP059 />
             <NRP060 />
           </div>
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-61">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-61">
             <NRP061 />
             <NRP062 />
             <NRP063 />
@@ -255,7 +255,7 @@ export default function Members() {
             <NRP089 />
             <NRP090 />
           </div>
-          <div className="grid grid-cols-3 gap-5 w-full" id="target-91">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-91">
             <NRP091 />
             <NRP092 />
             <NRP093 />
