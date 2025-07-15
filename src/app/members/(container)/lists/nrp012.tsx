@@ -10,7 +10,7 @@ const data = {
   nrp: "5027241012",
   image: "012.jpg",
   funfact: "sleepy eyes dari smp",
-  hobby: "Musik, game, gym",
+  hobby: "Listening to music, game, gym",
   origin: "Sidoarjo",
 };
 
