@@ -9,7 +9,7 @@ const data = {
   name: "Dina Rahmadani",
   nrp: "5027241065",
   image: "065.jpg",
-  funfact: "gasuka Nasi dingin kecuali Nasi berwarna",
+  funfact: "gasuka Nasi dingin kecuali nasi berwarna",
   hobby: "Baking",
   origin: "Jember",
 };
