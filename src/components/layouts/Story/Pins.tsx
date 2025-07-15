@@ -4,6 +4,7 @@
 
 import { Html, Sphere } from "@react-three/drei";
 // import { useThree } from "@react-three/fiber";
+import { useEffect, useState } from "react";
 
 const pinPositions: {
   id: number;
@@ -110,16 +111,57 @@ type PinsProps = {
 
 const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
   // const { size } = useThree()
+  const handlePointerOver = () => {
+    document.body.style.cursor = 'pointer';    
+  };
+
+  const handlePointerOut = () => {
+    document.body.style.cursor = 'grab';    
+  };
+
+  const handlePointerDown = () => {
+    document.body.style.cursor = 'click';    
+  };
+
+  const handlePointerUp = () => {
+    document.body.style.cursor = 'pointer';    
+  };
+
+  const [boxWidth, setBoxWidth] = useState(700);
+  useEffect(() => {
+    const checkWidth = () => {
+      setBoxWidth(window.innerWidth <= 768 ? 700 : 400); // mobile : desktop
+    };
+
+    checkWidth(); // initial run
+    window.addEventListener("resize", checkWidth); // update on resize
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
 
   return (
     <>
       {pinPositions.map((pin) => (
-        <group key={pin.id} position={pin.position} onClick={() => setSelectedPinId(pin.id)}>
-          <Sphere args={[0.15, 30, 30]}>
+        <group 
+            key={pin.id} 
+            position={pin.position} 
+            onClick={() => setSelectedPinId(pin.id)} 
+            onPointerOver={handlePointerOver}
+            onPointerOut={handlePointerOut}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}>
+          <Sphere args={[0.20, 30, 30]}> 
             <meshStandardMaterial color={pin.color} emissive={pin.color} emissiveIntensity={1} />
           </Sphere>
+          <mesh>
+            <sphereGeometry args={[0.25, 32, 32]} />
+            <meshBasicMaterial
+              color={pin.color}
+              transparent
+              opacity={0.5}
+            />
+          </mesh>
           <mesh position={[0, 0, -0.5]} rotation={[Math.PI / 2, 0, 0]}>
-            <cylinderGeometry args={[0.02, 0.02, 1, 16]} />
+            <cylinderGeometry args={[0.04, 0.04, 1, 16]} />
             <meshStandardMaterial color={pin.color} emissive={pin.color} emissiveIntensity={0.5} />
           </mesh>
 
@@ -127,7 +169,7 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
             <Html position={[0, 0, pin.position[2] - 3.7]} center distanceFactor={10}>
               <div
                 style={{
-                  width: 400,
+                  width: boxWidth,
                   backgroundColor: "rgba(26, 26, 46, 0.4)",
                   color: "#fff",
                   borderRadius: 1,

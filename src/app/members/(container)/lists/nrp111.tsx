@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Maritza Adelia Sucipto",
+  nrp: "5027241111",
+  image: "111.jpg",
+  funfact: "gasuka seblak dan matcha! :D",
+  hobby: "nonton film & series",
+  origin: "Bali",
 };
 
 export default function NRP111() {
@@ -20,23 +20,63 @@ export default function NRP111() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
-        onClick={() => setOpen(true)}
+        className={`p-[4px] bg-[#1e2d47] rounded-xl transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-[0_0_40px_#7aaed6]/50 relative ${
+          open ? "animate-[pulse_3s_infinite]" : ""
+        }`}
       >
-        <Noise />
-        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
-          <Image
-            src={`/images/members/${data.image}`}
-            alt={data.name}
-            fill
-            className="object-cover w-full h-full"
-          />
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {[
+            { size: 10, top: "10%", left: "20%" },
+            { size: 14, top: "25%", left: "70%" },
+            { size: 8, top: "50%", left: "40%" },
+            { size: 12, top: "65%", left: "15%" },
+            { size: 10, top: "80%", left: "60%" },
+            { size: 6, top: "35%", left: "50%" },
+            { size: 9, top: "15%", left: "85%" },
+          ].map((sparkle, idx) => (
+            <div
+              key={idx}
+              className="absolute bg-white/30 rotate-45"
+              style={{
+                width: `${sparkle.size}px`,
+                height: `${sparkle.size}px`,
+                top: sparkle.top,
+                left: sparkle.left,
+                borderRadius: "2px",
+              }}
+            />
+          ))}
         </div>
-        <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
+
+        <div className="p-[4px] bg-gradient-to-b from-purple-900 via-blue-900 to-blue-700 backdrop-blur-md rounded-[14px] relative z-10">
+          <div
+            className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-[2px] border-[#7aaed6] relative bg-[#0d1b2a]/70 transition-all duration-300 ease-in-out hover:bg-[#112d44]/80"
+            onClick={() => setOpen(true)}
+          >
+            <Noise />
+
+            <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden scale-[1.05]">
+              <Image
+                src={`/images/members/${data.image}`}
+                alt={data.name}
+                fill
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <div className="mt-5 z-10 text-center">
+              <h4 className="text-xl font-nexa font-bold text-[#7aaed6]">{data.name}</h4>
+              <h6
+                className="text-base font-nexa font-bold text-[#7aaed6]"
+                style={{
+                  textShadow: "0 0 4px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.2)",
+                }}
+              >
+                {data.nrp}
+              </h6>
+            </div>
+          </div>
         </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
       </div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />

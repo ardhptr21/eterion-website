@@ -6,13 +6,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Nadia Fauziazahra Kusumastuti",
+  nrp: "5027241094",
+  image: "094.jpg",
+  funfact: "Alis dijait gapake bius pas 4 tahun",
+  hobby: "Cover Wibu aslinya Pop Punk😈 (Dengerin musik)",
+  origin: "Depok",
 };
+
 
 export default function NRP094() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function NRP094() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-gradient-to-r from-indigo-950 to-purple-900 backdrop-blur-lg"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -33,7 +34,7 @@ export default function NRP094() {
           />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
+          <h4 className="text-text-base font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />

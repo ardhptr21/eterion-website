@@ -12,17 +12,17 @@ export default function About() {
   return (
     <Container as="section" className="flex min-h-screen flex-col items-center justify-center p-8">
       <div className="w-full">
-        <h2 className="text-5xl font-bold text-white mb-8">About Us</h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">About Us</h2>
         <div className="relative">
-          <div className="bg-indigo-900/30 backdrop-blur-xl border border-white/10 rounded-3xl p-16 relative">
+          <div className="bg-indigo-900/30 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-16 relative">
             <Noise />
-            <p className="text-2xl leading-relaxed text-slate-200 mb-10">
+            <p className="text-xl md:text-2xl leading-relaxed text-slate-200 mb-10">
               <strong className="font-semibold text-white">ETERION</strong> merupakan nama angkatan{" "}
               <strong className="font-semibold text-white">Teknologi Informasi 2024</strong> yang
               mengusung makna keteguhan abadi sebagai penunjuk arah dalam menghadapi perubahan
               zaman.
             </p>
-            <p className="text-2xl leading-relaxed text-slate-200">
+            <p className="text-xl md:text-2xl leading-relaxed text-slate-200">
               Layaknya rasi bintang Orion yang bersinar abadi di langit malam dan menjadi panduan
               bagi para pelaut dan pengembara,{" "}
               <strong className="font-semibold text-white">Eterion</strong> hadir sebagai generasi
