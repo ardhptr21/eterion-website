@@ -85,6 +85,8 @@ function MemberDialog({
                     : "bg-gradient-to-br from-white via-pink-100 to-purple-100 border-gray-300 text-gray-900"
                 }`}
               >
+                            <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
+
                 {/* Tombol Close */}
                 <Dialog.Close asChild>
                   <button
