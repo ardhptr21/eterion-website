@@ -1,6 +1,5 @@
 "use client";
 
-import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useState } from "react";
@@ -22,39 +21,39 @@ const data = {
   origin: "Semarang nyel",
 };
 
- function RengginangBurst({ onEnd }: { onEnd?: () => void }) {
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      onEnd?.();
-    }, 600); // sama dengan durasi animasi
+//  function RengginangBurst({ onEnd }: { onEnd?: () => void }) {
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       onEnd?.();
+//     }, 600); // sama dengan durasi animasi
 
-    return () => clearTimeout(timeout);
-  }, [onEnd]);
+//     return () => clearTimeout(timeout);
+//   }, [onEnd]);
 
-  return (
-    <div className="absolute inset-0 pointer-events-none z-50">
-      {Array.from({ length: 8 }).map((_, i) => {
-        const angle = (360 / 8) * i;
-        const x = Math.cos((angle * Math.PI) / 180) * 100;
-        const y = Math.sin((angle * Math.PI) / 180) * 100;
-        return (
-          <Image
-            key={i}
-            src="/images/rengginang.svg"
-            alt="rengginang"
-            width={40}
-            height={40}
-            className="absolute left-1/2 top-1/2 animate-rengginang-burst"
-            style={{
-              transform: `translate(-50%, -50%) translate(${x}%, ${y}%) rotate(${angle}deg)`,
-              animationDelay: `${i * 4}s`,
-            }}
-          />
-        );
-      })}
-    </div>
-  );
-}
+//   return (
+//     <div className="absolute inset-0 pointer-events-none z-50">
+//       {Array.from({ length: 8 }).map((_, i) => {
+//         const angle = (360 / 8) * i;
+//         const x = Math.cos((angle * Math.PI) / 180) * 100;
+//         const y = Math.sin((angle * Math.PI) / 180) * 100;
+//         return (
+//           <Image
+//             key={i}
+//             src="/images/rengginang.svg"
+//             alt="rengginang"
+//             width={40}
+//             height={40}
+//             className="absolute left-1/2 top-1/2 animate-rengginang-burst"
+//             style={{
+//               transform: `translate(-50%, -50%) translate(${x}%, ${y}%) rotate(${angle}deg)`,
+//               animationDelay: `${i * 4}s`,
+//             }}
+//           />
+//         );
+//       })}
+//     </div>
+//   );
+// }
 
 // export default function NRP017() {
 //   const [open, setOpen] = useState(false);
@@ -314,6 +313,8 @@ function MemberDialog({
   }, 50);
 
   return () => clearTimeout(timeout);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [open, data.image]);
 
 

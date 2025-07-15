@@ -9,7 +9,7 @@ const data = {
   name: "Ni'mah Fauziyyah Atok",
   nrp: "5027241103",
   image: "103.jpg",
-  funfact: "gemini",
+  funfact: "sandi hp 16 angka",
   hobby: "berenang",
   origin: "Madiun",
   linkedin: "https://www.linkedin.com/in/nmhfauziyyah/",

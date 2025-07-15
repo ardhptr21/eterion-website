@@ -16,20 +16,14 @@ const data = {
 
 export default function NRP010() {
   const [open, setOpen] = useState(false);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setReady(true);
-  }, []);
-
-  if (!ready) return null;
 
   return (
     <>
       <div
         className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-[#00A19C] relative 
         bg-gradient-to-br from-[#111111] via-[#1f1f1f] to-[#00A19C]/20 
-        backdrop-blur-lg shadow-[0_0_30px_#00A19C44]"
+        backdrop-blur-lg shadow-[0_0_30px_#00A19C44]
+        transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_#00A19C88]"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -61,9 +55,7 @@ export default function NRP010() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-[#00A19C]/10" />
         </div>
         <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold text-[#00A19C] drop-shadow-[0_0_2px_#00A19C]">
-            {data.name}
-          </h4>
+          <h4 className="text-xl font-nexa font-bold text-[#00A19C] drop-shadow-[0_0_2px_#00A19C]">{data.name}</h4>
           <h6 className="font-nexa text-[#C6C6C6]">{data.nrp}</h6>
         </div>
         <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent via-[#80142B]/30 to-[#00A19C]/30 rounded-xl pointer-events-none" />
@@ -104,9 +96,7 @@ function MemberDialog({
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-[#00A19C]/10" />
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-[#00A19C] mb-1 drop-shadow-[0_0_2px_#00A19C]">
-              {data.name}
-            </h2>
+            <h2 className="text-3xl font-bold font-nexa text-[#00A19C] mb-1 drop-shadow-[0_0_2px_#00A19C]">{data.name}</h2>
             <p className="text-lg font-nexa text-[#C6C6C6]">{data.nrp}</p>
 
             <hr className="my-6 border-t border-[#80142B]/40" />
@@ -170,6 +160,18 @@ function MemberDialog({
                   allowFullScreen
                 ></iframe>
               </div>
+
+              {/* Inspired Text */}
+              <p className="text-center text-sm italic text-[#00A19C] mt-2 font-nexa">
+                <a
+                  href="https://www.mercedesamgf1.com/car/2024"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-[#00fff2]"
+                >
+                  Inspired by Mercedes-AMG W15 – Formula 1
+                </a>
+              </p>
             </div>
           </Dialog.Content>
         </div>
@@ -227,7 +229,6 @@ function MemoryCardGame() {
         }, 1000);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected]);
 
   const handleFlip = (index: number) => {
@@ -242,7 +243,9 @@ function MemoryCardGame() {
     <div className="mt-10 text-center">
       <h3 className="text-xl text-white font-bold font-nexa mb-2">🏎️ Memory Card Game 🏎️</h3>
       <p className="text-[#00A19C] font-nexa mb-4">
-        {matchedCount === 8 ? "🏆 Finished! All cards matched!" : "Match the emojis!"}
+        {matchedCount === 8
+          ? "🏆 Finished! All cards matched!"
+          : "Match the emojis!"}
       </p>
 
       <div className="grid grid-cols-4 gap-3 w-[280px] mx-auto">

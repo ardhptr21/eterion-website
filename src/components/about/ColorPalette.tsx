@@ -20,7 +20,7 @@ export default function ColorPalette() {
         "Melambangkan  keterbukaan dan fleksibel, memberi kesan adaptabilitas dan komunikasi yang terbuka.",
     },
     {
-      name: "Mint Blue",
+      name: "Tosca",
       color: "#b6eadb",
       textColor: "text-gray-800",
       philosophy:

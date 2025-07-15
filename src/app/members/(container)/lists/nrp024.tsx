@@ -12,7 +12,7 @@ const data = {
   image: "024.GIF",
   funfact: "Kamu Belo sigma", 
   hobby: "Kamu belom sigma",       
-  origin: "Kamu belom sigma! ", 
+  origin: "Kamu belom sigma! ",
 };
 
 function addEpilepsyStyle() {
