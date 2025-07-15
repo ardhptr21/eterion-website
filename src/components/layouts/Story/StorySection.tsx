@@ -401,12 +401,18 @@ const CustomControls = ({ controlsRef }: { controlsRef: React.RefObject<any> }) 
 const ARView: React.FC<ARViewProps> = ({ imageval }) => {
   const [selectedPinId, setSelectedPinId] = useState<number | null>(null);  
   const controlsRef = useRef<any>(null);
+  const [fov, setFov] = useState(50); 
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768; 
+    setFov(isMobile ? 50 : 25);
+  }, []);
 
   return (   
     <>
     <Canvas 
       shadows 
-      camera={{ position: [0, -50, 25], fov: 25 }}
+      camera={{ position: [0, -50, 25], fov: fov }}
       onPointerMissed={() => setSelectedPinId(null)}        
     >      
       <ambientLight intensity={2} />

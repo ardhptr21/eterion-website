@@ -4,6 +4,7 @@
 
 import { Html, Sphere } from "@react-three/drei";
 // import { useThree } from "@react-three/fiber";
+import { useEffect, useState } from "react";
 
 const pinPositions: {
   id: number;
@@ -126,6 +127,17 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
     document.body.style.cursor = 'pointer';    
   };
 
+  const [boxWidth, setBoxWidth] = useState(700);
+  useEffect(() => {
+    const checkWidth = () => {
+      setBoxWidth(window.innerWidth <= 768 ? 700 : 400); // mobile : desktop
+    };
+
+    checkWidth(); // initial run
+    window.addEventListener("resize", checkWidth); // update on resize
+    return () => window.removeEventListener("resize", checkWidth);
+  }, []);
+
   return (
     <>
       {pinPositions.map((pin) => (
@@ -157,7 +169,7 @@ const Pins = ({ selectedPinId, setSelectedPinId }: PinsProps) => {
             <Html position={[0, 0, pin.position[2] - 3.7]} center distanceFactor={10}>
               <div
                 style={{
-                  width: 400,
+                  width: boxWidth,
                   backgroundColor: "rgba(26, 26, 46, 0.4)",
                   color: "#fff",
                   borderRadius: 1,
