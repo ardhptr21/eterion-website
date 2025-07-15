@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Muhammad Afrizan Rasya",
+  nrp: "5027241048",
+  image: "048.jpg",
+  funfact: "Hobi kecebur waktu kecil",
+  hobby: "dengerin musik sambil mandi",
+  origin: "Kediri",
 };
 
 export default function NRP048() {
@@ -25,11 +25,11 @@ export default function NRP048() {
       >
         <Noise />
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
-          <Image
-            src={`/images/members/${data.image}`}
-            alt={data.name}
-            fill
-            className="object-cover w-full h-full"
+         <Image
+               src={`/images/members/${data.image}`}
+               alt={data.name}
+               fill
+               className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
           />
         </div>
         <div className="mt-5 z-10">
@@ -56,34 +56,49 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="relative w-full max-w-lg max-h-[95vh] bg-[#8B9DC3] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
               <Image
-                src={`/images/members/${data.image}`}
-                alt={data.name}
-                fill
-                className="object-cover"
-              />
+               src={`/images/members/${data.image}`}
+               alt={data.name}
+               fill
+               className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
+          />
+
             </div>
 
-            <h2 className="text-3xl font-bold font-nexa text-white mb-1">{data.name}</h2>
-            <p className="text-lg font-nexa text-white/70">{data.nrp}</p>
+              <a
+                href="https://www.instagram.com/rasyafrizan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="space-y-4 text-sm text-white">
+                  <div className="mb-2 p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+                    <p className="text-sm font-semibold text-white/80">Nama :</p>
+                    <p className="text-lg font-bold text-white">{data.name}</p>
+                  </div>
+                  <div className="mb-2 p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+                    <p className="text-sm font-semibold text-white/80">NRP :</p>
+                    <p className="text-lg font-bold text-white">{data.nrp}</p>
+                  </div>
+                  <div className="mb-2 p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+                    <p className="text-sm font-semibold text-white/80">Asal :</p>
+                    <p className="text-lg font-bold text-white">{data.origin}</p>
+                  </div>
+                  <div className="mb-2 p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+                    <p className="text-sm font-semibold text-white/80">Hobi :</p>
+                    <p className="text-lg font-bold text-white">{data.hobby}</p>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition">
+                    <p className="text-sm font-semibold text-white/80">Funfact :</p>
+                    <p className="text-lg font-bold text-white">{data.funfact}</p>
+                  </div>
+                </div>
+              </a>
 
-            <hr className="my-6 border-t border-white/20" />
-
-            <div className="space-y-2 text-white font-nexa text-base">
-              <p>
-                <strong>Asal:</strong> {data.origin}
-              </p>
-              <p>
-                <strong>Hobi:</strong> {data.hobby}
-              </p>
-              <p>
-                <strong>Funfact:</strong> {data.funfact}
-              </p>
-            </div>
           </Dialog.Content>
         </div>
       </Dialog.Portal>

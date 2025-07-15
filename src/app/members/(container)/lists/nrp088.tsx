@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "I Gede Bagus Saka Sinatrya",
+  nrp: "5027241088",
+  image: "088.jpg",
+  funfact: "Hampir lolos Pasnas",
+  hobby: "Olahraga",
+  origin: "Bali",
 };
 
 export default function NRP088() {
@@ -20,7 +20,7 @@ export default function NRP088() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
+        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-gray-900 backdrop-blur-lg transition-transform hover:scale-[1.02] hover:shadow-xl relative"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -56,7 +56,7 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-gradient-to-b from-[#2E3A59] to-[#0F172A] rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
             <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">

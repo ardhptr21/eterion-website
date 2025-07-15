@@ -115,7 +115,7 @@ export default function InteractiveMap() {
   return (
     <div className="relative w-full overflow-hidden">
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-40"
+        className="absolute hidden md:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-40"
         aria-hidden="true"
       >
         <div

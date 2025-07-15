@@ -6,11 +6,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
+  name: "Abiyyu Raihan Putra Wikanto",
+  nrp: "5027241042",
+  image: "042.jpg",
+  funfact: "Tahukah kamu saya baru bisa sepedaan :shocked:",
+  hobby: "Muter nyari mall yang sepi, Baca manhwa, Rencana ngelencer (gagal terus)",
   origin: "Surabaya",
 };
 
@@ -20,24 +20,41 @@ export default function NRP042() {
   return (
     <>
       <div
-        className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg"
-        onClick={() => setOpen(true)}
-      >
-        <Noise />
-        <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
-          <Image
-            src={`/images/members/${data.image}`}
-            alt={data.name}
-            fill
-            className="object-cover w-full h-full"
-          />
-        </div>
-        <div className="mt-5 z-10">
-          <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
-          <h6 className="font-nexa">{data.nrp}</h6>
-        </div>
-        <div className="absolute -z-10 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
-      </div>
+  className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-accent relative bg-[#140c2c]/80 backdrop-blur-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl group"
+  onClick={() => setOpen(true)}
+>
+  <Noise />
+
+  {/* Background GIF */}
+  <div
+    className="absolute inset-0 rounded-xl -z-10"
+    style={{
+      backgroundImage:
+        "url('https://i.pinimg.com/originals/0c/17/db/0c17db2fa0fb5b62af2817ab7aeac7f1.gif')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      opacity: 0.4,
+      filter: "blur(2px)",
+    }}
+  />
+
+  <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden ring-4 ring-amber-300/20 group-hover:ring-amber-400">
+    <Image
+      src={`/images/members/${data.image}`}
+      alt={data.name}
+      fill
+      className="object-cover w-full h-full"
+    />
+  </div>
+
+  <div className="mt-5 z-10 text-white">
+    <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
+    <h6 className="font-nexa text-white/70">{data.nrp}</h6>
+  </div>
+
+  {/* Gradient glow overlay */}
+  <div className="absolute -z-20 inset-0 bg-gradient-to-b from-transparent from-40% via-amber-300/20 via-60% to-accent/50 rounded-xl pointer-events-none" />
+</div>
 
       <MemberDialog open={open} onOpenChange={setOpen} />
     </>
@@ -56,10 +73,13 @@ function MemberDialog({
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <Dialog.Content className="w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10">
+          <Dialog.Content className="relative w-full max-w-lg max-h-[95vh] bg-primary rounded-2xl shadow-2xl overflow-y-auto focus:outline-none p-10 border border-white/10">
+            {/* Gradient glowing blob */}
+            <div className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-tr from-amber-400 via-pink-500 to-indigo-500 opacity-20 rounded-full blur-3xl animate-spin-slow -z-10" />
+
             <Dialog.Title className="sr-only">{data.name}</Dialog.Title>
 
-            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative">
+            <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-6 relative ring-4 ring-white/10">
               <Image
                 src={`/images/members/${data.image}`}
                 alt={data.name}
@@ -83,6 +103,15 @@ function MemberDialog({
               <p>
                 <strong>Funfact:</strong> {data.funfact}
               </p>
+
+              <div className="mt-4">
+                <img
+                    src="https://media.tenor.com/fcQArW1Hr-EAAAAM/shutoko-shuto.gif"
+                    alt="Shutoko Drift GIF"
+                    className="rounded-lg shadow-lg w-full max-h-64 object-cover"
+                />
+              </div>
+
             </div>
           </Dialog.Content>
         </div>

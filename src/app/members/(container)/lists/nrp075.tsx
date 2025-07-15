@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Muhammad Farrel Rafli Al Fasya",
+  nrp: "5027241075",
+  image: "075.jpg",
+  funfact: "gak beli buku kalku 1 dan 2 tapi ab",
+  hobby: "gym,kardio,laptopan",
+  origin: "Berau",
 };
 
 export default function NRP075() {

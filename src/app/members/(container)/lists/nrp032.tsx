@@ -6,12 +6,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Dimas Satya Andhika",
+  nrp: "5027241032",
+  image: "032.jpg",
+  funfact: "Hapal semua nama ultraman dan monsternya beberapa",
+  hobby: "koleksi mainan, denger lagu, main argus",
+  origin: "Cibubur",
 };
 
 export default function NRP032() {
@@ -24,14 +24,39 @@ export default function NRP032() {
         onClick={() => setOpen(true)}
       >
         <Noise />
+
+        <div
+          className="absolute inset-0 rounded-xl -z-10"
+          style={{
+            backgroundImage: "url('https://media.tenor.com/GUKsQOn_3pwAAAAC/ultraman-tiga-ultraman-tiga-rise.gif')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.5,
+            filter: "blur(1px)",
+          }}
+        />
+
         <div className="aspect-[4/5] bg-white rounded-xl z-10 relative overflow-hidden">
+          {/* Foto utama */}
           <Image
             src={`/images/members/${data.image}`}
             alt={data.name}
             fill
             className="object-cover w-full h-full"
           />
+
+          {/* Banner PNG nempel kiri-kanan-bawah */}
+          <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+          <Image
+            src="/images/032Asset/Ultramantiga.png"
+            alt="Ultramantiga"
+            width={800} 
+            height={150} 
+            className="w-full h-auto"
+          />
         </div>
+        </div>
+
         <div className="mt-5 z-10">
           <h4 className="text-xl font-nexa font-bold">{data.name}</h4>
           <h6 className="font-nexa">{data.nrp}</h6>

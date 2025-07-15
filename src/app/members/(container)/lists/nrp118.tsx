@@ -6,12 +6,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "John Doe",
-  nrp: "5027241000",
-  image: "000.jpg",
-  funfact: "kalo makan pake nasi, nasinya harus dari beras",
-  hobby: "makan nasi dari beras",
-  origin: "Surabaya",
+  name: "Naufal Ardhana",
+  nrp: "5027241118",
+  image: "118.jpg",
+  funfact: "Gasuka Daging Unta",
+  hobby: "Membaca dan Bersepeda",
+  origin: "Malang",
+  instagram: "https://www.instagram.com/ardhana_48", 
+  linkedin: "https://www.linkedin.com/in/naufal-ardhana-2b873429a", 
 };
 
 export default function NRP118() {
@@ -83,6 +85,30 @@ function MemberDialog({
               <p>
                 <strong>Funfact:</strong> {data.funfact}
               </p>
+            </div>
+
+            <hr className="my-6 border-t border-white/20" />
+
+            <div className="text-center text-white font-nexa">
+              <p className="text-lg font-bold mb-4">Connect with me:</p>
+              <div className="flex gap-4 justify-center">
+                <a
+                  href={data.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-md bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold hover:opacity-90 transition"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={data.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
           </Dialog.Content>
         </div>
