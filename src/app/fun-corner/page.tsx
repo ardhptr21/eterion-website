@@ -48,7 +48,7 @@ export default function FunCorner() {
   });
 
   const [mounted, setMounted] = useState(false);
-  const [showCongratulations, setShowCongratulations] = useState(true);
+  const [showCongratulations, setShowCongratulations] = useState(false);
   const [fireworks, setFireworks] = useState<
     Array<{ x: number; y: number; color: string; id: number }>
   >([]);
