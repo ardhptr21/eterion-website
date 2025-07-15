@@ -6,11 +6,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const data = {
-  name: "S. Farhan Baiq",
+  name: "S. Farhan Baig",
   nrp: "5027241097",
   image: "097.jpg",
-  funfact: "orang india",
-  hobby: "nonton reels",
+  funfact: "orang India",
+  hobby: "nonton reels sama tiktok",
   origin: "Cirebon",
 };
 
