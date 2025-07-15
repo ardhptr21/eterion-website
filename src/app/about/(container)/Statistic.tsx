@@ -17,7 +17,7 @@ export default function Statistic() {
           <p className="text-center font-nexa text-xl sm:text-2xl">Our Members</p>
           <div className="relative rounded-4xl py-5 px-6 sm:px-10 border-2 border-accent flex items-center justify-center text-center font-nexa font-bold overflow-hidden w-full">
             <Noise />
-            <p className="text-xl sm:text-2xl p-4">120 People</p>
+            <p className="text-xl sm:text-2xl p-4">119 Peoples</p>
             <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-primary/20 rounded-4xl opacity-50"></div>
           </div>
         </div>
