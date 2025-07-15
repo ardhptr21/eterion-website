@@ -281,7 +281,7 @@ const SpaceShooter: React.FC<SpaceShooterProps> = ({ onComplete, onClose }) => {
   const [gameState, setGameState] = useState<"intro" | "playing" | "won" | "lost">("intro");
   const [lives, setLives] = useState<number>(3);
   const [showWinMessage, setShowWinMessage] = useState<boolean>(false);
-  const WINNING_SCORE = 2;
+  const WINNING_SCORE = 21;
 
   const gameRef = useRef<GameState>({
     player: { x: 200, y: 300, width: 30, height: 30 },
