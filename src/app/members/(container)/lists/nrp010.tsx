@@ -22,7 +22,8 @@ export default function NRP010() {
       <div
         className="cursor-pointer w-full shrink-0 p-10 rounded-xl border-2 border-[#00A19C] relative 
         bg-gradient-to-br from-[#111111] via-[#1f1f1f] to-[#00A19C]/20 
-        backdrop-blur-lg shadow-[0_0_30px_#00A19C44]"
+        backdrop-blur-lg shadow-[0_0_30px_#00A19C44]
+        transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_#00A19C88]"
         onClick={() => setOpen(true)}
       >
         <Noise />
@@ -159,6 +160,18 @@ function MemberDialog({
                   allowFullScreen
                 ></iframe>
               </div>
+
+              {/* Inspired Text */}
+              <p className="text-center text-sm italic text-[#00A19C] mt-2 font-nexa">
+                <a
+                  href="https://www.mercedesamgf1.com/car/2024"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:text-[#00fff2]"
+                >
+                  Inspired by Mercedes-AMG W15 – Formula 1
+                </a>
+              </p>
             </div>
           </Dialog.Content>
         </div>
