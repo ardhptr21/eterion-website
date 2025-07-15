@@ -12,7 +12,6 @@ import NRP007 from "./(container)/lists/nrp007";
 import NRP008 from "./(container)/lists/nrp008";
 import NRP009 from "./(container)/lists/nrp009";
 import NRP010 from "./(container)/lists/nrp010";
-import NRP011 from "./(container)/lists/nrp011";
 import NRP012 from "./(container)/lists/nrp012";
 import NRP013 from "./(container)/lists/nrp013";
 import NRP014 from "./(container)/lists/nrp014";
@@ -87,7 +86,6 @@ import NRP082 from "./(container)/lists/nrp082";
 import NRP083 from "./(container)/lists/nrp083";
 import NRP084 from "./(container)/lists/nrp084";
 import NRP085 from "./(container)/lists/nrp085";
-import NRP086 from "./(container)/lists/nrp086";
 import NRP087 from "./(container)/lists/nrp087";
 import NRP088 from "./(container)/lists/nrp088";
 import NRP089 from "./(container)/lists/nrp089";
@@ -114,8 +112,6 @@ import NRP109 from "./(container)/lists/nrp109";
 import NRP110 from "./(container)/lists/nrp110";
 import NRP111 from "./(container)/lists/nrp111";
 import NRP112 from "./(container)/lists/nrp112";
-import NRP113 from "./(container)/lists/nrp113";
-import NRP114 from "./(container)/lists/nrp114";
 import NRP115 from "./(container)/lists/nrp115";
 import NRP116 from "./(container)/lists/nrp116";
 import NRP117 from "./(container)/lists/nrp117";
@@ -125,8 +121,6 @@ import NRP120 from "./(container)/lists/nrp120";
 import NRP121 from "./(container)/lists/nrp121";
 import NRP122 from "./(container)/lists/nrp122";
 import NRP123 from "./(container)/lists/nrp123";
-import NRP124 from "./(container)/lists/nrp124";
-import NRP125 from "./(container)/lists/nrp125";
 
 export default function Members() {
   const handleScrollTo = (id: string) => {
@@ -146,16 +140,16 @@ export default function Members() {
       <Container as="section" className="my-32 relative flex items-start gap-10">
         <div className="hidden md:block w-1/6 space-y-5 sticky top-10">
           <Buttton className="w-full" onClick={() => handleScrollTo("target-1")}>
-            001 - 030
+            001 - 031
           </Buttton>
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-31")}>
-            031 - 060
+          <Buttton className="w-full" onClick={() => handleScrollTo("target-32")}>
+            032 - 060
           </Buttton>
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-61")}>
-            061 - 090
+          <Buttton className="w-full" onClick={() => handleScrollTo("target-62")}>
+            062 - 090
           </Buttton>
-          <Buttton className="w-full" onClick={() => handleScrollTo("target-91")}>
-            091 - 120
+          <Buttton className="w-full" onClick={() => handleScrollTo("target-93")}>
+            093 - 123
           </Buttton>
         </div>
         <div className="w-full md:w-5/6 space-y-10">
@@ -170,7 +164,6 @@ export default function Members() {
             <NRP008 />
             <NRP009 />
             <NRP010 />
-            <NRP011 />
             <NRP012 />
             <NRP013 />
             <NRP014 />
@@ -190,9 +183,9 @@ export default function Members() {
             <NRP028 />
             <NRP029 />
             <NRP030 />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-31">
             <NRP031 />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-32">
             <NRP032 />
             <NRP033 />
             <NRP034 />
@@ -222,9 +215,9 @@ export default function Members() {
             <NRP058 />
             <NRP059 />
             <NRP060 />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-61">
             <NRP061 />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-62">
             <NRP062 />
             <NRP063 />
             <NRP064 />
@@ -249,15 +242,14 @@ export default function Members() {
             <NRP083 />
             <NRP084 />
             <NRP085 />
-            <NRP086 />
             <NRP087 />
             <NRP088 />
             <NRP089 />
             <NRP090 />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-91">
             <NRP091 />
             <NRP092 />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full" id="target-93">
             <NRP093 />
             <NRP094 />
             <NRP095 />
@@ -278,8 +270,6 @@ export default function Members() {
             <NRP110 />
             <NRP111 />
             <NRP112 />
-            <NRP113 />
-            <NRP114 />
             <NRP115 />
             <NRP116 />
             <NRP117 />
@@ -289,8 +279,6 @@ export default function Members() {
             <NRP121 />
             <NRP122 />
             <NRP123 />
-            <NRP124 />
-            <NRP125 />
           </div>
         </div>
       </Container>
