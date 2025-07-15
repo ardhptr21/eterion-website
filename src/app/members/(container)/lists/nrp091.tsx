@@ -3,41 +3,7 @@
 import Noise from "@/components/effects/Noise";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
-import { useState } from "react";
-import { useEffect } from "react";
-
-// Simple ImageSwitcher component for demonstration
-function ImageSwitcher({
-  images,
-  alt,
-}: {
-  images: string[];
-  alt: string;
-}) {
-  const [index, setIndex] = useState(0);
-
-  return (
-    <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-6">
-      <Image
-        src={`/images/members/${images[index]}`}
-        alt={alt}
-        fill
-        className="object-cover"
-      />
-      {images.length > 1 && (
-        <button
-          className="absolute bottom-2 right-2 bg-black/50 text-white px-2 py-1 rounded"
-          onClick={(e) => {
-            e.stopPropagation();
-            setIndex((prev) => (prev + 1) % images.length);
-          }}
-        >
-          Switch
-        </button>
-      )}
-    </div>
-  );
-}
+import { useEffect, useState } from "react";
 
 const data = {
   name: "Muhammad Ardiansyah Tri Wibowo",
@@ -149,11 +115,6 @@ function ImageSwitcherAuto({
     }, 2000);
     return () => clearInterval(interval);
   }, [images.length]);
-
-  // Add fade transition class
-  const fadeClass = fade
-    ? "transition-opacity duration-300 opacity-100"
-    : "transition-opacity duration-300 opacity-0";
 
   return (
     <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-6">

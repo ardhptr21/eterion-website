@@ -79,25 +79,25 @@ function MemberDialog({
               <pre className="overflow-x-auto">
                 <code>
                   {"{\n  "}
-                  <span className="text-[#9cdcfe]">"name"   </span>
+                  <span className="text-[#9cdcfe]">{'"'}name{'"'}   </span>
                   {": "}
-                  <span className="text-[#ce9178]">"{data.name}"</span>
+                  <span className="text-[#ce9178]">{'"'}{data.name}{'"'}</span>
                   {",\n  "}
-                  <span className="text-[#9cdcfe]">"nrp"    </span>
+                  <span className="text-[#9cdcfe]">{'"'}nrp{'"'}    </span>
                   {": "}
-                  <span className="text-[#ce9178]">"{data.nrp}"</span>
+                  <span className="text-[#ce9178]">{'"'}{data.nrp}{'"'}</span>
                   {",\n  "}
-                  <span className="text-[#9cdcfe]">"origin" </span>
+                  <span className="text-[#9cdcfe]">{'"'}origin{'"'} </span>
                   {": "}
-                  <span className="text-[#ce9178]">"{data.origin}"</span>
+                  <span className="text-[#ce9178]">{'"'}{data.origin}{'"'}</span>
                   {",\n  "}
-                  <span className="text-[#9cdcfe]">"hobby"  </span>
+                  <span className="text-[#9cdcfe]">{'"'}hobby{'"'}  </span>
                   {": "}
-                  <span className="text-[#ce9178]">"{data.hobby}"</span>
+                  <span className="text-[#ce9178]">{'"'}{data.hobby}{'"'}</span>
                   {",\n  "}
-                  <span className="text-[#9cdcfe]">"funfact"</span>
+                  <span className="text-[#9cdcfe]">{'"'}funfact{'"'}</span>
                   {": "}
-                  <span className="text-[#ce9178]">"{data.funfact}"</span>
+                  <span className="text-[#ce9178]">{'"'}{data.funfact}{'"'}</span>
                   {"\n}"}
                 </code>
               </pre>

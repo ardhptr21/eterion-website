@@ -1,17 +1,4 @@
-import SectionHeaderRight from "@/components/commons/SectionHeaderRight";
-import CircleGradient from "@/components/commons/CircleGradient";
-import Container from "../commons/Container";
-
 export default function SectionHeader() {
-  const headerContainerStyle: React.CSSProperties = {
-    display: "grid",
-    justifyItems: "end",
-    alignItems: "center",
-    padding: "2rem",
-    position: "relative",
-    margin: "2rem 0",
-  };
-
   return (
     <div className="mt-10">
       <div
