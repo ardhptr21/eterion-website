@@ -7,7 +7,6 @@ import {
   Lock,
   LockOpen,
   Shield,
-  Star,
   Target,
   Trophy,
   Unlock,
@@ -70,15 +69,6 @@ interface GameState {
   keys: Record<string, boolean>;
   lastEnemySpawn: number;
   lastShot: number;
-}
-
-interface Star {
-  x: number;
-  y: number;
-  size: number;
-  speed: number;
-  opacity: number;
-  twinkle: number;
 }
 
 const data: MemberData = {
