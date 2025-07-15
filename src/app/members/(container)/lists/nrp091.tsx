@@ -102,7 +102,7 @@ function ImageSwitcherAuto({
   alt: string;
 }) {
   const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(true);
+  const [_fade, setFade] = useState(true);
 
   useEffect(() => {
     if (images.length < 2) return;
