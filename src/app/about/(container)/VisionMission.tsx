@@ -34,8 +34,8 @@ const VisionMission = () => {
                 <div className="relative z-10">
                   <p className="text-white text-xl sm:text-2xl lg:text-3xl leading-relaxed text-justify font-nexa">
                     Menjadi angkatan yang <span className="font-bold">teguh, berintegritas,</span>{" "}
-                    dan menjadi perintisan <span className="font-bold">peradaban menuju</span> masa
-                    depan yang berkelanjutan dan bermartabat.
+                    dan menjadi <span className="font-bold">penuntun perubahan</span> menuju masa
+                    depan yang lebih cerah dan berkelanjutan.
                   </p>
                 </div>
               </div>
@@ -70,11 +70,10 @@ const VisionMission = () => {
                     <div className="flex items-start space-x-4 sm:space-x-6">
                       <div className="flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full mt-2 sm:mt-2.5"></div>
                       <p className="leading-relaxed text-justify text-xl sm:text-2xl lg:text-3xl font-nexa">
-                        Membangun keluarga yang <span className="font-bold">solid</span> dan{" "}
-                        <span className="font-bold">
-                          saling mendukung dengan nilai kekeluargaan
-                        </span>{" "}
-                        yang kolaboratif sebagai fondasi utama.
+                        Membangun keluarga yang <span className="font-bold">solid</span> dan saling
+                        mendukung dengan nilai <span className="font-bold">kepercayaan</span>,{" "}
+                        <span className="font-bold">loyalitas</span>, dan{" "}
+                        <span className="font-bold">kolaborasi</span> sebagai fondasi utama.
                       </p>
                     </div>
                     <div className="flex items-start space-x-4 sm:space-x-6">
@@ -82,7 +81,7 @@ const VisionMission = () => {
                       <p className="leading-relaxed text-justify text-xl sm:text-2xl lg:text-3xl font-nexa">
                         Menumbuhkan karakter yang <span className="font-bold">kuat</span> dan{" "}
                         <span className="font-bold">berprinsip</span> dalam menghadapi tantangan
-                        dunia kerja yang dinamis dan kompetitif.
+                        dunia teknologi yang terus berubah.
                       </p>
                     </div>
                   </div>

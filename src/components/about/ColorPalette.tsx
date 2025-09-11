@@ -30,7 +30,7 @@ export default function ColorPalette() {
       name: "Black Blue",
       color: "#0e0d1b",
       textColor: "text-white",
-      philosophy: "Memberikan kesan professional dan menimbulkan kesan kokoh dan berwibawa",
+      philosophy: "Memberikan kesan percaya diri dan berwibawa.",
     },
   ];
 
